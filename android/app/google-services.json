@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "499210059457",
+    "project_id": "examali",
+    "storage_bucket": "examali.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499210059457:android:44ad0b41d6c40a129e1e40",
+        "android_client_info": {
+          "package_name": "com.examali"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbK7yfq06sgQusmX4iWy1dxXxxT8QDaGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
