@@ -160,7 +160,7 @@ const Accueils = () => {
               style={styles.image}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Histoirique')}>
+          <TouchableOpacity onPress={() => navigation.navigate('#')}>
             <Image
               source={require('./../../../Asset/tes.png')}
               style={styles.image}
