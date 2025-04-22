@@ -77,7 +77,11 @@ import Politique from './src/page/Home/Politique';
 import Chat from './src/page/Home/Chat';
 import { Logoute } from './src/page/Home/Logoute';
 import Testpdf from './src/page/Home/Testpdf';
-
+import Physique21 from './Sujetspdf/Physique21';
+import Physique22 from './Sujetspdf/Physique22';
+import Anglais2019 from './Sujetspdf/Anglais2019';
+import Anglais2020 from './Sujetspdf/Anglais2020';
+import Anglais20 from './Sujetspdf/Anglais20';
 
 
 
@@ -157,6 +161,10 @@ const App = () => {
            <Stack.Screen name="Chat"component={Chat}/>
            <Stack.Screen name="Logoute"component={Logoute}/>
            <Stack.Screen name="Testpdf"component={Testpdf}/>
+           <Stack.Screen name="Physique21"component={Physique21}/>
+           <Stack.Screen name="Physique22"component={Physique22}/>
+           <Stack.Screen name="Anglais2019"component={Anglais2019}/>
+           <Stack.Screen name="Anglais20"component={Anglais20}/>
         </Stack.Navigator>
 
       </NavigationContainer>
