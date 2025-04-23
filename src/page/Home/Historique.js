@@ -114,16 +114,16 @@ const Historique = () => {
           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
             <Image source={require('./../../../Asset/hist2.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('HistoireGeo2022')}>
             <Image source={require('./../../../Asset/hist3.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('HistoireGeo2021')}>
             <Image source={require('./../../../Asset/hist4.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('HistoireGeo2020')}>
             <Image source={require('./../../../Asset/hist5.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('HistoireGeo2019')}>
             <Image source={require('./../../../Asset/hist6.png')} style={styles.image} />
           </TouchableOpacity>
         </View>

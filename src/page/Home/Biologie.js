@@ -117,16 +117,16 @@ const Biologie = () => {
           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
             <Image source={require('./../../../Asset/bio2.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-            <Image source={require('./../../../Asset/bio3.png')} style={styles.image} />
+          <TouchableOpacity onPress={() => navigation.navigate('Biologie2022')}>
+            <Image source={require('./../../../Asset/Biologie1.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Biologie2021')}>
             <Image source={require('./../../../Asset/bio4.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Biologie2020')}>
             <Image source={require('./../../../Asset/bio5.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Biologie2019')}>
             <Image source={require('./../../../Asset/bio6.png')} style={styles.image} />
           </TouchableOpacity>
         </View>

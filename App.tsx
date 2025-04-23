@@ -82,6 +82,16 @@ import Physique22 from './Sujetspdf/Physique22';
 import Anglais2019 from './Sujetspdf/Anglais2019';
 import Anglais2020 from './Sujetspdf/Anglais2020';
 import Anglais20 from './Sujetspdf/Anglais20';
+import Anglais2021 from './Sujetspdf/Anglais2021';
+import Anglais2022 from './Sujetspdf/Anglais2022';
+import HistoireGeo2019 from './Sujetspdf/HistoireGeo2019';
+import HistoireGeo2020 from './Sujetspdf/HistoireGeo2020';
+import HistoireGeo2021 from './Sujetspdf/HistoireGeo2021';
+import HistoireGeo2022 from './Sujetspdf/HistoireGeo2022';
+import Biologie2019 from './Sujetspdf/Biologie2019';
+import Biologie2020 from './Sujetspdf/Biologie2020';
+import Biologie2021 from './Sujetspdf/Biologie2021';
+import Biologie2022 from './Sujetspdf/Biologie2022';
 
 
 
@@ -165,6 +175,16 @@ const App = () => {
            <Stack.Screen name="Physique22"component={Physique22}/>
            <Stack.Screen name="Anglais2019"component={Anglais2019}/>
            <Stack.Screen name="Anglais20"component={Anglais20}/>
+           <Stack.Screen name="Anglais2021"component={Anglais2021}/>
+           <Stack.Screen name="Anglais2022"component={Anglais2022}/>
+           <Stack.Screen name="HistoireGeo2019"component={HistoireGeo2019}/>
+           <Stack.Screen name="HistoireGeo2020"component={HistoireGeo2020}/>
+           <Stack.Screen name="HistoireGeo2021"component={HistoireGeo2021}/>
+           <Stack.Screen name="HistoireGeo2022"component={HistoireGeo2022}/>
+           <Stack.Screen name="Biologie2019"component={Biologie2019}/>
+           <Stack.Screen name="Biologie2020"component={Biologie2020}/>
+           <Stack.Screen name="Biologie2021"component={Biologie2021}/>
+           <Stack.Screen name="Biologie2022"component={Biologie2022}/>
         </Stack.Navigator>
 
       </NavigationContainer>
