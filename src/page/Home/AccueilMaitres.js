@@ -87,7 +87,7 @@ const Accueils = () => {
                <Text style={styles.title}>Terminal science exact</Text>
                <Text style={styles.subtitle}>TSE</Text>
                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Mathematique')}>
-                 <Text style={styles.buttonText}  onPress={() => navigation.navigate('Mathematique')}>Voir le sujet</Text>
+                 <Text style={styles.buttonText}  onPress={() => navigation.navigate('Sujet')}>Voir le sujet</Text>
                </TouchableOpacity>
              </View>
              <Image source={require('./../../../Asset/tssx.png')} style={styles.image} />

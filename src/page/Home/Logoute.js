@@ -19,7 +19,11 @@ export const Logoute = (navigation) => {
             navigation.dispatch(
               CommonActions.reset({
                 index: 0,
-                routes: [{ name: 'Login' }],
+                routes: [{ name: 'Connexion' ,
+                  params: { 
+                    screen: 'Connexion' // Si imbriqué dans un Stack
+                  }
+                }],
               })
             );
           } catch (error) {

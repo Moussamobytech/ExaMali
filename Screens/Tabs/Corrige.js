@@ -17,18 +17,18 @@ const Profil = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [activeSubject, setActiveSubject] = useState('Mathématiques'); // Default active subject
+  const [activeSubject, setActiveSubject] = useState('Terminal science expérimentale'); // Default active subject
   const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode state
 
   const images = [
-    { title: 'Mathématiques', source: require('./../../Asset/MATH1.png'), route: '#' },
-    { title: 'Rédaction', source: require('./../../Asset/REDAC1.png'), route: '#' },
-    { title: 'Anglais', source: require('./../../Asset/ANGLAIS1.png'), route: '#' },
-    { title: 'Physique', source: require('./../../Asset/PHY.png'), route: '#' },
-    { title: 'Éducation Civique et Morale', source: require('./../../Asset/ECM.png'), route: '#' },
-    { title: 'Histoire', source: require('./../../Asset/HIST.png'), route: '#' },
-    { title: 'Biologie', source: require('./../../Asset/BIOS.png'), route: '#' },
-    { title: 'Dictée', source: require('./../../Asset/DICTE.png'), route: '"' },
+    { title: 'Terminal science expérimentale', source: require('./../../Asset/MATH1.png'), route: 'Mathématique' },
+    { title: 'Terminal science exact', source: require('./../../Asset/REDAC1.png'), route: 'Corriges' },
+    { title: 'Terminal science économique', source: require('./../../Asset/ANGLAIS1.png'), route: 'Corriges' },
+    { title: 'Terminal science sociale', source: require('./../../Asset/PHY.png'), route: 'Corriges' },
+    { title: 'Éducation Civique et Morale', source: require('./../../Asset/ECM.png'), route: 'Corr blanchesiges' },
+    { title: 'Terminal lettre et langue', source: require('./../../Asset/HIST.png'), route: 'Corriges' },
+    { title: 'Terminal anglais et langue', source: require('./../../Asset/BIOS.png'), route: 'Corriges' },
+   
   ];
 
   const handleSearch = (text) => {
@@ -44,9 +44,9 @@ const Profil = () => {
     }
   };
 
-  const handleNavigate = (route) => {
-    setActiveSubject(route);
-    navigation.navigate(route); // Navigate to the subject page
+  
+  const handleNavigate = (title) => {
+    setActiveSubject(title); 
   };
 
   const toggleTheme = () => {
@@ -61,7 +61,7 @@ const Profil = () => {
   return (
     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('AccueilMaitres')}>
+        <TouchableOpacity onPress={() => navigation.navigate('AccueilMaitre')}>
           <Image source={require('./../../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
@@ -73,9 +73,9 @@ const Profil = () => {
         </TouchableOpacity>
       </View>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.subtitles, { color: dynamicTextColor }]}>Correction des sujets </Text>
+        <Text style={[styles.subtitles, { color: dynamicTextColor }]}>Correction des sujets de la TSEXP</Text>
         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>
-        Découvrez les corrections des années précédente
+          Découvrez les corrections des années précédentes
         </Text>
 
         <View style={styles.searchContainer}>
@@ -94,13 +94,20 @@ const Profil = () => {
           />
         </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={[styles.horizontalScrollView, { color: dynamicTextColor }]}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScrollView}>
           {images.map((item, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => handleNavigate(item.route)}
-              style={[styles.horizontalItem, activeSubject === item.title && styles.activeHorizontalItem, { color: dynamicTextColor }]}>
-              <Text style={[styles.horizontalText, activeSubject === item.title && styles.activeHorizontalText, { color: dynamicTextColor }]}>
+              onPress={() => handleNavigate(item.title)} // Pass the title instead of route
+              style={[styles.horizontalItem, activeSubject === item.title && styles.activeHorizontalItem]}
+            >
+              <Text
+                style={[
+                  styles.horizontalText,
+                  activeSubject === item.title && styles.activeHorizontalText,
+                  { color: dynamicTextColor },
+                ]}
+              >
                 {item.title}
               </Text>
             </TouchableOpacity>
@@ -108,24 +115,21 @@ const Profil = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
+          <TouchableOpacity >
             <Image source={require('./../../Asset/corrigee.png')} style={styles.image} />
           </TouchableOpacity>
-          {/* Empty State Message */}
-      <View style={styles.emptyState}>
-     
-        <Text style={[styles.emptyText, { color: dynamicTextColor }]}>
-          Désolé, la correction des sujets n'est pas disponible
-        </Text>
-      </View>
+          <View style={styles.emptyState}>
+            <Text style={[styles.emptyText, { color: dynamicTextColor }]}>
+              Désolé, la correction des sujets n'est pas disponible
+            </Text>
+          </View>
         </View>
       </ScrollView>
-
-    
     </View>
   );
 };
 
+// Les styles restent inchangés
 const darkStyles = StyleSheet.create({
   container: {
     backgroundColor: '#121212',
@@ -170,30 +174,21 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingBottom: 20,
   },
-  title: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  subtitle: {
-    color: '#ccc',
-    fontSize: 16,
-    marginBottom: 20,
-    
-  },
   subtitles: {
-    color: '#ccc',
     fontSize: 18,
     marginBottom: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+  },
+  subtitle: {
+    fontSize: 16,
+    marginBottom: 20,
   },
   searchContainer: {
     marginBottom: 20,
   },
   imagecontainer: {
-    flex: 1, 
-    justifyContent: 'center', 
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
     paddingBottom: 20,
@@ -203,29 +198,31 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   searchBar: {
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#333',
-    color: '#fff',
     paddingHorizontal: 15,
     fontSize: 16,
   },
   horizontalScrollView: {
     marginBottom: 20,
   },
+  horizontalItem: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
   horizontalText: {
-    color: '#fff',
-    marginHorizontal: 10,
     fontSize: 16,
+  },
+  activeHorizontalItem: {
+    // Optional: Add background or border for active item
   },
   activeHorizontalText: {
     fontWeight: 'bold',
     textDecorationLine: 'underline',
   },
-
   toggleContainer: {
     padding: 10,
   },
@@ -252,51 +249,11 @@ const styles = StyleSheet.create({
   textOff: {
     color: '#000',
   },
-
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  },
-  modalContent: {
-    width: '80%',
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
-    alignItems: 'center',
-  },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  modalItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 15,
-  },
-  modalImage: {
-    width: 40,
-    height: 40,
-    marginRight: 10,
-  },
-  modalText: {
+  emptyText: {
     fontSize: 16,
+    textAlign: 'center',
+    marginTop: 10,
   },
-  closeButton: {
-    marginTop: 20,
-    backgroundColor: '#f44336',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-  },
-  closeButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  emptyText: { fontSize: 16, color: 'gray', textAlign: 'center', marginTop: 10 },
 });
 
 export default Profil;
-

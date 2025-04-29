@@ -92,6 +92,17 @@ import Biologie2019 from './Sujetspdf/Biologie2019';
 import Biologie2020 from './Sujetspdf/Biologie2020';
 import Biologie2021 from './Sujetspdf/Biologie2021';
 import Biologie2022 from './Sujetspdf/Biologie2022';
+import Ecm2019 from './Sujetspdf/Ecm2019';
+import Ecm2020 from './Sujetspdf/Ecm2020';
+import Ecm2021 from './Sujetspdf/Ecm2021';
+import Ecm2022 from './Sujetspdf/Ecm2022';
+import Redaction2019 from './Sujetspdf/Redaction2019';
+import Redaction2020 from './Sujetspdf/Redaction2020';
+import Redaction2021 from './Sujetspdf/Redaction2021';
+import Redaction2022 from './Sujetspdf/Redaction2022';
+import Dicte2019 from './Sujetspdf/Dicte2019';
+import Dicte2020 from './Sujetspdf/Dicte2020';
+import Dicte2021 from './Sujetspdf/Dicte2021';
 
 
 
@@ -185,6 +196,17 @@ const App = () => {
            <Stack.Screen name="Biologie2020"component={Biologie2020}/>
            <Stack.Screen name="Biologie2021"component={Biologie2021}/>
            <Stack.Screen name="Biologie2022"component={Biologie2022}/>
+           <Stack.Screen name="Ecm2019"component={Ecm2019}/>
+           <Stack.Screen name="Ecm2020"component={Ecm2020}/>
+           <Stack.Screen name="Ecm2021"component={Ecm2021}/>
+           <Stack.Screen name="Ecm2022"component={Ecm2022}/>
+           <Stack.Screen name="Redaction2019"component={Redaction2019}/>
+           <Stack.Screen name="Redaction2020"component={Redaction2020}/>
+           <Stack.Screen name="Redaction2021"component={Redaction2021}/>
+           <Stack.Screen name="Redaction2022"component={Redaction2022}/>
+           <Stack.Screen name="Dicte2019"component={Dicte2019}/>
+           <Stack.Screen name="Dicte2020"component={Dicte2020}/>
+           <Stack.Screen name="Dicte2021"component={Dicte2021}/>
         </Stack.Navigator>
 
       </NavigationContainer>

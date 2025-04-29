@@ -483,7 +483,7 @@ function Inscription() {
           <Image
             style={styles.logo}
             resizeMode="contain"
-            source={require("./../../../Asset/logoo.png")}
+            source={require("./../../../Asset/logoexamali.png")}
           />
           <Text style={styles.title}>Création de compte</Text>
         </View>
@@ -700,9 +700,9 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   logo: {
-    height: 100,
-    width: 100,
-    marginBottom: 16,
+    height: 237,
+    width: 272,
+  
   },
   title: {
     fontSize: 24,

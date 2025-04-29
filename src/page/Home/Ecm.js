@@ -108,22 +108,22 @@ const Ecm = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Ecm2024')}>
             <Image source={require('./../../../Asset/ecm11.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Ecm2023')}>
             <Image source={require('./../../../Asset/ecm2.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Ecm2022')}>
             <Image source={require('./../../../Asset/ecm3.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Ecm2021')}>
             <Image source={require('./../../../Asset/ecm4.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Ecm2020')}>
             <Image source={require('./../../../Asset/ecm5.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Ecm2019')}>
             <Image source={require('./../../../Asset/ecm6.png')} style={styles.image} />
           </TouchableOpacity>
         </View>

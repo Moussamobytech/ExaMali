@@ -16,7 +16,7 @@ const Logo = () => {
 
     // Attendre 3 secondes avant de naviguer vers la page suivante
     const timer = setTimeout(() => {
-      navigation.replace('AccueilMaitre'); // Remplace par la page suivante (modifier 'NextPage' selon votre page)
+      navigation.replace('AccueilMaitres'); // Remplace par la page suivante (modifier 'NextPage' selon votre page)
     }, 5000); // Temps d'attente avant de changer de page (3 secondes)
 
     return () => clearTimeout(timer); // Nettoie le timer
@@ -26,7 +26,7 @@ const Logo = () => {
     <View style={styles.container}>
       <Animated.View style={{ opacity: fadeAnim }}>
         <Image 
-            source={require('../../../Asset/examali.png')}
+            source={require('../../../Asset/logoexamali.png')}
           style={styles.logo}
           resizeMode="contain"
         />

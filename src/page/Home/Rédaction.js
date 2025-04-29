@@ -108,22 +108,22 @@ const Rédaction = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Redaction2024')}>
             <Image source={require('./../../../Asset/reddef.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Redaction2023')}>
             <Image source={require('./../../../Asset/reddef2.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Redaction2022')}>
             <Image source={require('./../../../Asset/reddef3.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Redaction2021')}>
             <Image source={require('./../../../Asset/reddef4.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Redaction2020')}>
             <Image source={require('./../../../Asset/reddef5.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Redaction2019')}>
             <Image source={require('./../../../Asset/reddef6.png')} style={styles.image} />
           </TouchableOpacity>
         </View>
