@@ -10,6 +10,7 @@ import {
   Modal,
   FlatList,
 } from 'react-native';
+import { Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Sujets = () => {
@@ -49,6 +50,17 @@ const Sujets = () => {
           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
             <Image source={require('./../../Asset/TSEAN19.png')} style={styles.image} />
           </TouchableOpacity>
+          <TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('Examalichoix')}
+        >
+          <Image source={require('./../../Asset/def1.png')} style={styles.iconImage} />
+          <View style={styles.textContainer}>
+            <Text style={styles.subject}>Mathématiques</Text>
+            <Text style={styles.title}>Mathématiques du DEF 2023</Text>
+          </View>
+          <Text style={styles.buttonText}>Voir le sujet</Text>
+        </TouchableOpacity>
             </View>
           ),
         },
@@ -75,7 +87,18 @@ const Sujets = () => {
               <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
               </TouchableOpacity>
-            </View>
+<TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('Examalichoix')}
+        >
+          <Image source={require('./../../Asset/def1.png')} style={styles.iconImage} />
+          <View style={styles.textContainer}>
+            <Text style={styles.subject}>Mathématiques</Text>
+            <Text style={styles.title}>Mathématiques du DEF 2023</Text>
+          </View>
+          <Text style={styles.buttonText}>Voir le sujet</Text>
+        </TouchableOpacity>
+          </View>
           ),
         },
         {
@@ -773,6 +796,479 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
+
+card: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  backgroundColor: '#fff',
+  borderRadius: 3,
+  padding: 10,
+  marginHorizontal: 10,
+  marginVertical: 5,
+  shadowColor: '#000',
+  shadowOpacity: 0.1,
+  shadowRadius: 5,
+  elevation: 3,
+  width: Dimensions.get('window').width - 23,
+  minHeight: 80,
+},
+iconImage: {
+  width: 45,
+  height: 45,
+  resizeMode: 'contain',
+  marginRight: 10,
+},
+textContainer: {
+  flex: 1,
+  justifyContent: 'center',
+},
+subject: {
+  fontSize: 16,
+  fontWeight: 'bold',
+  color: '#000',
+},
+title: {
+  fontSize: 12,
+  color: '#666',
+},
+buttonText: {
+  color: '#666',
+  fontSize: 14,
+  fontWeight: '500',
+},
 });
 
 export default Sujets;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import {
+//   View,
+//   Text,
+//   StyleSheet,
+//   TouchableOpacity,
+//   Image,
+//   ScrollView,
+//   TextInput,
+//   Modal,
+//   FlatList,
+//   Dimensions,
+// } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+
+// const Sujets = () => {
+//   const navigation = useNavigation();
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [searchResults, setSearchResults] = useState([]);
+//   const [isModalVisible, setModalVisible] = useState(false);
+//   const [activeSubject, setActiveSubject] = useState('Mathématiques');
+//   const [isDarkMode, setIsDarkMode] = useState(true);
+
+//   const { width } = Dimensions.get('window');
+
+//   const images = [
+//     { title: 'Mathématiques', source: require('./../../Asset/MATH1.png'), route: 'Mathématique' },
+//     { title: 'Rédaction', source: require('./../../Asset/REDAC1.png'), route: 'Rédaction' },
+//     { title: 'Anglais', source: require('./../../Asset/ANGLAIS1.png'), route: 'Anglais' },
+//     { title: 'Physique', source: require('./../../Asset/PHY.png'), route: 'Physiquechimie' },
+//     { title: 'Éducation Civique et Morale', source: require('./../../Asset/ECM.png'), route: 'Ecm' },
+//     { title: 'Histoire', source: require('./../../Asset/HIST.png'), route: 'Histoirique' },
+//     { title: 'Biologie', source: require('./../../Asset/BIOS.png'), route: 'Biologie' },
+//     { title: 'Dictée', source: require('./../../Asset/DICTE.png'), route: 'Dicte' },
+//   ];
+
+//   const generateSubjectContent = (subject, items) => (
+//     <View style={styles.imageContainer}>
+//       {items.map((item, index) => (
+//         <TouchableOpacity key={index} onPress={() => navigation.navigate(item.route)}>
+//           <Image source={item.source} style={styles.image} />
+//         </TouchableOpacity>
+//       ))}
+//     </View>
+//   );
+
+//   const subjectContent = {
+//     Mathématiques: (
+//       <View style={styles.imageContainer}>
+//         {[
+//           { source: require('./../../Asset/mathdef.png'), route: 'Mathpdf' },
+//           { source: require('./../../Asset/mathdef1.png'), route: 'Examalichoix' },
+//           { source: require('./../../Asset/mathdef2.png'), route: 'Examalichoix' },
+//           { source: require('./../../Asset/mathdef3.png'), route: 'Examalichoix' },
+//           { source: require('./../../Asset/mathdef4.png'), route: 'Examalichoix' }, // Corrigé : suppression de "techniques/"
+//           { source: require('./../../Asset/mathdef5.png'), route: 'Examalichoix' },
+//         ].map((item, index) => (
+//           <TouchableOpacity key={index} onPress={() => navigation.navigate(item.route)}>
+//             <Image source={item.source} style={styles.image} />
+//           </TouchableOpacity>
+//         ))}
+//         <TouchableOpacity
+//           style={styles.card}
+//           onPress={() => navigation.navigate('Examalichoix')}
+//         >
+//           <Image source={require('./../../Asset/def1.png')} style={styles.iconImage} />
+//           <View style={styles.textContainer}>
+//             <Text style={styles.subject}>Mathématiques</Text>
+//             <Text style={styles.title}>Mathématiques du DEF 2023</Text>
+//           </View>
+//           <Text style={styles.buttonText}>Voir le sujet</Text>
+//         </TouchableOpacity>
+//       </View>
+//     ),
+//     Rédaction: generateSubjectContent('Rédaction', [
+//       { source: require('./../../Asset/reddef.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/reddef2.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/reddef3.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/reddef4.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/reddef5.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/reddef6.png'), route: 'Examalichoix' },
+//     ]),
+//     Anglais: generateSubjectContent('Anglais', [
+//       { source: require('./../../Asset/angdef1.png'), route: 'Anglais2024' },
+//       { source: require('./../../Asset/angdef2.png'), route: 'Anglais2023' },
+//       { source: require('./../../Asset/angdef3.png'), route: 'Anglais2022' },
+//       { source: require('./../../Asset/angdef4.png'), route: 'Anglais2021' },
+//       { source: require('./../../Asset/angdef5.png'), route: 'Anglais20' },
+//       { source: require('./../../Asset/angdef6.png'), route: 'Anglais2019' },
+//     ]),
+//     Physique: generateSubjectContent('Physique', [
+//       { source: require('./../../Asset/phydef1.png'), route: 'Physique24' },
+//       { source: require('./../../Asset/phydef2.png'), route: 'Physique23' },
+//       { source: require('./../../Asset/phydef3.png'), route: 'Physique22' },
+//       { source: require('./../../Asset/phydef4.png'), route: 'Physique21' },
+//       { source: require('./../../Asset/phydef5.png'), route: 'Physique20' },
+//       { source: require('./../../Asset/phydef6.png'), route: 'Physique19' },
+//     ]),
+//     'Éducation Civique et Morale': generateSubjectContent('Éducation Civique et Morale', [
+//       { source: require('./../../Asset/ecm11.png'), route: 'Ecm2024' },
+//       { source: require('./../../Asset/ecm2.png'), route: 'Ecm2023' },
+//       { source: require('./../../Asset/ecm3.png'), route: 'Ecm2022' },
+//       { source: require('./../../Asset/ecm4.png'), route: 'Ecm2021' },
+//       { source: require('./../../Asset/ecm5.png'), route: 'Ecm2020' },
+//       { source: require('./../../Asset/ecm6.png'), route: 'Ecm2019' },
+//     ]),
+//     Histoire: generateSubjectContent('Histoire', [
+//       { source: require('./../../Asset/hist1.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/hist2.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/hist3.png'), route: 'HistoireGeo2022' },
+//       { source: require('./../../Asset/hist4.png'), route: 'HistoireGeo2021' },
+//       { source: require('./../../Asset/hist5.png'), route: 'HistoireGeo2020' },
+//       { source: require('./../../Asset/hist6.png'), route: 'HistoireGeo2019' },
+//     ]),
+//     Biologie: generateSubjectContent('Biologie', [
+//       { source: require('./../../Asset/bio1.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/bio2.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/Biologie1.png'), route: 'Biologie2022' },
+//       { source: require('./../../Asset/bio4.png'), route: 'Biologie2021' },
+//       { source: require('./../../Asset/bio5.png'), route: 'Biologie2020' },
+//       { source: require('./../../Asset/bio6.png'), route: 'Biologie2019' },
+//     ]),
+//     Dictée: generateSubjectContent('Dictée', [
+//       { source: require('./../../Asset/dict1.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/dict2.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/dict3.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/dict4.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/dict5.png'), route: 'Examalichoix' },
+//       { source: require('./../../Asset/dict6.png'), route: 'Examalichoix' },
+//     ]),
+//   };
+
+//   const handleSearch = (text) => {
+//     setSearchQuery(text);
+//     if (text) {
+//       const results = images.filter((item) =>
+//         item.title.toLowerCase().includes(text.toLowerCase())
+//       );
+//       setSearchResults(results);
+//       setModalVisible(true);
+//     } else {
+//       setModalVisible(false);
+//     }
+//   };
+
+//   const handleNavigate = (title) => {
+//     setActiveSubject(title);
+//   };
+
+//   const toggleTheme = () => {
+//     setIsDarkMode(!isDarkMode);
+//   };
+
+//   const dynamicTextColor = isDarkMode ? '#fff' : '#000';
+//   const dynamicBackgroundColor = isDarkMode ? '#000' : '#fff';
+//   const dynamicInputBackground = isDarkMode ? '#333' : '#ddd';
+//   const dynamicInputTextColor = isDarkMode ? '#fff' : '#000';
+//   const dynamicModalBackground = isDarkMode ? '#333' : '#fff';
+
+//   return (
+//     <View style={[styles.container, { backgroundColor: dynamicBackgroundColor }]}>
+//       <View style={styles.headerContainer}>
+//         <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
+//           <Image source={require('./../../Asset/return.png')} style={styles.returnImage} />
+//         </TouchableOpacity>
+//         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
+//           <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleSwitchOn : styles.toggleSwitchOff]}>
+//             <Text style={[styles.toggleText, isDarkMode ? styles.textOn : styles.textOff]}>
+//               {isDarkMode ? 'ON' : 'OFF'}
+//             </Text>
+//           </View>
+//         </TouchableOpacity>
+//       </View>
+//       <ScrollView vertical showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+//         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>Sujets pages</Text>
+//         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>
+//           Découvrez les anciens sujets des années précédentes
+//         </Text>
+
+//         <View style={styles.searchContainer}>
+//           <TextInput
+//             style={[
+//               styles.searchBar,
+//               {
+//                 backgroundColor: dynamicInputBackground,
+//                 color: dynamicInputTextColor,
+//               },
+//             ]}
+//             placeholder="Rechercher..."
+//             placeholderTextColor="#888"
+//             value={searchQuery}
+//             onChangeText={handleSearch}
+//           />
+//         </View>
+
+//         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScrollView}>
+//           {images.map((item, index) => (
+//             <TouchableOpacity
+//               key={index}
+//               onPress={() => handleNavigate(item.title)}
+//               style={[styles.horizontalItem, activeSubject === item.title && styles.activeHorizontalItem]}
+//             >
+//               <Text
+//                 style={[
+//                   styles.horizontalText,
+//                   activeSubject === item.title && styles.activeHorizontalText,
+//                   { color: dynamicTextColor },
+//                 ]}
+//               >
+//                 {item.title}
+//               </Text>
+//             </TouchableOpacity>
+//           ))}
+//         </ScrollView>
+
+//         <View style={styles.imageContainer}>
+//           {subjectContent[activeSubject] || (
+//             <Text style={[styles.emptyText, { color: dynamicTextColor }]}>
+//               Aucun contenu disponible pour {activeSubject}.
+//             </Text>
+//           )}
+//         </View>
+//       </ScrollView>
+
+//       <Modal visible={isModalVisible} animationType="slide" transparent>
+//         <View style={styles.modalContainer}>
+//           <View style={[styles.modalContent, { backgroundColor: dynamicModalBackground }]}>
+//             <Text style={[styles.modalTitle, { color: dynamicTextColor }]}>Résultats de la recherche</Text>
+//             <FlatList
+//               data={searchResults}
+//               keyExtractor={(item) => item.title}
+//               renderItem={({ item }) => (
+//                 <TouchableOpacity
+//                   onPress={() => {
+//                     handleNavigate(item.title);
+//                     setModalVisible(false);
+//                   }}
+//                   style={styles.modalItem}
+//                 >
+//                   <Image source={item.source} style={styles.modalImage} />
+//                   <Text style={[styles.modalText, { color: dynamicTextColor }]}>{item.title}</Text>
+//                 </TouchableOpacity>
+//               )}
+//             />
+//             <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
+//               <Text style={styles.closeButtonText}>Fermer</Text>
+//             </TouchableOpacity>
+//           </View>
+//         </View>
+//       </Modal>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     padding: 10,
+//   },
+//   headerContainer: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     marginBottom: 20,
+//   },
+//   returnImage: {
+//     width: 30,
+//     height: 30,
+//   },
+//   scrollContainer: {
+//     paddingBottom: 20,
+//   },
+//   subtitle: {
+//     fontSize: 16,
+//     marginBottom: 20,
+//   },
+//   searchContainer: {
+//     marginBottom: 20,
+//   },
+//   imageContainer: {
+//     flexDirection: 'column',
+//     marginBottom: 20,
+//     paddingBottom: 20,
+//   },
+//   image: {
+//     width: Dimensions.get('window').width - 40,
+//     height: 200,
+//     resizeMode: 'contain',
+//     marginVertical: 10,
+//   },
+//   searchBar: {
+//     height: 40,
+//     borderRadius: 20,
+//     paddingHorizontal: 15,
+//     fontSize: 16,
+//   },
+//   horizontalScrollView: {
+//     marginBottom: 20,
+//   },
+//   horizontalItem: {
+//     paddingVertical: 10,
+//     paddingHorizontal: 15,
+//   },
+//   horizontalText: {
+//     fontSize: 16,
+//   },
+//   activeHorizontalItem: {
+//     borderBottomWidth: 2,
+//     borderBottomColor: '#00C4B4',
+//   },
+//   activeHorizontalText: {
+//     fontWeight: 'bold',
+//   },
+//   toggleContainer: {
+//     padding: 10,
+//   },
+//   toggleSwitch: {
+//     width: 60,
+//     height: 30,
+//     borderRadius: 15,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   toggleSwitchOn: {
+//     backgroundColor: '#4CAF50',
+//   },
+//   toggleSwitchOff: {
+//     backgroundColor: '#f44336',
+//   },
+//   toggleText: {
+//     fontSize: 14,
+//     fontWeight: 'bold',
+//   },
+//   textOn: {
+//     color: '#fff',
+//   },
+//   textOff: {
+//     color: '#000',
+//   },
+//   modalContainer: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+//   },
+//   modalContent: {
+//     width: '80%',
+//     borderRadius: 10,
+//     padding: 20,
+//     alignItems: 'center',
+//   },
+//   modalTitle: {
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//     marginBottom: 20,
+//   },
+//   modalItem: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     marginBottom: 15,
+//   },
+//   modalImage: {
+//     width: 40,
+//     height: 40,
+//     marginRight: 10,
+//   },
+//   modalText: {
+//     fontSize: 16,
+//   },
+//   closeButton: {
+//     marginTop: 20,
+//     backgroundColor: '#f44336',
+//     paddingVertical: 10,
+//     paddingHorizontal: 20,
+//     borderRadius: 5,
+//   },
+//   closeButtonText: {
+//     color: '#fff',
+//     fontWeight: 'bold',
+//   },
+//   emptyText: {
+//     fontSize: 16,
+//     textAlign: 'center',
+//     marginTop: 10,
+//   },
+//   card: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     backgroundColor: '#fff',
+//     borderRadius: 8,
+//     padding: 10,
+//     marginHorizontal: 10,
+//     marginVertical: 5,
+//     shadowColor: '#000',
+//     shadowOpacity: 0.1,
+//     shadowRadius: 5,
+//     elevation: 3,
+//     width: Dimensions.get('window').width - 25,
+//     minHeight: 80,
+//   },
+//   iconImage: {
+//     width: 45,
+//     height: 45,
+//     resizeMode: 'contain',
+//     marginRight: 10,
+//   },
+//   textContainer: {
+//     flex: 1,
+//     justifyContent: 'center',
+//   },
+//   subject: {
+//     fontSize: 16,
+//     fontWeight: 'bold',
+//     color: '#000',
+//   },
+//   title: {
+//     fontSize: 14,
+//     color: '#666',
+//   },
+//   buttonText: {
+//     color: '#666',
+//     fontSize: 14,
+//     fontWeight: '500',
+//   },
+// });
+
+// export default Sujets;
