@@ -111,24 +111,249 @@ const Dicte = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Dicte2024')}>
-            <Image source={require('./../../../Asset/dict1.png')} style={styles.image} />
+
+<TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2024</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Dicte2023')}>
-            <Image source={require('./../../../Asset/dict2.png')} style={styles.image} />
+                    </TouchableOpacity>
+<TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2023</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Dicte2022')}>
-            <Image source={require('./../../../Asset/dict3.png')} style={styles.image} />
+                    </TouchableOpacity>
+<TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2022</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Dicte2021')}>
-            <Image source={require('./../../../Asset/dict4.png')} style={styles.image} />
+                    </TouchableOpacity>
+            <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2021</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Dicte2020')}>
-            <Image source={require('./../../../Asset/dict5.png')} style={styles.image} />
+                    </TouchableOpacity>
+            <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2020</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Dicte2019')}>
-            <Image source={require('./../../../Asset/dict6.png')} style={styles.image} />
+                    </TouchableOpacity>
+            <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2019</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
+                    </TouchableOpacity>
+            <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2018</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+         <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2017</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2016</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+        
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2015</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+          
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2014</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2013</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2012</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2011</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Ditée & question</Text>
+                        <Text style={styles.title}>Dictée & question du DEF 2010</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonD}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
         </View>
       </ScrollView>
 
@@ -315,6 +540,153 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  
+card: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  backgroundColor: '#fff',
+  padding: 10,
+  marginVertical: 5,
+  shadowColor: '#000',
+  shadowOpacity: 0.1,
+  shadowRadius: 5,
+  elevation: 3,
+  width: 366, 
+  height: 87, 
+  minHeight: 80,
+  justifyContent: "center"
+},
+iconImage: {
+  width: 21,
+  height: 28,
+  marginRight: 50,
+  right: -20
+},
+iconImageR: {
+  width: 25,
+  height: 16,
+  marginRight: 50,
+  right: -20
+},
+iconImageA: {
+  width: 24.22,
+  height:24.22,
+  marginRight: 50,
+  right: -20
+},
+iconImageP: {
+  width: 24.22,
+  height:24.22,
+  marginRight: 50,
+  right: -20
+},
+iconImageE: {
+  width: 24.22,
+  height:24.22,
+  marginRight: 50,
+  right: -20
+},
+iconImageH: {
+  width: 18.75,
+  height:23.22,
+  marginRight: 50,
+  right: -20
+},
+iconImageB: {
+  width: 25,
+  height:25,
+  marginRight: 50,
+  right: -20
+},
+iconImageD: {
+  width: 25,
+  height:19.44,
+  marginRight: 50,
+  right: -20
+},
+textContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  marginRight: 39,
+},
+subject: {
+  fontSize: 16,
+  fontWeight: 'bold',
+  color: '#000',
+},
+title: {
+  fontSize: 12,
+  color: '#666',
+},
+button: {
+  backgroundColor: '#4CAF50', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonR: {
+  backgroundColor: '#FF0004', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonA: {
+  backgroundColor: '#9E9E99', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonP: {
+  backgroundColor: '#1F10EF', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonE: {
+  backgroundColor: '#302511', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonH: {
+  backgroundColor: '#0095F1', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonB: {
+  backgroundColor: '#FFA600', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonD: {
+  backgroundColor: '#097E67', 
+  borderRadius: 20, 
+  paddingVertical: 4,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+buttonText: {
+  color: '#fff', // Texte blanc
+  fontSize: 14,
+  fontWeight: 'bold', // Texte en gras comme dans l'image
+},
 });
 
 export default Dicte;

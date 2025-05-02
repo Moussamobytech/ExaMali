@@ -129,6 +129,150 @@ const Biologie = () => {
           <TouchableOpacity onPress={() => navigation.navigate('Biologie2019')}>
             <Image source={require('./../../../Asset/bio6.png')} style={styles.image} />
           </TouchableOpacity>
+            <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2017</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2016</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2015</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2014</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2013</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2012</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2011</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Examalichoix')}
+                              >
+                                <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Biologie</Text>
+                                  <Text style={styles.title}>Biologie du DEF 2010</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonB}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
         </View>
       </ScrollView>
 
@@ -314,6 +458,49 @@ const styles = StyleSheet.create({
   closeButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 10,
+    marginVertical: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+    width: 366, 
+    height: 87, 
+    minHeight: 80,
+    justifyContent: "center"
+  },
+  iconImageB: {
+    width: 25,
+    height:25,
+    marginRight: 50,
+    right: -20
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    marginRight: 39,
+  },
+  subject: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  title: {
+    fontSize: 12,
+    color: '#666',
+  },
+  buttonB: {
+    backgroundColor: '#FFA600', 
+    borderRadius: 20, 
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

@@ -1,88 +1,318 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
+// import React, { useState } from 'react';
+// import {
+//   View,
+//   Text,
+//   StyleSheet,
+//   TouchableOpacity,
+//   Image,
+//   ScrollView,
+//   TextInput,
+//   Modal,
+//   FlatList,
+// } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
 
-// Récupérer les dimensions de l'écran
-const { width } = Dimensions.get('window');
+// const Sujets = () => {
+//   const navigation = useNavigation();
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [searchResults, setSearchResults] = useState([]);
+//   const [isModalVisible, setModalVisible] = useState(false);
+//   const [activeSubject, setActiveSubject] = useState('Mathématiques'); // Default active subject
+//   const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode state
 
-const Card = () => {
-  return (
-    <View style={styles.card}>
-      
-        <Image
-          source={require('./../../Asset/def1.png')} // Chemin de votre image
-          style={styles.iconImage}
-        />
-    
-      <View style={styles.textContainer}>
-        <Text style={styles.subject}>Anglais</Text>
-        <Text style={styles.title}>Anglais du DEF 2023</Text>
-      </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Voir le sujet</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+//   const images = [
+//     { title: 'Mathématiques', source: require('./../../Asset/MATH1.png'), route: 'Mathématique' },
+//     { title: 'Rédaction', source: require('./../../Asset/REDAC1.png'), route: 'Rédaction' },
+//     { title: 'Anglais', source: require('./../../Asset/ANGLAIS1.png'), route: 'Anglais' },
+//     { title: 'Physique', source: require('./../../Asset/PHY.png'), route: 'Physiquechimie' },
+//     { title: 'Éducation Civique et Morale', source: require('./../../Asset/ECM.png'), route: 'Ecm' },
+//     { title: 'Histoire', source: require('./../../Asset/HIST.png'), route: 'Histoirique' },
+//     { title: 'Biologie', source: require('./../../Asset/BIOS.png'), route: 'Biologie' },
+//     { title: 'Dictée', source: require('./../../Asset/DICTE.png'), route: 'Dicte' },
+//   ];
 
-const styles = StyleSheet.create({
-  card: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 10,
-    marginHorizontal: 10,
-    marginVertical: 5,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3,
-    width: width - 25, // Largeur responsive (écran - marges)
-    minHeight: 80, // Hauteur minimale ajustée
-  },
-  iconContainer: {
-    width: 45,
-    height: 45,
-    borderRadius: 20,
-    backgroundColor: '#00C4B4', // Couleur verte comme dans l'image
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 10,
-    overflow: 'hidden',
-  },
-  iconImage: {
-    width: 45,
-    height: 45,
-    resizeMode: 'contain',
-    marginRight: 10,
-    overflow: 'hidden',
-  },
-  textContainer: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  subject: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000',
-  },
-  title: {
-    fontSize: 14,
-    color: '#666',
-  },
-  button: {
-    backgroundColor: '#f0f0f0',
-    borderRadius: 20, // Bordures plus arrondies comme dans l'image
-    borderWidth: 1, // Ajout d'une bordure
-    borderColor: '#ccc',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-  },
-  buttonText: {
-    color: '#666', // Couleur du texte ajustée comme dans l'image
-    fontSize: 14,
-    fontWeight: '500',
-  },
-});
+//   const handleSearch = (text) => {
+//     setSearchQuery(text);
+//     if (text) {
+//       const results = images.filter((item) =>
+//         item.title.toLowerCase().includes(text.toLowerCase())
+//       );
+//       setSearchResults(results);
+//       setModalVisible(true);
+//     } else {
+//       setModalVisible(false);
+//     }
+//   };
 
-export default Card;
+//   const handleNavigate = (route) => {
+//     setActiveSubject(route);
+//     navigation.navigate(route); // Navigate to the subject page
+//   };
+
+//   const toggleTheme = () => {
+//     setIsDarkMode(!isDarkMode);
+//   };
+
+//   const dynamicTextColor = isDarkMode ? '#fff' : '#000';
+//   const dynamicBackgroundColor = isDarkMode ? '#000' : '#fff';
+//   const dynamicInputBackground = isDarkMode ? '#333' : '#ddd';
+//   const dynamicInputTextColor = isDarkMode ? '#fff' : '#000';
+
+//   return (
+//     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
+//       <View style={styles.headerContainer}>
+//         <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
+//           <Image source={require('./../../Asset/return.png')} style={styles.returnImage} />
+//         </TouchableOpacity>
+//         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
+//           <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleSwitchOn : styles.toggleSwitchOff]}>
+//             <Text style={[styles.toggleText, isDarkMode ? styles.textOn : styles.textOff]}>
+//               {isDarkMode ? 'ON' : 'OFF'}
+//             </Text>
+//           </View>
+//         </TouchableOpacity>
+//       </View>
+//       <ScrollView vertical showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+//         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>Sujets pages</Text>
+//         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>
+//           Découvrez les anciens sujets des années précédents
+//         </Text>
+
+//         <View style={styles.searchContainer}>
+//           <TextInput
+//             style={[
+//               styles.searchBar,
+//               {
+//                 backgroundColor: dynamicInputBackground,
+//                 color: dynamicInputTextColor,
+//               },
+//             ]}
+//             placeholder="Rechercher..."
+//             placeholderTextColor="#888"
+//             value={searchQuery}
+//             onChangeText={handleSearch}
+//           />
+//         </View>
+
+//         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={[styles.horizontalScrollView, { color: dynamicTextColor }]}>
+//           {images.map((item, index) => (
+//             <TouchableOpacity
+//               key={index}
+//               onPress={() => handleNavigate(item.route)}
+//               style={[styles.horizontalItem, activeSubject === item.title && styles.activeHorizontalItem, { color: dynamicTextColor }]}>
+//               <Text style={[styles.horizontalText, activeSubject === item.title && styles.activeHorizontalText, { color: dynamicTextColor }]}>
+//                 {item.title}
+//               </Text>
+//             </TouchableOpacity>
+//           ))}
+//         </ScrollView>
+
+//         <View style={styles.imagecontainer}>
+//           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+//             <Image source={require('./../../Asset/mathdef.png')} style={styles.image} />
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+//             <Image source={require('./../../Asset/mathdef1.png')} style={styles.image} />
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={() => navigation.navigate('Math22')}>
+//             <Image source={require('./../../Asset/mathdef2.png')} style={styles.image} />
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={() => navigation.navigate('Math21')}>
+//             <Image source={require('./../../Asset/mathdef3.png')} style={styles.image} />
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={() => navigation.navigate('MathDEF20')}>
+//             <Image source={require('./../../Asset/mathdef4.png')} style={styles.image} />
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={() => navigation.navigate('Math19')}>
+//             <Image source={require('./../../Asset/mathdef5.png')} style={styles.image} />
+//           </TouchableOpacity>
+//         </View>
+//       </ScrollView>
+
+//       <Modal visible={isModalVisible} animationType="slide" transparent>
+//         <View style={styles.modalContainer}>
+//           <View style={styles.modalContent}>
+//             <Text style={[styles.modalTitle, { color: dynamicTextColor }]}>Résultats de la recherche</Text>
+//             <FlatList
+//               data={searchResults}
+//               keyExtractor={(item) => item.title}
+//               renderItem={({ item }) => (
+//                 <TouchableOpacity onPress={() => handleNavigate(item.route)} style={styles.modalItem}>
+//                   <Image source={item.source} style={styles.modalImage} />
+//                   <Text style={[styles.modalText, { color: dynamicTextColor }]}>{item.title}</Text>
+//                 </TouchableOpacity>
+//               )}
+//             />
+//             <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
+//               <Text style={styles.closeButtonText}>Fermer</Text>
+//             </TouchableOpacity>
+//           </View>
+//         </View>
+//       </Modal>
+//     </View>
+//   );
+// };
+
+// const darkStyles = StyleSheet.create({
+//   container: {
+//     backgroundColor: '#121212',
+//   },
+//   text: {
+//     color: '#fff',
+//   },
+//   input: {
+//     backgroundColor: '#333',
+//     color: '#fff',
+//   },
+// });
+
+// const lightStyles = StyleSheet.create({
+//   container: {
+//     backgroundColor: '#fff',
+//   },
+//   text: {
+//     color: '#000',
+//   },
+//   input: {
+//     backgroundColor: '#ddd',
+//     color: '#000',
+//   },
+// });
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     padding: 10,
+//   },
+//   headerContainer: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     marginBottom: 20,
+//   },
+//   returnImage: {
+//     width: 30,
+//     height: 30,
+//   },
+//   scrollContainer: {
+//     paddingBottom: 20,
+//   },
+//   title: {
+//     color: '#fff',
+//     fontSize: 22,
+//     fontWeight: 'bold',
+//     marginBottom: 10,
+//   },
+//   subtitle: {
+//     color: '#ccc',
+//     fontSize: 16,
+//     marginBottom: 20,
+//   },
+//   searchContainer: {
+//     marginBottom: 20,
+//   },
+//   imagecontainer: {
+//     flexDirection: 'column',
+//     marginBottom: 20,
+//     paddingBottom: 20,
+//   },
+//   image: {
+//     marginBottom: 10,
+//     height: 84,
+//     width: 366,
+//   },
+//   searchBar: {
+//     height: 40,
+//     borderRadius: 20,
+//     backgroundColor: '#333',
+//     color: '#fff',
+//     paddingHorizontal: 15,
+//     fontSize: 16,
+//   },
+//   horizontalScrollView: {
+//     marginBottom: 20,
+//   },
+//   horizontalText: {
+//     color: '#fff',
+//     marginHorizontal: 10,
+//     fontSize: 16,
+//   },
+//   activeHorizontalText: {
+//     fontWeight: 'bold',
+//     textDecorationLine: 'underline',
+//   },
+
+//   toggleContainer: {
+//     padding: 10,
+//   },
+//   toggleSwitch: {
+//     width: 60,
+//     height: 30,
+//     borderRadius: 15,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   toggleSwitchOn: {
+//     backgroundColor: '#4CAF50',
+//   },
+//   toggleSwitchOff: {
+//     backgroundColor: '#f44336',
+//   },
+//   toggleText: {
+//     fontSize: 14,
+//     fontWeight: 'bold',
+//   },
+//   textOn: {
+//     color: '#fff',
+//   },
+//   textOff: {
+//     color: '#000',
+//   },
+
+//   modalContainer: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+//   },
+//   modalContent: {
+//     width: '80%',
+//     backgroundColor: '#fff',
+//     borderRadius: 10,
+//     padding: 20,
+//     alignItems: 'center',
+//   },
+//   modalTitle: {
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//     marginBottom: 20,
+//   },
+//   modalItem: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     marginBottom: 15,
+//   },
+//   modalImage: {
+//     width: 40,
+//     height: 40,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   modalText: {
+//     fontSize: 16,
+//     color: '#000',
+//   },
+//   closeButton: {
+//     marginTop: 20,
+//     backgroundColor: '#f44336',
+//     paddingVertical: 10,
+//     paddingHorizontal: 20,
+//     borderRadius: 5,
+//   },
+//   closeButtonText: {
+//     color: '#fff',
+//     fontWeight: 'bold',
+//   },
+// });
+
+// export default Sujets;
