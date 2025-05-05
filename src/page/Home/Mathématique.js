@@ -323,7 +323,7 @@ const Mathématique = () => {
                            </TouchableOpacity>
                            <TouchableOpacity
                              style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
+                             onPress={() => navigation.navigate('Mathematique2011')}
                            >
                              <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
                              <View style={styles.textContainer}>
@@ -339,7 +339,7 @@ const Mathématique = () => {
                            </TouchableOpacity>
                            <TouchableOpacity
                              style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
+                             onPress={() => navigation.navigate('Mathematique2010')}
                            >
                              <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
                              <View style={styles.textContainer}>
@@ -348,7 +348,7 @@ const Mathématique = () => {
                              </View>
                              <TouchableOpacity
                    style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
+                   onPress={() => navigation.navigate('Mathematique2010')}
                  >
                    <Text style={styles.buttonText}>Voir le sujet</Text>
                  </TouchableOpacity>

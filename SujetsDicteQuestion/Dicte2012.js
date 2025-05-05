@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Dicte2012 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -30,26 +30,46 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2012</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>DICTÉE :</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+          À <Text style={styles.bold}>trois ans</Text>, il se traînait encore à quatre pattes, tandis que les enfants de la même année que lui marchaient déjà ;
+          il avait une tête si grosse qu’il semblait incapable de la supporter ; il avait de gros yeux qu’il ouvrait tout grand(s) quand <Text style={styles.bold}>quelqu’un</Text> entrait dans la case de sa mère.
+          Peu bavard, l’enfant royal passait tout le jour assis au milieu de la case, son index en sa narine, et il se traînait à quatre pattes pour fureter dans les calebasses à la recherche de nourriture :
+          il était très <Text style={styles.bold}>gourmand</Text>, il parlait peu.
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+          Son visage sévère ne s’était jamais détendu par un sourire. Ce qui amusait les enfants de son âge l’ennuyait ; souvent Sogolon en faisait venir près de lui pour lui tenir compagnie.
+          La mère espérait que Djala, en voyant ses camarades marcher, serait tenté d’en faire autant. Mais rien n’y fit.
         </Text>
+
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
+          D’ailleurs, de ses bras vigoureux, il <Text style={styles.bold}>assommait</Text> plutôt les pauvres petits et ceux-ci ne voulaient plus l’approcher.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
+
+        <Text style={[styles.author, dynamicStyles.text]}>Djibril Tamsir Niane : (Soundiata)</Text>
+
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Questions : (45 mn)</Text>
+
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Donne un titre à la dictée en le justifiant. (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Explique : « il se traînait à quatre pattes » ; fureter ; tenir compagnie ; assommait ; (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>3) Grammaire :</Text>
+        <Text style={[styles.subQuestion, dynamicStyles.text]}>
+          a) Analyse les mots soulignés dans le texte. (5 pts)
+        </Text>
+        <Text style={[styles.subQuestion, dynamicStyles.text]}>
+          b) Relève dans le texte une phrase négative et transforme-la en phrase interrogative. (2 pts)
+        </Text>
+        <Text style={[styles.subQuestion, dynamicStyles.text]}>
+          c) Analyse logique de la phrase : « il avait de gros yeux qu’il ouvrait tout grand quand…mère ». (5 pts)
+        </Text>
       </ScrollView>
     </View>
   );
@@ -72,13 +92,6 @@ const getDynamicStyles = (isDarkMode) =>
       marginTop: 16,
       marginBottom: 8,
       color: isDarkMode ? '#FFD700' : '#00008B',
-    },
-    sectionSubtitle: {
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginTop: 12,
-      marginBottom: 8,
-      color: isDarkMode ? '#fff' : '#000',
     },
     text: {
       fontSize: 16,
@@ -126,33 +139,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 16,
     marginBottom: 8,
-  },
-  sectionSubtitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 8,
+    textDecorationLine: 'underline',
   },
   paragraph: {
     fontSize: 16,
     marginBottom: 12,
     lineHeight: 24,
+    textAlign: 'justify',
   },
   question: {
     fontSize: 16,
-    marginVertical: 4,
+    marginTop: 10,
   },
-  instruction: {
+  subQuestion: {
     fontSize: 16,
-    fontStyle: 'italic',
-    marginBottom: 8,
+    marginLeft: 10,
+    marginTop: 5,
   },
   bold: {
     fontWeight: 'bold',
+  },
+  author: {
+    fontStyle: 'italic',
+    marginTop: 15,
+    textAlign: 'right',
   },
   scrollContainer: {
     paddingBottom: 20,
   },
 });
 
-export default Dicte2021;
+export default Dicte2012;

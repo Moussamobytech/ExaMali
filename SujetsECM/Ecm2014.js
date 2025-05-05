@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Ecm2014 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Dicte2021 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Dicte')}
+          onPress={() => navigation.navigate('AccueilMaitre')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,26 +30,19 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2014</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Sujet</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Cité les différentes institutions de la République définies par la constitution du Mali.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Explique le sens et les valeurs des couleurs du drapeau malien.
         </Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Défini : la démocratie, une république laïque, une république souveraine.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
       </ScrollView>
     </View>
   );
@@ -72,13 +65,6 @@ const getDynamicStyles = (isDarkMode) =>
       marginTop: 16,
       marginBottom: 8,
       color: isDarkMode ? '#FFD700' : '#00008B',
-    },
-    sectionSubtitle: {
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginTop: 12,
-      marginBottom: 8,
-      color: isDarkMode ? '#fff' : '#000',
     },
     text: {
       fontSize: 16,
@@ -127,12 +113,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 8,
   },
-  sectionSubtitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 8,
-  },
   paragraph: {
     fontSize: 16,
     marginBottom: 12,
@@ -155,4 +135,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dicte2021;
+export default Ecm2014;

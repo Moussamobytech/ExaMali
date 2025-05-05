@@ -13,7 +13,7 @@ const Dicte2019 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('AccueilMaitre')}
+          onPress={() => navigation.navigate('Dicte')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >

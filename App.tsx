@@ -103,6 +103,25 @@ import Redaction2022 from './Sujetspdf/Redaction2022';
 import Dicte2019 from './Sujetspdf/Dicte2019';
 import Dicte2020 from './Sujetspdf/Dicte2020';
 import Dicte2021 from './Sujetspdf/Dicte2021';
+import Redaction2009 from './SujetsRedaction/Redaction2009';
+import Redaction2012 from './SujetsRedaction/Redaction2012';
+import Redaction2014 from './SujetsRedaction/Redaction2014';
+import Redaction2015 from './SujetsRedaction/Redaction015';
+import Redaction2017 from './SujetsRedaction/Redaction2017';
+import Redaction2016 from './SujetsRedaction/Redaction2016';
+import Redaction2018 from './SujetsRedaction/REdaction2018';
+import Dictee2012 from './SujetsDicteQuestion/Dicte2012';
+import Dicte2014 from './SujetsDicteQuestion/Dicte2014';
+import Dicte2012 from './SujetsDicteQuestion/Dicte2012';
+import Dicte2018 from './SujetsDicteQuestion/Dicte2018';
+import Ecm2012 from './SujetsECM/Ecm2012';
+import Ecm2014 from './SujetsECM/Ecm2014';
+import Ecm2015 from './SujetsECM/Ecm2015';
+import Ecm2016 from './SujetsECM/Ecm2016';
+import Ecm2017 from './SujetsECM/Ecm2017';
+import Ecm2018 from './SujetsECM/Ecm2018';
+import Mathematique2010 from './Sujetspdf/Mathematique2010';
+import Mathematique2011 from './Sujetspdf/Mathematique2011';
 
 
 
@@ -175,6 +194,10 @@ const App = () => {
            <Stack.Screen name="Math21" component={Math21} />
            <Stack.Screen name="Math22"component={Math22}/>
            <Stack.Screen name="Math19"component={Math19}/>
+           <Stack.Screen name="Mathematique2010"component={Mathematique2010}/>
+           <Stack.Screen name="Mathematique2011"component={Mathematique2011}/>
+
+
            <Stack.Screen name="Physique19"component={Physique19}/>
            <Stack.Screen name="ProposExamali"component={ProposExamali}/>
            <Stack.Screen name="Condition"component={Condition}/>
@@ -200,13 +223,29 @@ const App = () => {
            <Stack.Screen name="Ecm2020"component={Ecm2020}/>
            <Stack.Screen name="Ecm2021"component={Ecm2021}/>
            <Stack.Screen name="Ecm2022"component={Ecm2022}/>
+           <Stack.Screen name="Ecm2012"component={Ecm2012}/>
+           <Stack.Screen name="Ecm2014"component={Ecm2014}/>
+           <Stack.Screen name="Ecm2015"component={Ecm2015}/>
+           <Stack.Screen name="Ecm2016"component={Ecm2016}/>
+           <Stack.Screen name="Ecm2017"component={Ecm2017}/>
+           <Stack.Screen name="Ecm2018"component={Ecm2018}/>
            <Stack.Screen name="Redaction2019"component={Redaction2019}/>
            <Stack.Screen name="Redaction2020"component={Redaction2020}/>
            <Stack.Screen name="Redaction2021"component={Redaction2021}/>
            <Stack.Screen name="Redaction2022"component={Redaction2022}/>
+           <Stack.Screen name="Redaction2009"component={Redaction2009}/>
+           <Stack.Screen name="Redaction2012"component={Redaction2012}/>
+           <Stack.Screen name="Redaction2014"component={Redaction2014}/>
+           <Stack.Screen name="Redaction2015"component={Redaction2015}/>
+           <Stack.Screen name="Redaction2017"component={Redaction2017}/>
+           <Stack.Screen name="Redaction2016"component={Redaction2016}/>
+           <Stack.Screen name="Redaction2018"component={Redaction2018}/>
            <Stack.Screen name="Dicte2019"component={Dicte2019}/>
            <Stack.Screen name="Dicte2020"component={Dicte2020}/>
            <Stack.Screen name="Dicte2021"component={Dicte2021}/>
+           <Stack.Screen name="Dicte2012"component={Dicte2012}/>
+           <Stack.Screen name="Dicte2014"component={Dicte2014}/>
+           <Stack.Screen name="Dicte2018"component={Dicte2018}/>
         </Stack.Navigator>
 
       </NavigationContainer>

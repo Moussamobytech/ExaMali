@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Dicte2014 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,9 +13,8 @@ const Dicte2021 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Dicte')}
-          accessibilityLabel="Go back to home"
-          accessibilityRole="button"
+          onPress={() => navigation.navigate('Dictée')}
+          accessibilityLabel="Go back"
         >
           <Image source={require('./../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
@@ -30,26 +29,52 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2014</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>DICTÉE : Le changement</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+          Tu sais aussi bien que moi que les <Text style={styles.bold}>temps ont changé</Text>. De notre temps,
+          l’homme n’avait qu’une parole ; aujourd’hui nous sommes en face de gens qui mettent tout leur génie à nourrir leurs semblables de fausses promesses.
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+          Pour témoigner notre <Text style={styles.bold}>reconnaissance</Text> aux mille générations qui ont fait
+          graduellement ce que nous sommes, il faut perfectionner la nature humaine en nous et autour de nous.
         </Text>
+
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
+          Pour remercier dignement les travailleurs innombrables <Text style={styles.bold}>qui</Text> ont rendu notre
+          habitation si belle et si commode, il faut la livrer plus belle et plus commode encore aux générations futures.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
+
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          Nous sommes meilleurs et plus heureux que nos devanciers, faisons que notre postérité soit meilleure et plus heureuse que nous.
+        </Text>
+
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          Il n’est pas d’homme si pauvre et si mal doué qui ne puisse contribuer au progrès dans une certaine mesure.
+        </Text>
+
+        <Text style={[styles.author, dynamicStyles.text]}>E. About (Le progrès)</Text>
+
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Questions :</Text>
+
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Donne un titre à la dictée. (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Quel est le devoir de ceux qui vivent envers les générations futures ? (5 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Explique : héritiers, postérité et progrès. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          4) Analyse les mots soulignés dans la dictée. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          5) Analyse la dernière phrase de la dictée. (5 pts)
+        </Text>
       </ScrollView>
     </View>
   );
@@ -72,13 +97,6 @@ const getDynamicStyles = (isDarkMode) =>
       marginTop: 16,
       marginBottom: 8,
       color: isDarkMode ? '#FFD700' : '#00008B',
-    },
-    sectionSubtitle: {
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginTop: 12,
-      marginBottom: 8,
-      color: isDarkMode ? '#fff' : '#000',
     },
     text: {
       fontSize: 16,
@@ -124,35 +142,30 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  sectionSubtitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
+    textDecorationLine: 'underline',
     marginBottom: 8,
   },
   paragraph: {
     fontSize: 16,
     marginBottom: 12,
     lineHeight: 24,
+    textAlign: 'justify',
   },
   question: {
     fontSize: 16,
-    marginVertical: 4,
-  },
-  instruction: {
-    fontSize: 16,
-    fontStyle: 'italic',
-    marginBottom: 8,
+    marginTop: 10,
   },
   bold: {
     fontWeight: 'bold',
+  },
+  author: {
+    fontStyle: 'italic',
+    marginTop: 15,
+    textAlign: 'right',
   },
   scrollContainer: {
     paddingBottom: 20,
   },
 });
 
-export default Dicte2021;
+export default Dicte2014;

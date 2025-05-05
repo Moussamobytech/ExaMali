@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Dicte2018 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -30,26 +30,30 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2018</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Dictée : la bonne réputation. </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+          Comme nous vivons en perpétuel contact avec nos semblables, il est naturel qu’à chaque instant ils portent des jugements sur notre valeur. De là, vient que peu à peu notre réputation se forme autour de nous. Or il importe que cette réputation soit bonne : c’est assurément un bien qui a une large influence sur notre condition sociale, et qui peut même, dans certaines circonstances, nous ouvrir des portes. Qu’une mauvaise réputation soit un désavantage, on le comprend aisément : Qui n’a pas entendu dire que la médisance est un fléau qui ronge la société ? Une telle réputation nuit à notre prestige et nous expose à des jugements malveillants de la part de ceux qui nous entourent. C’est pourquoi il est utile de veiller à ce que notre réputation ne soit pas ternie, mais qu’elle reflète notre patrimoine d’honnêteté et de droiture. D’après E. Rayot
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Questions (45 mn après la dictée)</Text>
+        <Text style={[styles.instruction, dynamicStyles.text]}>
+          1. Relève dans le texte deux passages qui montrent l’utilité de la bonne réputation pour l’homme et la société. (4 pts)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
+        <Text style={[styles.instruction, dynamicStyles.text]}>
+          2. Explique : vie quotidienne, communauté, nos peines, à nous convaincre nous-mêmes. (4 pts)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
+        <Text style={[styles.instruction, dynamicStyles.text]}>
+          3. Nature et fonction des mots soulignés dans la dictée : quotidienne, s’instruise, nous, patrimoine. (4 pts)
+        </Text>
+        <Text style={[styles.instruction, dynamicStyles.text]}>
+          4. a) Nombre et nature des propositions contenues dans la dernière phrase. (4 pts)
+        </Text>
+        <Text style={[styles.instruction, dynamicStyles.text]}>
+          b) Construis une subordonnée avec : « comme » et donne une fonction. (4 pts)
+        </Text>
       </ScrollView>
     </View>
   );
@@ -155,4 +159,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dicte2021;
+export default Dicte2018;

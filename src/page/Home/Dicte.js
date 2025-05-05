@@ -114,7 +114,7 @@ const Dicte = () => {
 
 <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2024')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -123,14 +123,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2024')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
 <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2023')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -139,14 +139,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2023')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
 <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2022')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -155,14 +155,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2022')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
             <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2021')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -171,14 +171,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2021')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
             <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2020')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -187,14 +187,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2020')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
             <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2019')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -203,14 +203,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2019')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
             <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2018')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -219,14 +219,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2018')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
          <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('#')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -235,14 +235,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('#')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('#')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -251,7 +251,7 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('#')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
@@ -259,7 +259,7 @@ const Dicte = () => {
         
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('#')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -268,7 +268,7 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('#')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
@@ -276,7 +276,7 @@ const Dicte = () => {
           
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2014')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -285,14 +285,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2014')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('#')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -301,14 +301,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('#')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Dicte2012')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -317,14 +317,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Dicte2012')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('#')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -333,14 +333,14 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('#')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('#')}
                     >
                       <Image source={require('./../../../Asset/VectorD.png')} style={styles.iconImageD} />
                       <View style={styles.textContainer}>
@@ -349,7 +349,7 @@ const Dicte = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonD}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('#')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
@@ -693,7 +693,7 @@ export default Dicte;
 
 
 
-// import React, { useState } from 'react';
+
 // import {
 //   View,
 //   Text,

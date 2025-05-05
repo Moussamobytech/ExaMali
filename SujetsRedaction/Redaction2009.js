@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Redaction2009 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Dicte2021 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Dicte')}
+          onPress={() => navigation.navigate('AccueilMaitre')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,26 +30,22 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
+          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
       </ScrollView>
     </View>
   );
@@ -155,4 +151,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dicte2021;
+export default Redaction2009;

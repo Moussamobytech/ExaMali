@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Redaction2015 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Dicte2021 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Dicte')}
+          onPress={() => navigation.navigate('Rédaction')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,26 +30,33 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2015</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
+          Tu as assisté à une dispute entre deux camarades de classe qui s’accusaient mutuellement de tricherie au cours d’une composition.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+          Raconte la scène et donne ton avis sur la tricherie.
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+          « La vie est un mystère qu’il faut vivre et non un problème à résoudre. » (Gandhi)
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
+          Explique cette pensée en t’appuyant sur des exemples précis.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet III</Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          Ton village ou ton quartier a été victime d’une inondation qui a causé beaucoup de dégâts matériels.
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          Écris une lettre à une organisation humanitaire pour demander une aide d’urgence.
+        </Text>
       </ScrollView>
     </View>
   );
@@ -155,4 +162,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dicte2021;
+export default Redaction2015;

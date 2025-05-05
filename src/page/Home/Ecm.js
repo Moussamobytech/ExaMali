@@ -144,7 +144,7 @@ const Ecm = () => {
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Ecm2017')}
                               >
                                 <Image source={require('./../../../Asset/VectorE.png')} style={styles.iconImageE} />
                                 <View style={styles.textContainer}>
@@ -153,7 +153,7 @@ const Ecm = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonE}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Ecm2017')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -161,7 +161,7 @@ const Ecm = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Ecm2016')}
                               >
                                 <Image source={require('./../../../Asset/VectorE.png')} style={styles.iconImageE} />
                                 <View style={styles.textContainer}>
@@ -170,14 +170,14 @@ const Ecm = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonE}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Ecm2016')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Ecm2015')}
                               >
                                 <Image source={require('./../../../Asset/VectorE.png')} style={styles.iconImageE} />
                                 <View style={styles.textContainer}>
@@ -186,14 +186,14 @@ const Ecm = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonE}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Ecm2015')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Ecm2014')}
                               >
                                 <Image source={require('./../../../Asset/VectorE.png')} style={styles.iconImageE} />
                                 <View style={styles.textContainer}>
@@ -202,7 +202,7 @@ const Ecm = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonE}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Ecm2014')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -225,7 +225,7 @@ const Ecm = () => {
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Ecm2012')}
                               >
                                 <Image source={require('./../../../Asset/VectorE.png')} style={styles.iconImageE} />
                                 <View style={styles.textContainer}>
@@ -234,7 +234,7 @@ const Ecm = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonE}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Ecm2012')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>

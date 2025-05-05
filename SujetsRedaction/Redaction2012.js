@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Dicte2021 = () => {
+const Redaction2012 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Dicte2021 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Dicte')}
+          onPress={() => navigation.navigate('Rédaction')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,26 +30,33 @@ const Dicte2021 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2021</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2012</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Français - Épreuve de Rédaction</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>I</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          En t’inspirant de ces propos d’un père à sa fille : « Travaille pour être indépendante, de nos jours une femme non instruite est une victime facile dans la société ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Adresse à un de tes oncles réfractaire à la scolarisation des filles, une lettre pour le convaincre de ses bienfaits pour la femme.
+          L’unité nationale est menacée par une rébellion armée au nord du Mali. Écris une lettre à tes camarades jeunes afin qu’ils soutiennent les forces armées dans la restauration de la paix nationale.
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>II</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          La pratique du sport permet d’avoir un esprit sain dans un corps sain et facilite l’intégration des peuples.
+          « Toutes les agressions contre la nature : feu de brousse, déforestation, pollution des eaux et de l’air, se retournent dangereusement contre l’homme. »
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Convaincu de cette affirmation, tu adresses une lettre à un ami pour lui expliquer les avantages multiples du sport.
+          À l’aide d’exemples illustre cette pensée.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>Rédige</Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet III</Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          Vous avez assisté à une cérémonie traditionnelle où la séance était animée par un griot.
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          - A travers ce que vous avez vu et entendu ce jour là, racontez en dégagent le rôle du griot.
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          - Donnez vos impressions sur le rôle du griot dans la société moderne contemporaine.
+        </Text>
       </ScrollView>
     </View>
   );
@@ -155,4 +162,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dicte2021;
+export default Redaction2012;

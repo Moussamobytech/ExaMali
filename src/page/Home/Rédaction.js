@@ -129,7 +129,7 @@ const Rédaction = () => {
           
                          <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Redaction2018')}
                               >
                                 <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
                                 <View style={styles.textContainer}>
@@ -138,14 +138,14 @@ const Rédaction = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonR}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Redaction2018')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Redaction2017')}
                               >
                                 <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
                                 <View style={styles.textContainer}>
@@ -154,7 +154,7 @@ const Rédaction = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonR}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Redaction2017')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -162,7 +162,7 @@ const Rédaction = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Redaction2016')}
                               >
                                 <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
                                 <View style={styles.textContainer}>
@@ -171,14 +171,14 @@ const Rédaction = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonR}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Redaction2016')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Redaction2015')}
                               >
                                 <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
                                 <View style={styles.textContainer}>
@@ -187,7 +187,23 @@ const Rédaction = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonR}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Redaction2015')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2014')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2014</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2014')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -210,7 +226,7 @@ const Rédaction = () => {
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Redaction2012')}
                               >
                                 <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
                                 <View style={styles.textContainer}>
@@ -219,7 +235,7 @@ const Rédaction = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonR}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Redaction2012')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -243,7 +259,7 @@ const Rédaction = () => {
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Redaction2009')}
                               >
                                 <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
                                 <View style={styles.textContainer}>
@@ -252,7 +268,7 @@ const Rédaction = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonR}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Redaction2009')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>

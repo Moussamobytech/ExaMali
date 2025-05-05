@@ -126,7 +126,150 @@ const Historique = () => {
           <TouchableOpacity onPress={() => navigation.navigate('HistoireGeo2019')}>
             <Image source={require('./../../../Asset/hist6.png')} style={styles.image} />
           </TouchableOpacity>
-          
+          <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2018</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2017</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2016</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2015</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2014</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2013</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2012</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2011</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.card}
+                      onPress={() => navigation.navigate('Examalichoix')}
+                    >
+                      <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
+                      <View style={styles.textContainer}>
+                        <Text style={styles.subject}>Histoire & Géographie</Text>
+                        <Text style={styles.title}>Histoire du DEF 2010</Text>
+                      </View>
+                      <TouchableOpacity
+            style={styles.buttonH}
+            onPress={() => navigation.navigate('Examalichoix')}
+          >
+            <Text style={styles.buttonText}>Voir le sujet</Text>
+          </TouchableOpacity>
+                    </TouchableOpacity>
         </View>
       </ScrollView>
 
