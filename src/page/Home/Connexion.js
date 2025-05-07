@@ -518,7 +518,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().min(6, 'Le mot de passe doit contenir au moins 6 caractères').required('Le mot de passe est requis'),
 });
 
-const API_URL = 'http://192.168.1.16:3000';
+const API_URL = 'http://192.168.1.6:3000';
 
 function Connexion() {
   const navigation = useNavigation();

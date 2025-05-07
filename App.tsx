@@ -122,6 +122,15 @@ import Ecm2017 from './SujetsECM/Ecm2017';
 import Ecm2018 from './SujetsECM/Ecm2018';
 import Mathematique2010 from './Sujetspdf/Mathematique2010';
 import Mathematique2011 from './Sujetspdf/Mathematique2011';
+import Physique2010 from './SujetsPysiqueChimie/Physique2010';
+import Physique2011 from './SujetsPysiqueChimie/Physique2011';
+import Physique2012 from './SujetsPysiqueChimie/Physique2012';
+import Physique2013 from './SujetsPysiqueChimie/Physique2013';
+import Physique2014 from './SujetsPysiqueChimie/Physique2014';
+import Physique2015 from './SujetsPysiqueChimie/Physique2015';
+import Physique2016 from './SujetsPysiqueChimie/Physique2016';
+import Physique2017 from './SujetsPysiqueChimie/Physique2017';
+import Physique2018 from './SujetsPysiqueChimie/Physique2018';
 
 
 
@@ -207,6 +216,16 @@ const App = () => {
            <Stack.Screen name="Testpdf"component={Testpdf}/>
            <Stack.Screen name="Physique21"component={Physique21}/>
            <Stack.Screen name="Physique22"component={Physique22}/>
+           <Stack.Screen name="Physique2010"component={Physique2010}/>
+           <Stack.Screen name="Physique2011"component={Physique2011}/>
+           <Stack.Screen name="Physique2012"component={Physique2012}/>
+           <Stack.Screen name="Physique2013"component={Physique2013}/>
+           <Stack.Screen name="Physique2014"component={Physique2014}/>
+           <Stack.Screen name="Physique2015"component={Physique2015}/>
+           <Stack.Screen name="Physique2016"component={Physique2016}/>
+           <Stack.Screen name="Physique2017"component={Physique2017}/>
+           <Stack.Screen name="Physique2018"component={Physique2018}/>
+
            <Stack.Screen name="Anglais2019"component={Anglais2019}/>
            <Stack.Screen name="Anglais20"component={Anglais20}/>
            <Stack.Screen name="Anglais2021"component={Anglais2021}/>

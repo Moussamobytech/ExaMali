@@ -128,7 +128,7 @@ const Physiquechimie = () => {
           </TouchableOpacity>
            <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2018')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -137,14 +137,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2018')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2017')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -153,14 +153,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2017')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2016')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -169,14 +169,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2016')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2015')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -185,14 +185,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2015')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2014')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -201,14 +201,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2014')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2013')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -217,14 +217,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2013')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2012')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -233,14 +233,14 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2012')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2011')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -249,7 +249,7 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2011')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -257,7 +257,7 @@ const Physiquechimie = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Physique2010')}
                               >
                                 <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
                                 <View style={styles.textContainer}>
@@ -266,7 +266,7 @@ const Physiquechimie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonP}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Physique2010')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>

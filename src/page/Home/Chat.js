@@ -431,6 +431,10 @@
 
 
 
+
+
+
+
 import React, { useEffect, useState } from 'react';
 import {
   View, Text, FlatList, TextInput, TouchableOpacity,
@@ -438,8 +442,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_BASE_URL = 'http://192.168.1.16:3000'; // Remplacez par votre URL réelle
+const API_BASE_URL = 'http://192.168.1.6:3000'; // Use 10.0.2.2:3000 for Android emulator
+// For Android emulator, uncomment the following:
+// const API_BASE_URL = 'http://10.0.2.2:3000';
 
 const Chat = () => {
   const [users, setUsers] = useState([]);
@@ -449,30 +456,59 @@ const Chat = () => {
   const [messageText, setMessageText] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState({ uid: '1', displayName: 'Vous' }); // À remplacer par votre système d'authentification
+  const [error, setError] = useState('');
+  const [currentUser, setCurrentUser] = useState(null); // Loaded from AsyncStorage
+  const [authToken, setAuthToken] = useState(null); // Loaded from AsyncStorage
   const dynamicTextColor = isDarkMode ? '#fff' : '#000';
 
-  // Ajoutez votre token JWT ici (à remplacer par votre système d'authentification)
-  const authToken = 'votre_token_jwt';
-
+  // Initialize Axios with auth token
   const axiosInstance = axios.create({
     baseURL: API_BASE_URL,
     headers: {
-      'Authorization': `Bearer ${authToken}`,
       'Content-Type': 'application/json'
     }
   });
 
+  // Load current user and token from AsyncStorage
+  useEffect(() => {
+    const loadUserData = async () => {
+      try {
+        const token = await AsyncStorage.getItem('userToken');
+        const userDataString = await AsyncStorage.getItem('userData');
+        if (token && userDataString) {
+          const userData = JSON.parse(userDataString);
+          setAuthToken(token);
+          setCurrentUser({
+            uid: userData.email, // Use email as unique identifier
+            displayName: userData.username,
+            id: userData.email // Will be replaced with userId from token
+          });
+          // Update axios headers with token
+          axiosInstance.defaults.headers['Authorization'] = `Bearer ${token}`;
+        } else {
+          setError('Utilisateur non authentifié. Veuillez vous connecter.');
+        }
+        setLoading(false);
+      } catch (err) {
+        console.error('Error loading user data:', err);
+        setError('Erreur lors du chargement des données utilisateur.');
+        setLoading(false);
+      }
+    };
+    loadUserData();
+  }, []);
+
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
-  // Récupération des utilisateurs
+  // Fetch users
   useEffect(() => {
-    if (!currentUser) return;
+    if (!currentUser || !authToken) return;
 
     setLoading(true);
+    setError('');
     const fetchUsers = async () => {
       try {
-        const response = await axiosInstance.get('/users');
+        const response = await axiosInstance.get('/api/users');
         const fetchedUsers = response.data.map(user => ({
           id: user.id,
           uid: user.id.toString(),
@@ -481,23 +517,24 @@ const Chat = () => {
         setUsers(fetchedUsers);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching users:', error.message, error.code);
+        setError('Impossible de charger les utilisateurs. Vérifiez votre connexion.');
         setLoading(false);
       }
     };
 
     fetchUsers();
-  }, [currentUser]);
+  }, [currentUser, authToken]);
 
-  // Démarrer une conversation
+  // Start a conversation
   const startChat = async (user) => {
-    if (!currentUser?.uid) return;
+    if (!currentUser?.uid || !authToken) return;
 
     setLoading(true);
+    setError('');
     
     try {
-      // Créer ou récupérer la conversation existante
-      const response = await axiosInstance.post('/chats', {
+      const response = await axiosInstance.post('/api/chats', {
         userId: user.id
       });
 
@@ -506,8 +543,7 @@ const Chat = () => {
       setSelectedUser(user);
       setChatId(chatId);
       
-      // Charger les messages existants
-      const messagesResponse = await axiosInstance.get(`/chats/${chatId}/messages`);
+      const messagesResponse = await axiosInstance.get(`/api/chats/${chatId}/messages`);
       setMessages(messagesResponse.data.map(msg => ({
         ...msg,
         id: msg.id.toString(),
@@ -517,14 +553,15 @@ const Chat = () => {
 
       setLoading(false);
     } catch (error) {
-      console.error('Error starting chat:', error);
+      console.error('Error starting chat:', error.message, error.code);
+      setError('Impossible de démarrer la conversation. Réessayez.');
       setLoading(false);
     }
   };
 
-  // Envoi de message
+  // Send a message
   const sendMessage = async () => {
-    if (!messageText.trim() || !chatId || !selectedUser || !currentUser) return;
+    if (!messageText.trim() || !chatId || !selectedUser || !currentUser || !authToken) return;
 
     try {
       const newMessage = {
@@ -532,9 +569,8 @@ const Chat = () => {
         chatId: chatId
       };
 
-      const response = await axiosInstance.post(`/chats/${chatId}/messages`, newMessage);
+      const response = await axiosInstance.post(`/api/chats/${chatId}/messages`, newMessage);
       
-      // Ajouter le message localement
       setMessages(prev => [...prev, {
         ...response.data,
         id: response.data.id.toString(),
@@ -544,43 +580,43 @@ const Chat = () => {
       
       setMessageText('');
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error sending message:', error.message, error.code);
+      setError('Erreur lors de l\'envoi du message. Réessayez.');
     }
   };
 
-  // Polling pour les nouveaux messages
+  // Poll for new messages
   useEffect(() => {
-    if (!chatId) return;
+    if (!chatId || !authToken) return;
 
     const interval = setInterval(async () => {
       try {
-        const response = await axiosInstance.get(`/chats/${chatId}/messages`, {
-          params: { 
-            lastMessageId: messages.length > 0 ? messages[messages.length - 1].id : null 
-          }
+        const lastMessageId = messages.length > 0 ? messages[messages.length - 1].id : null;
+        const response = await axiosInstance.get(`/api/chats/${chatId}/messages`, {
+          params: { lastMessageId }
         });
         
         if (response.data.length > 0) {
-          setMessages(prev => [
-            ...prev,
-            ...response.data.map(msg => ({
+          const newMessages = response.data
+            .filter(msg => !messages.some(m => m.id === msg.id.toString())) // Avoid duplicates
+            .map(msg => ({
               ...msg,
               id: msg.id.toString(),
               senderId: msg.sender_id.toString(),
               createdAt: new Date(msg.created_at)
-            }))
-          ]);
+            }));
+          setMessages(prev => [...prev, ...newMessages]);
         }
       } catch (error) {
-        console.error('Error polling messages:', error);
+        console.error('Error polling messages:', error.message, error.code);
       }
-    }, 5000); // Poll toutes les 5 secondes
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [chatId, messages]);
+  }, [chatId, messages, authToken]);
 
   const renderMessage = ({ item }) => {
-    const isMyMessage = item.sender_id.toString() === currentUser?.uid;
+    const isMyMessage = item.senderId === currentUser?.id;
     return (
       <View style={[
         styles.messageContainer,
@@ -635,6 +671,7 @@ const Chat = () => {
             setSelectedUser(null);
             setChatId(null);
             setMessages([]);
+            setError('');
           }}>
             <Image 
               source={require('./../../../Asset/return.png')} 
@@ -655,6 +692,13 @@ const Chat = () => {
           </View>
         </TouchableOpacity>
       </View>
+
+      {/* Message d'erreur */}
+      {error ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      ) : null}
 
       {/* Liste des contacts ou chat */}
       {!selectedUser ? (
@@ -855,6 +899,17 @@ const styles = StyleSheet.create({
   },
   messagesContainer: {
     padding: 10
+  },
+  errorContainer: {
+    backgroundColor: '#fdecea',
+    padding: 10,
+    margin: 10,
+    borderRadius: 5,
+  },
+  errorText: {
+    color: '#e74c3c',
+    fontSize: 14,
+    textAlign: 'center',
   }
 });
 

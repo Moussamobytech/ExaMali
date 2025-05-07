@@ -1,70 +1,3 @@
-// const express = require("express");
-// const mysql = require("mysql");
-// const cors = require("cors");
-
-// const app = express();
-// app.use(cors());
-// app.use(express.json()); // Pour traiter les données en JSON
-
-// // Connexion à la base de données MySQL
-// const db = mysql.createConnection({
-//   host: "localhost", // Change selon ton hébergement (ex: '127.0.0.1' ou un serveur distant)
-//   user: "root", // Ton nom d'utilisateur MySQL
-//   password: "", // Ton mot de passe MySQL
-//   database: "examali", // Le nom de ta base de données
-// });
-
-// // Vérifier la connexion
-// db.connect((err) => {
-//   if (err) {
-//     console.error("Erreur de connexion à MySQL :", err);
-//     return;
-//   }
-//   console.log("✅ Connecté à MySQL !");
-// });
-
-// // Route de test
-// app.get("/", (req, res) => {
-//   res.send("Bienvenue sur le serveur Express avec MySQL !");
-// });
-
-// // Démarrer le serveur
-// app.listen(5000, '0.0.0.0', () => {
-//   console.log("🚀 Serveur démarré sur le port 5000");
-// });
-
-// // Route pour ajouter un utilisateur
-// app.post("/register", (req, res) => {
-//   const { name, email, password } = req.body;
-//   const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
-  
-//   db.query(sql, [name, email, password], (err, result) => {
-//     if (err) {
-//       res.status(500).json({ error: err.message });
-//     } else {
-//       res.json({ message: "Utilisateur ajouté avec succès !" });
-//     }
-//   });
-// });
-// // Endpoint pour récupérer un PDF
-// app.get('/pdf/:id', (req, res) => {
-//   const pdfId = req.params.id;
-//   db.query('SELECT file_data FROM pdf_files WHERE id = ?', [pdfId], (err, result) => {
-//     if (err) {
-//       res.status(500).send('Erreur de requête SQL');
-//     } else if (result.length > 0) {
-//       res.setHeader('Content-Type', 'application/pdf');
-//       res.send(result[0].file_data);
-//     } else {
-//       res.status(404).send('PDF non trouvé');
-//     }
-//   });
-// });
-
-
-
-
-
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2/promise');
@@ -78,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:8081', 'exp://192.168.1.16:8081'],
+  origin: ['http://localhost:8081', 'exp://192.168.1.6:8081', '*'], // Allow all origins for testing
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -178,20 +111,116 @@ app.get('/', (req, res) => {
   res.json({ message: 'API Examali' });
 });
 
-// Routes d'authentification (existantes)
-app.post('/api/auth/register', async (req, res) => {
-  /* ... (conservez votre code existant) ... */
+// Route pour récupérer tous les utilisateurs
+app.get('/api/users', authenticate, async (req, res) => {
+  try {
+    const [users] = await pool.query(
+      'SELECT id, username, email, niveauEtude FROM users WHERE id != ?',
+      [req.user.userId]
+    );
+    console.log('Fetched users:', users);
+    res.json(users);
+  } catch (err) {
+    console.error('Erreur récupération utilisateurs:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
 });
 
+// Route d'inscription
+app.post('/api/auth/register', async (req, res) => {
+  const { username, email, password, niveauEtude } = req.body;
+
+  console.log('Received registration request:', { username, email, niveauEtude });
+
+  // Validation
+  if (!username || !email || !password || !niveauEtude) {
+    console.log('Validation failed: Missing fields');
+    return res.status(400).json({ message: 'Tous les champs sont requis' });
+  }
+
+  if (!['DEF', 'BAC'].includes(niveauEtude)) {
+    console.log('Validation failed: Invalid niveauEtude');
+    return res.status(400).json({ message: 'Niveau d\'étude invalide' });
+  }
+
+  try {
+    // Vérifier si l'email existe déjà
+    const [existingUsers] = await pool.query(
+      'SELECT id FROM users WHERE email = ?',
+      [email]
+    );
+
+    if (existingUsers.length > 0) {
+      console.log('Validation failed: Email already exists');
+      return res.status(400).json({ message: 'Cet email est déjà utilisé' });
+    }
+
+    // Hacher le mot de passe
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Insérer l'utilisateur
+    const [result] = await pool.query(
+      'INSERT INTO users (username, email, password, niveauEtude) VALUES (?, ?, ?, ?)',
+      [username, email, hashedPassword, niveauEtude]
+    );
+
+    // Générer un token JWT
+    const token = jwt.sign(
+      { userId: result.insertId, email, id: result.insertId }, // Added id for Chat
+      process.env.JWT_SECRET || 'votre_secret_secure',
+      { expiresIn: '7d' }
+    );
+
+    console.log('User registered successfully:', { userId: result.insertId, email });
+    res.status(201).json({ token });
+  } catch (err) {
+    console.error('Erreur inscription:', err);
+    res.status(500).json({ message: 'Erreur serveur lors de l\'inscription' });
+  }
+});
+
+// Route de connexion
 app.post('/api/auth/login', async (req, res) => {
-  /* ... (conservez votre code existant) ... */
+  const { email, password } = req.body;
+
+  console.log('Received login request:', { email });
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email et mot de passe requis' });
+  }
+
+  try {
+    const [users] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+
+    if (users.length === 0) {
+      console.log('Login failed: User not found');
+      return res.status(400).json({ message: 'Identifiants invalides' });
+    }
+
+    const user = users[0];
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      console.log('Login failed: Incorrect password');
+      return res.status(400).json({ message: 'Identifiants invalides' });
+    }
+
+    const token = jwt.sign(
+      { userId: user.id, email: user.email, id: user.id }, // Added id for Chat
+      process.env.JWT_SECRET || 'votre_secret_secure',
+      { expiresIn: '7d' }
+    );
+
+    console.log('User logged in successfully:', { userId: user.id, email });
+    res.json({ token });
+  } catch (err) {
+    console.error('Erreur connexion:', err);
+    res.status(500).json({ message: 'Erreur serveur lors de la connexion' });
+  }
 });
 
 // Routes de chat
-/**
- * @route GET /api/chats
- * @desc Récupère toutes les conversations de l'utilisateur
- */
 app.get('/api/chats', authenticate, async (req, res) => {
   try {
     const [chats] = await pool.query(`
@@ -214,10 +243,6 @@ app.get('/api/chats', authenticate, async (req, res) => {
   }
 });
 
-/**
- * @route POST /api/chats
- * @desc Crée une nouvelle conversation
- */
 app.post('/api/chats', authenticate, async (req, res) => {
   const { userId } = req.body;
 
@@ -226,7 +251,6 @@ app.post('/api/chats', authenticate, async (req, res) => {
   }
 
   try {
-    // Vérifier si le chat existe déjà
     const [existing] = await pool.query(`
       SELECT id FROM chats 
       WHERE (user1_id = ? AND user2_id = ?) 
@@ -237,7 +261,6 @@ app.post('/api/chats', authenticate, async (req, res) => {
       return res.json({ chatId: existing[0].id });
     }
 
-    // Créer un nouveau chat
     const [result] = await pool.query(
       'INSERT INTO chats (user1_id, user2_id) VALUES (?, ?)',
       [req.user.userId, userId]
@@ -250,13 +273,10 @@ app.post('/api/chats', authenticate, async (req, res) => {
   }
 });
 
-/**
- * @route GET /api/chats/:chatId/messages
- * @desc Récupère les messages d'une conversation
- */
 app.get('/api/chats/:chatId/messages', authenticate, async (req, res) => {
   try {
-    // Vérifier que l'utilisateur fait partie du chat
+    const { lastMessageId } = req.query;
+
     const [chat] = await pool.query(
       'SELECT id FROM chats WHERE id = ? AND (user1_id = ? OR user2_id = ?)',
       [req.params.chatId, req.user.userId, req.user.userId]
@@ -266,14 +286,22 @@ app.get('/api/chats/:chatId/messages', authenticate, async (req, res) => {
       return res.status(403).json({ error: 'Accès non autorisé' });
     }
 
-    const [messages] = await pool.query(`
+    let query = `
       SELECT m.*, u.username as sender_name
       FROM messages m
       JOIN users u ON m.sender_id = u.id
       WHERE m.chat_id = ?
-      ORDER BY m.created_at ASC
-    `, [req.params.chatId]);
+    `;
+    let params = [req.params.chatId];
 
+    if (lastMessageId) {
+      query += ' AND m.id > ?';
+      params.push(lastMessageId);
+    }
+
+    query += ' ORDER BY m.created_at ASC';
+
+    const [messages] = await pool.query(query, params);
     res.json(messages);
   } catch (err) {
     console.error('Erreur récupération messages:', err);
@@ -281,10 +309,6 @@ app.get('/api/chats/:chatId/messages', authenticate, async (req, res) => {
   }
 });
 
-/**
- * @route POST /api/chats/:chatId/messages
- * @desc Envoie un message dans une conversation
- */
 app.post('/api/chats/:chatId/messages', authenticate, async (req, res) => {
   const { text } = req.body;
 
@@ -293,7 +317,6 @@ app.post('/api/chats/:chatId/messages', authenticate, async (req, res) => {
   }
 
   try {
-    // Vérifier que l'utilisateur fait partie du chat
     const [chat] = await pool.query(
       'SELECT id FROM chats WHERE id = ? AND (user1_id = ? OR user2_id = ?)',
       [req.params.chatId, req.user.userId, req.user.userId]
@@ -303,13 +326,11 @@ app.post('/api/chats/:chatId/messages', authenticate, async (req, res) => {
       return res.status(403).json({ error: 'Accès non autorisé' });
     }
 
-    // Enregistrer le message
     const [result] = await pool.query(
       'INSERT INTO messages (chat_id, sender_id, text) VALUES (?, ?, ?)',
       [req.params.chatId, req.user.userId, text]
     );
 
-    // Récupérer le message complet avec les infos de l'expéditeur
     const [message] = await pool.query(`
       SELECT m.*, u.username as sender_name
       FROM messages m
@@ -340,7 +361,8 @@ async function start() {
     await testConnection();
     await initializeDB();
     app.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 API démarrée sur http://localhost:${PORT}`);
+      console.log(`🚀 API démarrée sur http://0.0.0.0:${PORT}`);
+      console.log(`Accessible via http://192.168.1.6:${PORT} on local network`);
     });
   } catch (err) {
     console.error('Échec démarrage:', err);
