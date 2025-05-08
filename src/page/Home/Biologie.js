@@ -131,7 +131,7 @@ const Biologie = () => {
           </TouchableOpacity>
             <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Biologie2018')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -140,14 +140,14 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2018')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Biologie2017')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -156,14 +156,14 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2017')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Biologie2016')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -172,14 +172,14 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2016')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Biologie2015')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -188,14 +188,14 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2015')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Biologie2014')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -204,14 +204,14 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2014')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Bilogie2013')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -220,14 +220,14 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2013')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Biologie2012')}
                               >
                                 <Image source={require('./../../../Asset/VectorB.png')} style={styles.iconImageB} />
                                 <View style={styles.textContainer}>
@@ -236,7 +236,7 @@ const Biologie = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonB}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Biologie2012')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>

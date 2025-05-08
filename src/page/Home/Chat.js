@@ -444,9 +444,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_BASE_URL = 'http://192.168.1.6:3000'; // Use 10.0.2.2:3000 for Android emulator
-// For Android emulator, uncomment the following:
-// const API_BASE_URL = 'http://10.0.2.2:3000';
+const API_BASE_URL = 'http://192.168.1.6:3000'; 
+
 
 const Chat = () => {
   const [users, setUsers] = useState([]);
@@ -456,7 +455,7 @@ const Chat = () => {
   const [messageText, setMessageText] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState('');  
   const [currentUser, setCurrentUser] = useState(null); // Loaded from AsyncStorage
   const [authToken, setAuthToken] = useState(null); // Loaded from AsyncStorage
   const dynamicTextColor = isDarkMode ? '#fff' : '#000';
@@ -687,7 +686,7 @@ const Chat = () => {
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
           <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleOn : styles.toggleOff]}>
             <Text style={[styles.toggleText, isDarkMode ? styles.toggleTextOn : styles.toggleTextOff]}>
-              {isDarkMode ? '☀️' : '🌙'}
+              {isDarkMode ? 'ON' : 'OFF'}
             </Text>
           </View>
         </TouchableOpacity>

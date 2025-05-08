@@ -131,6 +131,23 @@ import Physique2015 from './SujetsPysiqueChimie/Physique2015';
 import Physique2016 from './SujetsPysiqueChimie/Physique2016';
 import Physique2017 from './SujetsPysiqueChimie/Physique2017';
 import Physique2018 from './SujetsPysiqueChimie/Physique2018';
+import Anglais2012 from './SujetsAnglais/Anglais2012';
+import Anglais2015 from './SujetsAnglais/Anglais2015';
+import Anglais2016 from './SujetsAnglais/Anglais2016';
+import Anglais2017 from './SujetsAnglais/Anglais2017';
+import Anglais2018 from './SujetsAnglais/Anglais2018';
+import Histoire2012 from './SujetsHistoiregéo/Histoire2012';
+import Histoire2014 from './SujetsHistoiregéo/Histoire2014';
+import Histoire2015 from './SujetsHistoiregéo/Histoire2015';
+import histoire2016 from './SujetsHistoiregéo/Histoire2016';
+import Histoire2017 from './SujetsHistoiregéo/histoire2017';
+import Histoire2018 from './SujetsHistoiregéo/Histoire2018';
+import Biologie2012 from './SujetsBiologie/Biologie2012';
+import Biologie2014 from './SujetsBiologie/Biologie2014';
+import Biologie2015 from './SujetsBiologie/Biologie2015';
+import Biologie2016 from './SujetsBiologie/Biologie2016';
+import Biologie2018 from './SujetsBiologie/Biologie2018';
+import Biologie2017 from './SujetsBiologie/Biologie2017';
 
 
 
@@ -230,14 +247,33 @@ const App = () => {
            <Stack.Screen name="Anglais20"component={Anglais20}/>
            <Stack.Screen name="Anglais2021"component={Anglais2021}/>
            <Stack.Screen name="Anglais2022"component={Anglais2022}/>
+           <Stack.Screen name="Anglais2012"component={Anglais2012}/>
+           <Stack.Screen name="Anglais2015"component={Anglais2015}/>
+           <Stack.Screen name="Anglais2016"component={Anglais2016}/>
+           <Stack.Screen name="Anglais2017"component={Anglais2017}/>
+           <Stack.Screen name="Anglais2018"component={Anglais2018}/>
+
            <Stack.Screen name="HistoireGeo2019"component={HistoireGeo2019}/>
            <Stack.Screen name="HistoireGeo2020"component={HistoireGeo2020}/>
            <Stack.Screen name="HistoireGeo2021"component={HistoireGeo2021}/>
            <Stack.Screen name="HistoireGeo2022"component={HistoireGeo2022}/>
+           <Stack.Screen name="Histoire2012"component={Histoire2012}/>
+           <Stack.Screen name="Histoire2014"component={Histoire2014}/>
+           <Stack.Screen name="Histoire2015"component={Histoire2015}/>
+           <Stack.Screen name="Histoire2016"component={histoire2016}/>
+           <Stack.Screen name="Histoire2017"component={Histoire2017}/>
+           <Stack.Screen name="Histoire2018"component={Histoire2018}/>
+           
            <Stack.Screen name="Biologie2019"component={Biologie2019}/>
            <Stack.Screen name="Biologie2020"component={Biologie2020}/>
            <Stack.Screen name="Biologie2021"component={Biologie2021}/>
            <Stack.Screen name="Biologie2022"component={Biologie2022}/>
+           <Stack.Screen name="Biologie2012"component={Biologie2012}/>
+           <Stack.Screen name="Biologie2014"component={Biologie2014}/>
+           <Stack.Screen name="Biologie2015"component={Biologie2015}/>
+           <Stack.Screen name="Biologie2016"component={Biologie2016}/>
+           <Stack.Screen name="Biologie2017"component={Biologie2017}/>
+           <Stack.Screen name="Biologie2018"component={Biologie2018}/>
            <Stack.Screen name="Ecm2019"component={Ecm2019}/>
            <Stack.Screen name="Ecm2020"component={Ecm2020}/>
            <Stack.Screen name="Ecm2021"component={Ecm2021}/>

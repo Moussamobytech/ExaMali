@@ -128,7 +128,7 @@ const Historique = () => {
           </TouchableOpacity>
           <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Histoire2018')}
                     >
                       <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
                       <View style={styles.textContainer}>
@@ -137,14 +137,14 @@ const Historique = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonH}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Histoire2018')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Histoire2017')}
                     >
                       <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
                       <View style={styles.textContainer}>
@@ -153,14 +153,14 @@ const Historique = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonH}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Histoire2017')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Histoire2016')}
                     >
                       <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
                       <View style={styles.textContainer}>
@@ -169,14 +169,14 @@ const Historique = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonH}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Histoire2016')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Histoire2015')}
                     >
                       <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
                       <View style={styles.textContainer}>
@@ -185,14 +185,14 @@ const Historique = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonH}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Histoire2015')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Histoire2014')}
                     >
                       <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
                       <View style={styles.textContainer}>
@@ -201,7 +201,7 @@ const Historique = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonH}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Histoire2014')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>
@@ -224,7 +224,7 @@ const Historique = () => {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.card}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Histoire2012')}
                     >
                       <Image source={require('./../../../Asset/VectorH.png')} style={styles.iconImageH} />
                       <View style={styles.textContainer}>
@@ -233,7 +233,7 @@ const Historique = () => {
                       </View>
                       <TouchableOpacity
             style={styles.buttonH}
-            onPress={() => navigation.navigate('Examalichoix')}
+            onPress={() => navigation.navigate('Histoire2012')}
           >
             <Text style={styles.buttonText}>Voir le sujet</Text>
           </TouchableOpacity>

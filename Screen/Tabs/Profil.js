@@ -1,5 +1,8 @@
 
-// import React, { useState } from 'react';
+
+
+
+// import React, { useState, useEffect } from 'react';
 // import {
 //   View,
 //   Text,
@@ -12,6 +15,7 @@
 // } from 'react-native';
 // import { useNavigation } from '@react-navigation/native';
 // import { launchImageLibrary } from 'react-native-image-picker';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // const ProfileScreen = () => {
 //   const navigation = useNavigation();
@@ -23,12 +27,29 @@
 //   const dynamicImageTintColor = isDarkMode ? '#fff' : '#000';
 
 //   const [modalVisible, setModalVisible] = useState(false);
-//   const [name, setName] = useState('Moussa Kouyaté');
-//   const [email, setEmail] = useState('moussakouyate@gmail.com');
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [tempName, setTempName] = useState('');
+//   const [tempEmail, setTempEmail] = useState('');
 
-//   // Ajout des variables temporaires
-//   const [tempName, setTempName] = useState(name);
-//   const [tempEmail, setTempEmail] = useState(email);
+//   // Load user data on mount
+//   useEffect(() => {
+//     const loadUserData = async () => {
+//       try {
+//         const userData = await AsyncStorage.getItem('userData');
+//         if (userData) {
+//           const { username, email } = JSON.parse(userData);
+//           setName(username);
+//           setEmail(email);
+//           setTempName(username);
+//           setTempEmail(email);
+//         }
+//       } catch (error) {
+//         console.error('Erreur lors du chargement des données utilisateur:', error);
+//       }
+//     };
+//     loadUserData();
+//   }, []);
 
 //   const toggleTheme = () => {
 //     setIsDarkMode(!isDarkMode);
@@ -47,6 +68,34 @@
 //     });
 //   };
 
+//   // Save profile changes
+//   const saveProfile = async () => {
+//     try {
+//       setName(tempName);
+//       setEmail(tempEmail);
+//       await AsyncStorage.setItem('userData', JSON.stringify({
+//         username: tempName,
+//         email: tempEmail,
+//       }));
+//       setModalVisible(false);
+//     } catch (error) {
+//       console.error('Erreur lors de la sauvegarde du profil:', error);
+//     }
+//   };
+
+//   // Handle logout
+//   const handleLogout = async () => {
+//     try {
+//       await AsyncStorage.clear();
+//       navigation.reset({
+//         index: 0,
+//         routes: [{ name: 'Connexion' }],
+//       });
+//     } catch (error) {
+//       console.error('Erreur lors de la déconnexion:', error);
+//     }
+//   };
+
 //   // Objet contenant les icônes
 //   const icons = {
 //     download: require('./../../Asset/download.png'),
@@ -60,11 +109,11 @@
 
 //   const options = [
 //     { id: 1, text: 'Les sujets téléchargés', icon: 'download' },
-//     { id: 4, text: 'A propos du ExaMali', icon: 'Info', route:'ProposExamali' },
-//       { id: 3, text: 'Conditions d\'utilisation', icon: 'condition', route:'Condition' },
-//     { id: 5, text: 'Politique de confidentialité', icon: 'Star' , route:'Politique'},
-//     { id: 6, text: 'Chat', icon: 'chat' , route:'Chat'},
-//     { id: 2, text: 'Se déconnecter', icon: 'logout' , route:'Logoute'},
+//     { id: 4, text: 'A propos du ExaMali', icon: 'Info', route: 'ProposExamali' },
+//     { id: 3, text: 'Conditions d\'utilisation', icon: 'condition', route: 'Condition' },
+//     { id: 5, text: 'Politique de confidentialité', icon: 'Star', route: 'Politique' },
+//     { id: 6, text: 'Chat', icon: 'chat', route: 'Chat' },
+//     { id: 2, text: 'Se déconnecter', icon: 'logout', action: handleLogout },
 //   ];
 
 //   return (
@@ -100,27 +149,26 @@
 //       </View>
 
 //       <ScrollView contentContainerStyle={styles.optionsContainer}>
-//   {options.map(item => (
-//     <TouchableOpacity 
-//       key={item.id} 
-//       style={styles.optionRow}
-//       onPress={() => item.route && navigation.navigate(item.route)} // Use navigation.navigate to go to the respective route
-//     >
-//       <Image 
-//         source={icons[item.icon]} 
-//         style={[styles.optionIcon, { tintColor: dynamicImageTintColor }]} 
-//       />
-//       <Text style={[styles.optionText, { color: dynamicTextColor }]}>
-//         {item.text}
-//       </Text>
-//       <Image 
-//         source={icons.vector} 
-//         style={[styles.optionIcons, { tintColor: dynamicImageTintColor }]} 
-//       />
-//     </TouchableOpacity>
-//   ))}
-// </ScrollView>
-
+//         {options.map(item => (
+//           <TouchableOpacity 
+//             key={item.id} 
+//             style={styles.optionRow}
+//             onPress={() => item.action ? item.action() : item.route && navigation.navigate(item.route)}
+//           >
+//             <Image 
+//               source={icons[item.icon]} 
+//               style={[styles.optionIcon, { tintColor: dynamicImageTintColor }]} 
+//             />
+//             <Text style={[styles.optionText, { color: dynamicTextColor }]}>
+//               {item.text}
+//             </Text>
+//             <Image 
+//               source={icons.vector} 
+//               style={[styles.optionIcons, { tintColor: dynamicImageTintColor }]} 
+//             />
+//           </TouchableOpacity>
+//         ))}
+//       </ScrollView>
 
 //       <Modal visible={modalVisible} animationType="slide" transparent>
 //         <View style={styles.modalContainer}>
@@ -142,11 +190,7 @@
 //             <View style={styles.modalButtons}>
 //               <TouchableOpacity
 //                 style={styles.saveButton}
-//                 onPress={() => {
-//                   setName(tempName);
-//                   setEmail(tempEmail);
-//                   setModalVisible(false);
-//                 }}
+//                 onPress={saveProfile}
 //               >
 //                 <Text style={styles.saveButtonText}>Enregistrer</Text>
 //               </TouchableOpacity>
@@ -161,7 +205,6 @@
 //     </View>
 //   );
 // };
-
 
 // const darkStyles = StyleSheet.create({
 //   container: {
@@ -313,38 +356,6 @@
 
 // export default ProfileScreen;
 
-// // import React from "react";
-// // import { View, Platform, ActivityIndicator } from "react-native";
-// // import { WebView } from "react-native-webview";
-
-// // const PdfScreen = () => {
-// //   const pdfUri = Platform.select({
-// //     android: "file:///android_asset/pdf/Anglais.pdf",
-    
-// //   });
-
-// //   return (
-// //     <View style={{ flex: 1 }}>
-// //       <WebView
-// //         source={{ uri: pdfUri }}
-// //         style={{ flex: 1 }}
-// //         allowFileAccess={true}
-// //         allowUniversalAccessFromFileURLs={true}
-// //         domStorageEnabled={true}
-// //         startInLoadingState={true}
-// //         renderLoading={() => <ActivityIndicator size="large" />}
-// //         onError={(syntheticEvent) => {
-// //           const { nativeEvent } = syntheticEvent;
-// //           console.error("Erreur WebView:", nativeEvent);
-// //         }}
-// //       />
-// //     </View>
-// //   );
-// // };
-
-// // export default PdfScreen;
-
-
 
 
 import React, { useState, useEffect } from 'react';
@@ -356,26 +367,26 @@ import {
   Image,
   Modal,
   TextInput,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [profileImage, setProfileImage] = useState(require('./../../Asset/profilee.png'));
-
-  const dynamicTextColor = isDarkMode ? '#fff' : '#000';
-  const dynamicBackgroundColor = isDarkMode ? '#000' : '#fff';
-  const dynamicImageTintColor = isDarkMode ? '#fff' : '#000';
-
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [tempName, setTempName] = useState('');
   const [tempEmail, setTempEmail] = useState('');
+
+  const dynamicTextColor = isDarkMode ? '#fff' : '#000';
+  const dynamicBackgroundColor = isDarkMode ? '#000' : '#fff';
+  const dynamicImageTintColor = isDarkMode ? '#fff' : '#000';
 
   // Load user data on mount
   useEffect(() => {
@@ -413,7 +424,6 @@ const ProfileScreen = () => {
     });
   };
 
-  // Save profile changes
   const saveProfile = async () => {
     try {
       setName(tempName);
@@ -428,7 +438,6 @@ const ProfileScreen = () => {
     }
   };
 
-  // Handle logout
   const handleLogout = async () => {
     try {
       await AsyncStorage.clear();
@@ -441,15 +450,16 @@ const ProfileScreen = () => {
     }
   };
 
-  // Objet contenant les icônes
-  const icons = {
-    download: require('./../../Asset/download.png'),
-    logout: require('./../../Asset/logout.png'),
-    condition: require('./../../Asset/condition.png'),
-    vector: require('./../../Asset/Vector.png'),
-    Info: require('./../../Asset/Info.png'),
-    Star: require('./../../Asset/Star.png'),
-    chat: require('./../../Asset/chat.png'),
+  const iconNames = {
+    download: 'file-download',
+    logout: 'logout',
+    condition: 'gavel',
+    vector: 'chevron-right',
+    Info: 'info',
+    Star: 'lock',
+    chat: 'chat',
+    camera: 'camera',
+    back: 'arrow-back',
   };
 
   const options = [
@@ -465,7 +475,7 @@ const ProfileScreen = () => {
     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={require('./../../Asset/return.png')} style={styles.backIcon} />
+          <Icon name={iconNames.back} size={24} color={dynamicTextColor} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: dynamicTextColor }]}>Mon Profil</Text>
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
@@ -482,34 +492,38 @@ const ProfileScreen = () => {
           <Image source={profileImage} style={styles.profileImage} />
         </TouchableOpacity>
         <TouchableOpacity onPress={selectImage} style={styles.cameraIcon}>
-          <Image source={require('./../../Asset/camera.png')} style={styles.cameraIconImage} />
+          <Icon name={iconNames.camera} size={20} color="#fff" />
         </TouchableOpacity>
         <View style={styles.profileInfo}>
           <Text style={[styles.profileName, { color: dynamicTextColor }]}>{name}</Text>
           <Text style={[styles.profileEmail, { color: dynamicTextColor }]}>{email}</Text>
           <TouchableOpacity style={styles.editButton} onPress={() => setModalVisible(true)}>
-            <Text style={[styles.editButtonText, { color: dynamicTextColor }]}>Éditer le Profil</Text>
+            <Text style={styles.editButtonText}>Éditer le Profil</Text>
           </TouchableOpacity>
         </View>
       </View>
 
       <ScrollView contentContainerStyle={styles.optionsContainer}>
         {options.map(item => (
-          <TouchableOpacity 
-            key={item.id} 
+          <TouchableOpacity
+            key={item.id}
             style={styles.optionRow}
             onPress={() => item.action ? item.action() : item.route && navigation.navigate(item.route)}
           >
-            <Image 
-              source={icons[item.icon]} 
-              style={[styles.optionIcon, { tintColor: dynamicImageTintColor }]} 
+            <Icon
+              name={iconNames[item.icon]}
+              size={24}
+              color={dynamicImageTintColor}
+              style={styles.optionIcon}
             />
             <Text style={[styles.optionText, { color: dynamicTextColor }]}>
               {item.text}
             </Text>
-            <Image 
-              source={icons.vector} 
-              style={[styles.optionIcons, { tintColor: dynamicImageTintColor }]} 
+            <Icon
+              name={iconNames.vector}
+              size={18}
+              color={dynamicImageTintColor}
+              style={styles.optionIcons}
             />
           </TouchableOpacity>
         ))}
@@ -533,13 +547,9 @@ const ProfileScreen = () => {
               keyboardType="email-address"
             />
             <View style={styles.modalButtons}>
-              <TouchableOpacity
-                style={styles.saveButton}
-                onPress={saveProfile}
-              >
+              <TouchableOpacity style={styles.saveButton} onPress={saveProfile}>
                 <Text style={styles.saveButtonText}>Enregistrer</Text>
               </TouchableOpacity>
-
               <TouchableOpacity style={styles.cancelButton} onPress={() => setModalVisible(false)}>
                 <Text style={styles.cancelButtonText}>Annuler</Text>
               </TouchableOpacity>
@@ -563,19 +573,21 @@ const darkStyles = StyleSheet.create({
     color: '#fff',
   },
 });
+
 const lightStyles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
   },
   text: {
     color: '#000',
-    marginBottom:10
+    marginBottom: 10,
   },
   input: {
     backgroundColor: '#ddd',
     color: '#000',
   },
 });
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -585,10 +597,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 15,
-  },
-  backIcon: {
-    width: 24,
-    height: 24,
   },
   headerTitle: {
     fontSize: 20,
@@ -631,10 +639,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 60,
     left: 65,
-    width: 20,
-    height: 20,
+    width: 30, // Increased for better visibility
+    height: 30,
     borderRadius: 15,
-    padding: 5,
+    backgroundColor: '#00D3EB',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   profileImage: {
     width: 80,
@@ -656,15 +666,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
     backgroundColor: '#00D3EB',
     paddingVertical: 5,
-   
     borderRadius: 5,
     width: 100,
-  
+    alignItems: 'center',
   },
   editButtonText: {
     color: '#fff',
     fontSize: 14,
-  
   },
   optionsContainer: {
     padding: 15,
@@ -675,28 +683,60 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   optionIcon: {
-    width: 24,
-    height: 24,
     marginRight: 10,
   },
   optionIcons: {
-    width: 10,
-    height: 18,
     marginLeft: 'auto',
   },
   optionText: {
     fontSize: 16,
   },
-
-  modalContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' },
-  modalContent: { width: 300, backgroundColor: '#fff', padding: 20, borderRadius: 10 },
-  modalTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
-  input: { borderBottomWidth: 1, borderBottomColor: '#ccc', marginBottom: 15, padding: 8, fontSize: 16 },
-  modalButtons: { flexDirection: 'row', justifyContent: 'space-between' },
-  saveButton: { backgroundColor: '#00D3EB', padding: 10, borderRadius: 5 },
-  saveButtonText: { color: '#fff', fontSize: 14 },
-  cancelButton: { backgroundColor: '#ccc', padding: 10, borderRadius: 5 },
-  cancelButtonText: { color: '#000', fontSize: 14 },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  modalContent: {
+    width: 300,
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  input: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    marginBottom: 15,
+    padding: 8,
+    fontSize: 16,
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  saveButton: {
+    backgroundColor: '#00D3EB',
+    padding: 10,
+    borderRadius: 5,
+  },
+  saveButtonText: {
+    color: '#fff',
+    fontSize: 14,
+  },
+  cancelButton: {
+    backgroundColor: '#ccc',
+    padding: 10,
+    borderRadius: 5,
+  },
+  cancelButtonText: {
+    color: '#000',
+    fontSize: 14,
+  },
 });
 
 export default ProfileScreen;

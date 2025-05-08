@@ -128,7 +128,7 @@ const Anglais = () => {
           </TouchableOpacity>
               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2018')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -137,7 +137,7 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2018')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -145,7 +145,7 @@ const Anglais = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2017')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -154,14 +154,14 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2017')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2016')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -170,7 +170,7 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2016')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -178,7 +178,7 @@ const Anglais = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2015')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -187,7 +187,7 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2015')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -195,7 +195,7 @@ const Anglais = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2014')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -204,7 +204,7 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2014')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
@@ -212,7 +212,7 @@ const Anglais = () => {
           
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2013')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -221,14 +221,14 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2013')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
                               </TouchableOpacity>
                               <TouchableOpacity
                                 style={styles.card}
-                                onPress={() => navigation.navigate('Examalichoix')}
+                                onPress={() => navigation.navigate('Anglais2012')}
                               >
                                 <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
                                 <View style={styles.textContainer}>
@@ -237,7 +237,7 @@ const Anglais = () => {
                                 </View>
                                 <TouchableOpacity
                       style={styles.buttonA}
-                      onPress={() => navigation.navigate('Examalichoix')}
+                      onPress={() => navigation.navigate('Anglais2012')}
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
