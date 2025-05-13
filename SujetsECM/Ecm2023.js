@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Ecm2023 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('Ecm')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,31 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2023</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Épreuve d'ECM</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Questions</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Explique : "ta liberté s'arrête là où commence celle des autres". (4 pts)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Cite trois missions assignées à l'armée malienne. (3 pts)
         </Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Comment s'appelait le Mali sous le régime colonial ? (2 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          4) Qu'est-ce qu'un acte d'incivisme ? En donne un exemple. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          5) Cite les qualités du bon travailleur. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          6) Quelle est la devise du Mali ? (2 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          7) Définis le travail, la conscience professionnelle. (3 pts)
         </Text>
       </ScrollView>
     </View>
@@ -151,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Ecm2023;

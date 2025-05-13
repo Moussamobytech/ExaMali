@@ -175,7 +175,7 @@ const TabsMaitre = () => {
             height: 60,
             backgroundColor: '#fff',
           },
-          tabBarActiveTintColor: '#FD4B34',
+          tabBarActiveTintColor: '#1E0094',
           tabBarInactiveTintColor: '#111',
           tabBarIcon: ({ focused, color }) => {
             let icon;

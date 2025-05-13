@@ -1,15 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import {
-  ScrollView,
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Physique2010 = () => {
+const Physique2023 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -27,12 +20,7 @@ const Physique2010 = () => {
           <Image source={require('./../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={toggleDarkMode}
-          style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
-          accessibilityRole="switch"
-        >
+        <TouchableOpacity onPress={toggleDarkMode} style={styles.toggleContainer}>
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
               {isDarkMode ? 'ON' : 'OFF'}
@@ -41,49 +29,52 @@ const Physique2010 = () => {
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2010</Text>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2023</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>I - PHYSIQUE</Text>
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Question de Cours :</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-a) Partie d’une application de la loi Faraday :
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Épreuve de Physique-Chimie</Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>A - Physique</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          I - q15. Questions de Cours: (6 points)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          a) Décris le processus de purification des métaux. b) Qu’est-ce que la galvanoplastie ?
+        <Text style={[styles.question, dynamicStyles.text]}>
+          a) Définition de l'évaporation.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-b) Exercice : Le long d’un cylindre d’un treuil à un rayon de 10 cm, la manivelle a une longueur de 50 cm.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          b) À l'aide d'expériences, établir les facteurs influents sur la vitesse d'évaporation.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1- Détermine l’intensité de la force qu’il faut appliquer à la manivelle pour équilibrer une charge P de 50 N suspendue à la corde.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          c) Définir l'effet Joule.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Calcule le travail moteur et le travail résistant pour un tour complet du cylindre.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          d) Citer trois applications de l'effet Joule.
         </Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>II - CHIMIE</Text>
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Question de Cours :</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-a) Décris l’action d’une solution d’hydroxyde de sodium sur l’aluminium.
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          II - q16. Exercice: (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          Calculer la puissance électrique dissipée par effet Joule dans un rhéostat de 25 ohms par un courant d'intensité 5 Ampères. Trouve la quantité de chaleur (en joules et en kWh) dégagée en une demi-heure de fonctionnement.
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>B - Chimie</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          Questions de Cours: (6 points)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1°) Définir les termes suivants : Une oxydation ; un oxydant ; une réduction ; un réducteur.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2°) Comment prépare-t-on le méthane au laboratoire?
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Exercice: (4 points)</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          On traite du carbure de calcium par l'eau en excès. On obtient un gaz ayant un volume de 4,48 l dans les conditions normales. Calcule la masse de carbure de calcium nécessaire si le carbure utilisé contient 15 % d'impuretés.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Fais l’équation bilan de la réaction.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-b) Écris le gaz qui se dégage.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Fais le compte rendu de l’expérience de la réaction d’oxydation du carbone par l’oxygène avec l’interprétation, équation, bilan et schéma, description de l’expérience.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Exercice : On titre 6 grammes d’aluminium contenu 10 % d’impuretés par une solution d’hydroxyde de sodium en excès.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Calcule le volume du gaz dégagé.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          On donne : [M(Al)] = 27 g/mol ; [M(Na)] = 23 g/mol ; [M(O)] = 16 g/mol ; [M(H)] = 1 g/mol ; volume molaire normal = 22.4 L/mol.
+          M(Ca) = 40 g/mol ; M(C) = 12 g/mol ; M(H) = 1 g/mol ; M(O) = 16 g/mol.
         </Text>
       </ScrollView>
     </View>
@@ -107,6 +98,13 @@ const getDynamicStyles = (isDarkMode) =>
       marginTop: 16,
       marginBottom: 8,
       color: isDarkMode ? '#FFD700' : '#00008B',
+    },
+    sectionSubtitle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      marginTop: 12,
+      marginBottom: 8,
+      color: isDarkMode ? '#fff' : '#000',
     },
     text: {
       fontSize: 16,
@@ -166,9 +164,21 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     lineHeight: 24,
   },
+  question: {
+    fontSize: 16,
+    marginVertical: 4,
+  },
+  instruction: {
+    fontSize: 16,
+    fontStyle: 'italic',
+    marginBottom: 8,
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
   scrollContainer: {
     paddingBottom: 20,
   },
 });
 
-export default Physique2010;
+export default Physique2023;

@@ -111,10 +111,10 @@ const Biologie = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Biologie2024')}>
             <Image source={require('./../../../Asset/bio1.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Biologie2023')}>
             <Image source={require('./../../../Asset/bio2.png')} style={styles.image} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Biologie2022')}>

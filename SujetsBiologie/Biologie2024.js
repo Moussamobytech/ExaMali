@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Biologie2024 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('Biologie')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,41 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2024</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>
+          Sciences Naturelles 
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Décris les catégories d'os et donne un exemple pour chaque cas. (6 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Décris les principaux rôles des reins. (6 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Exercice (4 pts)
+        </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+          Sur le terrain de sport, un élève se blesse au pied en marchant sur un métal pointu. Le sang commence à s'écouler. Il te consulte pour le rassurer.
+        </Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          589 - Questions
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          a) Nomme ce phénomène. (1 pt)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          b) Cite les éléments qui interviennent dans ce phénomène. (1 pt)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          c) Quelle est la maladie qu'il pourrait contracter? (1 pt)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          d) Que doit-il faire pour éviter cette maladie? (1 pt)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          4) Fais le schéma annoté d'une coupe longitudinale d'une dent. (4 pts)
         </Text>
       </ScrollView>
     </View>
@@ -151,4 +171,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Biologie2024;

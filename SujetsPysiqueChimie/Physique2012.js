@@ -20,7 +20,7 @@ const Physique2012 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('AccueilMaitre')}
+          onPress={() => navigation.navigate('Physiquechimie')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >

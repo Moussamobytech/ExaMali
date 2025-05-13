@@ -61,7 +61,7 @@ const Physiquechimie = () => {
   return (
     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity  onPress={() => navigation.navigate('AccueilMaitre')}>
           <Image source={require('./../../../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
@@ -108,10 +108,10 @@ const Physiquechimie = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Physique2024')}>
             <Image source={require('./../../../Asset/phydef1.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Physique2023')}>
             <Image source={require('./../../../Asset/phydef2.png')} style={styles.image} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>

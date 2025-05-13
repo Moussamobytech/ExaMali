@@ -64,7 +64,7 @@ const Dicte = () => {
   return (
     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity  onPress={() => navigation.navigate('AccueilMaitre')}>
           <Image source={require('./../../../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>

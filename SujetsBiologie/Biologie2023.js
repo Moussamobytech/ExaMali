@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Biologie2023 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('Biologie')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,28 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2023</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Épreuve de Sciences Naturelles</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>q15. Questions</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) L'analyse de l'urine d'un élève révèle la présence de sels minéraux, de glucose, d'urée, d'albumine, d'acide urique.
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
+        <Text style={[styles.question, dynamicStyles.text]}>
+          a) Indique les constituants anormaux de cette urine. (3 pts)
         </Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+        <Text style={[styles.question, dynamicStyles.text]}>
+          b) Cet élève est-il malade ? Si oui, précise et donne les causes. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Définis le paludisme. Comment se transmet le paludisme ? Quelles sont les mesures à prendre pour éviter le paludisme ?
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Définis trois (03) anomalies de la vision.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          4) Fais le schéma annoté de l'appareil digestif de l'homme.
         </Text>
       </ScrollView>
     </View>
@@ -151,4 +158,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Biologie2023;

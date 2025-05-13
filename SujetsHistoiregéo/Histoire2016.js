@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const histoire2016 = () => {
+const Histoire2016 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -20,7 +20,7 @@ const histoire2016 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('AccueilMaitre')}
+          onPress={() => navigation.navigate('Historique')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -157,4 +157,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default histoire2016;
+export default Histoire2016;

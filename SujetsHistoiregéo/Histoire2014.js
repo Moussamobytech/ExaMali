@@ -20,7 +20,7 @@ const Histoire2014 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('AccueilMaitre')}
+          onPress={() => navigation.navigate('Historique')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >

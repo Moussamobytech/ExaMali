@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Ecm2024 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('Ecm')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,15 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2024</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>ECM</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
+        <Text style={[styles.question, dynamicStyles.text]}>
+          5) Pourquoi doit-on prendre soin du bien public ? (4 pts)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
-        </Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+        <Text style={[styles.question, dynamicStyles.text]}>
+          6) Citer quatre (4) qualités du bon travailleur. (4 pts)
         </Text>
       </ScrollView>
     </View>
@@ -68,13 +62,6 @@ const getDynamicStyles = (isDarkMode) =>
       marginTop: 16,
       marginBottom: 8,
       color: isDarkMode ? '#FFD700' : '#00008B',
-    },
-    sectionSubtitle: {
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginTop: 12,
-      marginBottom: 8,
-      color: isDarkMode ? '#fff' : '#000',
     },
     text: {
       fontSize: 16,
@@ -123,12 +110,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 8,
   },
-  sectionSubtitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 8,
-  },
   paragraph: {
     fontSize: 16,
     marginBottom: 12,
@@ -151,4 +132,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Ecm2024;

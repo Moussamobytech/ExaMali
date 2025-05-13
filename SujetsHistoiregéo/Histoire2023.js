@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Histoire2023 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('Historique')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,40 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2023</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Épreuve d'Histoire-Géographie</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Histoire</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Décris les conséquences des progrès scientifiques et techniques pour l'Afrique, au moins en cinq lignes. (5 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Compare le système colonial français au système colonial anglais. (5 pts)
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Géographie</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Dessine la carte du Mali. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          q15. Y place tout autour les pays limitrophes.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Soit les villes A et B. (3 pts)
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
+          Dans la ville A, la pluviométrie peut atteindre plus de 2000 mm/an ; Dans la ville B, la pluviométrie ne peut atteindre 200 mm/an.
         </Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+        <Text style={[styles.question, dynamicStyles.text]}>Questions:</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          a) Précise la zone climatique dans laquelle se situe chaque ville.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          b) Caractérise le type de végétation pour chaque zone.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Présente au moins en cinq lignes l'agriculture au Mali. (4 pts)
         </Text>
       </ScrollView>
     </View>
@@ -151,4 +170,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Histoire2023;

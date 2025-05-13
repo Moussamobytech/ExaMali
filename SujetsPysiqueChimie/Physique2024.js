@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Physique2024 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('Physiquechimie')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,68 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2024</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>
+          Physique - Chimie - République du Mali - Un Peuple - Un But - Une Foi
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          A - Physique (10 points)
+        </Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          89-2. Questions de Cours
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Décris une expérience montrant la transformation de la chaleur en travail. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Énonce les principes fondamentaux de la calorimétrie. (4 pts)
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          II - Exercice
+        </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+          On réalise l'électrolyse d'une solution de sulfate de zinc dans un électrolyseur traversé par un courant de 2,5 ampères pendant 12 minutes.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          a) Écris l'équation de dissociation. (1 pt)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          b) Écris l'équation de la réaction à la cathode de l'électrolyseur. (1 pt)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          c) Calcule la masse de zinc déposée à la cathode de l'électrolyseur. On donne : M(Zn) = 65 g/mol ; 1 F = 96500 C/mol. (1 pt)
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          B - Chimie (10 points)
+        </Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          890 - Questions de Cours
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Cite les particules fondamentales de l'atome. (3 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) L'action du dichlore sur le méthane conduit à des produits de substitution ou de destruction. Précise les conditions favorables à l'un ou l'autre de ces deux phénomènes. Écris et équilibre les équations relatives à chaque cas. (4 pts)
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          Exercice (3 pts)
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          On réalise les conditions d'obtention du dérivé di-substitué par l'action du dichlore sur le méthane. Sachant qu'on a utilisé 4,8 g de méthane, calcule :
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          a) La masse de corps substitué formé.
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          b) Le volume de gaz chlorhydrique dégagé.
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          On donne : M(Cl) = 35,5 g/mol ; M(H) = 1 g/mol ; M(C) = 12 g/mol.
         </Text>
       </ScrollView>
     </View>
@@ -151,4 +198,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Physique2024;

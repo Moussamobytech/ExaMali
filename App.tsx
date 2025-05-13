@@ -148,6 +148,21 @@ import Biologie2015 from './SujetsBiologie/Biologie2015';
 import Biologie2016 from './SujetsBiologie/Biologie2016';
 import Biologie2018 from './SujetsBiologie/Biologie2018';
 import Biologie2017 from './SujetsBiologie/Biologie2017';
+import Histoire2016 from './SujetsHistoiregéo/Histoire2016';
+import Anglais2024 from './SujetsAnglais/Anglais2024';
+import Dicte2024 from './SujetsDicteQuestion/Dicte2024';
+import Ecm2024 from './SujetsECM/Ecm2024';
+import Histoire2024 from './SujetsHistoiregéo/Histoire2024';
+import Physique2024 from './SujetsPysiqueChimie/Physique2024';
+import Redaction2024 from './SujetsRedaction/Redaction2024';
+import Biologie2024 from './SujetsBiologie/Biologie2024';
+import Anglais2023 from './SujetsAnglais/Anglais2023';
+import Ecm2023 from './SujetsECM/Ecm2023';
+import Dicte2023 from './SujetsDicteQuestion/Dicte2023';
+import Histoire2023 from './SujetsHistoiregéo/Histoire2023';
+import Physique2023 from './SujetsPysiqueChimie/Physique2023';
+import Redaction2023 from './SujetsRedaction/Redaction2023';
+import Biologie2023 from './SujetsBiologie/Biologie2023';
 
 
 
@@ -242,6 +257,8 @@ const App = () => {
            <Stack.Screen name="Physique2016"component={Physique2016}/>
            <Stack.Screen name="Physique2017"component={Physique2017}/>
            <Stack.Screen name="Physique2018"component={Physique2018}/>
+           <Stack.Screen name="Physique2024"component={Physique2024}/>
+           <Stack.Screen name="Physique2023"component={Physique2023}/>
 
            <Stack.Screen name="Anglais2019"component={Anglais2019}/>
            <Stack.Screen name="Anglais20"component={Anglais20}/>
@@ -252,6 +269,9 @@ const App = () => {
            <Stack.Screen name="Anglais2016"component={Anglais2016}/>
            <Stack.Screen name="Anglais2017"component={Anglais2017}/>
            <Stack.Screen name="Anglais2018"component={Anglais2018}/>
+           <Stack.Screen name="Anglais2024"component={Anglais2024}/>
+           <Stack.Screen name="Anglais2023"component={Anglais2023}/>
+
 
            <Stack.Screen name="HistoireGeo2019"component={HistoireGeo2019}/>
            <Stack.Screen name="HistoireGeo2020"component={HistoireGeo2020}/>
@@ -260,9 +280,13 @@ const App = () => {
            <Stack.Screen name="Histoire2012"component={Histoire2012}/>
            <Stack.Screen name="Histoire2014"component={Histoire2014}/>
            <Stack.Screen name="Histoire2015"component={Histoire2015}/>
-           <Stack.Screen name="Histoire2016"component={histoire2016}/>
+           <Stack.Screen name="Histoire2016"component={Histoire2016}/>
            <Stack.Screen name="Histoire2017"component={Histoire2017}/>
            <Stack.Screen name="Histoire2018"component={Histoire2018}/>
+           <Stack.Screen name="Histoire2024"component={Histoire2024}/>
+           <Stack.Screen name="Histoire2023"component={Histoire2023}/>
+
+
            
            <Stack.Screen name="Biologie2019"component={Biologie2019}/>
            <Stack.Screen name="Biologie2020"component={Biologie2020}/>
@@ -274,6 +298,9 @@ const App = () => {
            <Stack.Screen name="Biologie2016"component={Biologie2016}/>
            <Stack.Screen name="Biologie2017"component={Biologie2017}/>
            <Stack.Screen name="Biologie2018"component={Biologie2018}/>
+           <Stack.Screen name="Biologie2024"component={Biologie2024}/>
+           <Stack.Screen name="Biologie2023"component={Biologie2023}/>
+
            <Stack.Screen name="Ecm2019"component={Ecm2019}/>
            <Stack.Screen name="Ecm2020"component={Ecm2020}/>
            <Stack.Screen name="Ecm2021"component={Ecm2021}/>
@@ -284,6 +311,10 @@ const App = () => {
            <Stack.Screen name="Ecm2016"component={Ecm2016}/>
            <Stack.Screen name="Ecm2017"component={Ecm2017}/>
            <Stack.Screen name="Ecm2018"component={Ecm2018}/>
+           <Stack.Screen name="Ecm2024"component={Ecm2024}/>
+           <Stack.Screen name="Ecm2023"component={Ecm2023}/>
+
+
            <Stack.Screen name="Redaction2019"component={Redaction2019}/>
            <Stack.Screen name="Redaction2020"component={Redaction2020}/>
            <Stack.Screen name="Redaction2021"component={Redaction2021}/>
@@ -295,12 +326,18 @@ const App = () => {
            <Stack.Screen name="Redaction2017"component={Redaction2017}/>
            <Stack.Screen name="Redaction2016"component={Redaction2016}/>
            <Stack.Screen name="Redaction2018"component={Redaction2018}/>
+           <Stack.Screen name="Redaction2024"component={Redaction2024}/>
+           <Stack.Screen name="Redaction2023"component={Redaction2023}/>
+
+
            <Stack.Screen name="Dicte2019"component={Dicte2019}/>
            <Stack.Screen name="Dicte2020"component={Dicte2020}/>
            <Stack.Screen name="Dicte2021"component={Dicte2021}/>
            <Stack.Screen name="Dicte2012"component={Dicte2012}/>
            <Stack.Screen name="Dicte2014"component={Dicte2014}/>
            <Stack.Screen name="Dicte2018"component={Dicte2018}/>
+           <Stack.Screen name="Dicte2024"component={Dicte2024}/>
+           <Stack.Screen name="Dicte2023"component={Dicte2023}/>
         </Stack.Navigator>
 
       </NavigationContainer>

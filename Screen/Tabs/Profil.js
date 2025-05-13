@@ -459,7 +459,7 @@ const ProfileScreen = () => {
     Star: 'lock',
     chat: 'chat',
     camera: 'camera',
-    back: 'arrow-back',
+  
   };
 
   const options = [
@@ -474,8 +474,8 @@ const ProfileScreen = () => {
   return (
     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name={iconNames.back} size={24} color={dynamicTextColor} />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+           <Image source={require('./../../Asset/return.png')} style={styles.backIcon} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: dynamicTextColor }]}>Mon Profil</Text>
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>

@@ -108,10 +108,10 @@ const Historique = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Histoire2024')}>
             <Image source={require('./../../../Asset/hist1.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Histoire2023')}>
             <Image source={require('./../../../Asset/hist2.png')} style={styles.image} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('HistoireGeo2022')}>

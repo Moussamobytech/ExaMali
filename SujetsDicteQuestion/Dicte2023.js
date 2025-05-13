@@ -1,15 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import {
-  ScrollView,
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Physique2010 = () => {
+const Dicte2023 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -20,19 +13,14 @@ const Physique2010 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Physiquechimie')}
+          onPress={() => navigation.navigate('AccueilMaitre')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
           <Image source={require('./../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={toggleDarkMode}
-          style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
-          accessibilityRole="switch"
-        >
+        <TouchableOpacity onPress={toggleDarkMode} style={styles.toggleContainer}>
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
               {isDarkMode ? 'ON' : 'OFF'}
@@ -41,49 +29,42 @@ const Physique2010 = () => {
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2010</Text>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2023</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>I - PHYSIQUE</Text>
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Question de Cours :</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-a) Partie d’une application de la loi Faraday :
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          a) Décris le processus de purification des métaux. b) Qu’est-ce que la galvanoplastie ?
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-b) Exercice : Le long d’un cylindre d’un treuil à un rayon de 10 cm, la manivelle a une longueur de 50 cm.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1- Détermine l’intensité de la force qu’il faut appliquer à la manivelle pour équilibrer une charge P de 50 N suspendue à la corde.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Calcule le travail moteur et le travail résistant pour un tour complet du cylindre.
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>
+          Épreuve de Dictée et Questions
         </Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>II - CHIMIE</Text>
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Question de Cours :</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Dictée</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-a) Décris l’action d’une solution d’hydroxyde de sodium sur l’aluminium.
+          L'un des éléments de base de la personnalité africaine, c'est l'esprit collectiviste. Tout se tient et tous se tiennent. Même aujourd'hui, des employés africains qui gagnent bien leur vie en ville, loin du village d'origine, considèrent plus ou moins leurs revenus comme une part du bien commun familial et en font profiter largement les membres du groupe.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Fais l’équation bilan de la réaction.
+          Un propriétaire de troupeau n'osera pas mobiliser ce capital en vendant quelques têtes de bétail, car ce serait porter atteinte au capital de prestige que ce troupeau représente pour la famille. Un autre n'hésitera pas à se dépouiller d'une bonne partie de sa fortune au profit d'un griot éloquent qui aura exalté en public les hauts faits de ses descendants.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1-b) Écris le gaz qui se dégage.
+          Couramment, des inconnus qui se rencontrent, s'appellent frères et sœurs.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Fais le compte rendu de l’expérience de la réaction d’oxydation du carbone par l’oxygène avec l’interprétation, équation, bilan et schéma, description de l’expérience.
+          Joseph Ki Zerbo
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Exercice : On titre 6 grammes d’aluminium contenu 10 % d’impuretés par une solution d’hydroxyde de sodium en excès.
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>q15. Questions</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Donne un titre à la dictée. (4 pts)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Calcule le volume du gaz dégagé.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Explique les expressions : esprit collectiviste, les hauts faits de ses descendants. (4 pts)
         </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          On donne : [M(Al)] = 27 g/mol ; [M(Na)] = 23 g/mol ; [M(O)] = 16 g/mol ; [M(H)] = 1 g/mol ; volume molaire normal = 22.4 L/mol.
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Analyse grammaticalement les mots soulignés dans le texte. (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          4) Analyse la 5ème phrase du texte. (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          5) Mets la dernière phrase du texte au futur simple de l'indicatif. (4 pts)
         </Text>
       </ScrollView>
     </View>
@@ -107,6 +88,13 @@ const getDynamicStyles = (isDarkMode) =>
       marginTop: 16,
       marginBottom: 8,
       color: isDarkMode ? '#FFD700' : '#00008B',
+    },
+    sectionSubtitle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      marginTop: 12,
+      marginBottom: 8,
+      color: isDarkMode ? '#fff' : '#000',
     },
     text: {
       fontSize: 16,
@@ -166,9 +154,21 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     lineHeight: 24,
   },
+  question: {
+    fontSize: 16,
+    marginVertical: 4,
+  },
+  instruction: {
+    fontSize: 16,
+    fontStyle: 'italic',
+    marginBottom: 8,
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
   scrollContainer: {
     paddingBottom: 20,
   },
 });
 
-export default Physique2010;
+export default Dicte2023;

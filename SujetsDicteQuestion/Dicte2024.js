@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Redaction2009 = () => {
+const Dicte2024 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
@@ -13,7 +13,7 @@ const Redaction2009 = () => {
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Rédaction')}
+          onPress={() => navigation.navigate('AccueilMaitre')}
           accessibilityLabel="Go back to home"
           accessibilityRole="button"
         >
@@ -30,21 +30,36 @@ const Redaction2009 = () => {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2009</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2024</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Rédaction - Sujets au Choix</Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet I</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          « Le rêve d’une ascension fulgurante pousse les parents à donner plus de savoir que d’éducation à leurs enfants ».
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelle réflexion t’inspire cette critique de Mariama Bâ dans son roman « une si longue lettre ».
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>
+          Dictée et Questions
         </Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Sujet II</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          s89 - Texte : Nécessité de l'effort
+        </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          De nos jours, la communication téléphonique a pris le pas sur la lettre. Penses-tu que le téléphone et la lettre remplissent en toutes circonstances les mêmes rôles ?
+          Ce n'est pas facile de devenir quelqu'un. Il faut le sacrifice de soi-même. Ici on ne considère point l'homme d'après ses origines mais d'après son travail. (...) Ce sont les valeurs personnelles qu'on considère. Vois-tu? Si le fils du dernier paysan se distingue par son effort, il te dépassera. Tu deviendras son serviteur. Ne quitte jamais ton livre, travaille, apprends, prive toi de sommeil. Ne te soucie jamais de ton corps. Habitue-toi aux difficultés de la vie, comme un prêtre ou un soldat, néglige le confort. N'aje de cœur qu'à l'étude et demain tu seras quelqu'un.
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          Jean Ikelly MATIBA
+        </Text>
+
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>
+          s90 - Questions
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          1) Comment un élève peut-il prouver qu'il se sacrifie pour ses études? (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          2) Explique les expressions suivantes: Puissants seigneurs, dernier paysan, tu seras quelqu'un. (6 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          3) Analyse les mots soulignés. (4 pts)
+        </Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          4) Écris à la forme interrogative négative: "Les jeunes lançaient leurs faucilles en l'air et les rattrapaient au vol." (6 pts)
         </Text>
       </ScrollView>
     </View>
@@ -151,4 +166,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Redaction2009;
+export default Dicte2024;
