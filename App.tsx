@@ -163,6 +163,7 @@ import Histoire2023 from './SujetsHistoiregéo/Histoire2023';
 import Physique2023 from './SujetsPysiqueChimie/Physique2023';
 import Redaction2023 from './SujetsRedaction/Redaction2023';
 import Biologie2023 from './SujetsBiologie/Biologie2023';
+import Bienvenue from './src/page/Home/Bienvenue';
 
 
 
@@ -176,6 +177,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Logo" screenOptions={{ headerShown: false }}>
            <Stack.Screen name="Logo" component={Logo} />
+           <Stack.Screen name="Bienvenue" component={Bienvenue} />
            <Stack.Screen name="Connexion" component={Connexion} />
            <Stack.Screen name="Inscription" component={Inscription} />
            <Stack.Screen name="Examalichoix" component={Examalichoix} />
