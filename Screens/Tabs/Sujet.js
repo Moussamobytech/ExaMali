@@ -47,7 +47,7 @@ const Sujets = () => {
           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
             <Image source={require('./../../Asset/TSEAN20.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Mathematique2019')}>
             <Image source={require('./../../Asset/TSEAN19.png')} style={styles.image} />
           </TouchableOpacity>
           <TouchableOpacity
@@ -915,6 +915,7 @@ const Sujets = () => {
         <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
           <Image source={require('./../../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
+                <Image source={require('./../../Asset/logoexamali.png')} style={styles.returnImage1} />
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
           <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleSwitchOn : styles.toggleSwitchOff]}>
             <Text style={[styles.toggleText, isDarkMode ? styles.textOn : styles.textOff]}>
@@ -1080,6 +1081,12 @@ const styles = StyleSheet.create({
   returnImage: {
     width: 30,
     height: 30,
+  },
+  returnImage1: {
+    width: 100,
+    height: 40,
+   alignSelf: "center", 
+   left:20
   },
   scrollContainer: {
     paddingBottom: 20,

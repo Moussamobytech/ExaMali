@@ -66,6 +66,7 @@ const Accueils = () => {
                 <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
                   <Image source={require('./../../../Asset/return.png')} style={styles.returnImage} />
                 </TouchableOpacity>
+                    <Image source={require('./../../../Asset/logoexamali.png')} style={styles.returnImage1} />
                 <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
                   <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleSwitchOn : styles.toggleSwitchOff]}>
                     <Text style={[styles.toggleText, isDarkMode ? styles.textOn : styles.textOff]}>
@@ -312,6 +313,12 @@ const TabsMaitre = () => {
     width: 30,
     height: 30,
   },
+    returnImage1: {
+    width: 100,
+    height: 40,
+   alignSelf: "center", 
+   left:20
+  },
   text: {
     color: 'white',
     
@@ -391,13 +398,13 @@ const TabsMaitre = () => {
     width: width * 0.9, // 90% de la largeur de l'écran
     maxWidth: 400, // Limite la taille pour les grands écrans
     height: 150,
-    alignSelf: "center", // Centrer la carte
+    alignSelf: "center", 
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 5,
-    marginBottom: 15, // Ajoute un espace entre les cartes
+    marginBottom: 15, 
   },
   containert3: {
     flexDirection: "row",

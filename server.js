@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:8081', 'exp://192.168.1.6:8081', '*'], // Allow all origins for testing
+  origin: ['http://localhost:8081', 'exp://192.168.1.3:8081'], 
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -52,6 +52,20 @@ async function initializeDB() {
         niveauEtude VARCHAR(50) NOT NULL,
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      )
+    `);
+
+    // Table sujets
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS sujet (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        date DATE NOT NULL,
+        year INT NOT NULL,
+        file VARCHAR(255) NOT NULL,
+        filePath VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
 
@@ -111,6 +125,54 @@ app.get('/', (req, res) => {
   res.json({ message: 'API Examali' });
 });
 
+// Route pour récupérer un sujet par son id (pour PDF)
+app.get('/api/sujet/:id', async (req, res) => {
+  try {
+    const [rows] = await pool.query(
+      'SELECT id, name, description, date, year, file, filePath FROM sujet WHERE id = ?',
+      [req.params.id]
+    );
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Sujet non trouvé' });
+    }
+    res.json(rows[0]);
+  } catch (err) {
+    console.error('Erreur récupération sujet par id:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// Route pour ajouter un nouveau sujet
+app.post('/api/sujet', authenticate, async (req, res) => {
+  const { name, description, date, year, file, filePath } = req.body;
+
+  // Validation
+  if (!name || !description || !date || !year || !file || !filePath) {
+    console.log('Validation failed: Missing fields');
+    return res.status(400).json({ error: 'Tous les champs sont requis' });
+  }
+
+  try {
+    // Insérer le sujet dans la base de données
+    const [result] = await pool.query(
+      'INSERT INTO sujet (name, description, date, year, file, filePath) VALUES (?, ?, ?, ?, ?, ?)',
+      [name, description, date, year, file, filePath]
+    );
+
+    // Récupérer le sujet nouvellement créé
+    const [newSujet] = await pool.query(
+      'SELECT id, name, description, date, year, file, filePath FROM sujet WHERE id = ?',
+      [result.insertId]
+    );
+
+    console.log('Sujet créé avec succès:', newSujet[0]);
+    res.status(201).json(newSujet[0]);
+  } catch (err) {
+    console.error('Erreur création sujet:', err);
+    res.status(500).json({ error: 'Erreur serveur lors de la création du sujet' });
+  }
+});
+
 // Route pour récupérer tous les utilisateurs
 app.get('/api/users', authenticate, async (req, res) => {
   try {
@@ -167,7 +229,7 @@ app.post('/api/auth/register', async (req, res) => {
 
     // Générer un token JWT
     const token = jwt.sign(
-      { userId: result.insertId, email, id: result.insertId }, // Added id for Chat
+      { userId: result.insertId, email, id: result.insertId },
       process.env.JWT_SECRET || 'votre_secret_secure',
       { expiresIn: '7d' }
     );
@@ -207,7 +269,7 @@ app.post('/api/auth/login', async (req, res) => {
     }
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email, id: user.id }, // Added id for Chat
+      { userId: user.id, email: user.email, id: user.id },
       process.env.JWT_SECRET || 'votre_secret_secure',
       { expiresIn: '7d' }
     );
@@ -360,9 +422,9 @@ async function start() {
   try {
     await testConnection();
     await initializeDB();
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 API démarrée sur http://0.0.0.0:${PORT}`);
-      console.log(`Accessible via http://192.168.1.6:${PORT} on local network`);
+    app.listen(PORT, 'localhost', () => {
+      console.log(`🚀 API démarrée sur http://localhost:${PORT}`);
+      console.log(`Accessible via http://192.168.1.3:${PORT} on local network`);
     });
   } catch (err) {
     console.error('Échec démarrage:', err);
@@ -371,3 +433,7 @@ async function start() {
 }
 
 start();
+
+
+
+

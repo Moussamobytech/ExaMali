@@ -1,56 +1,88 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+  Modal,
+  ActivityIndicator,
+  Dimensions,
+} from 'react-native';
 import Swiper from 'react-native-swiper';
 
-const { width, height } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window'); // Dimensions de l'écran
 
-const WelcomeScreen = ({ navigation }) => {
-  // Chemins des images locales (vérifiez que le dossier et les noms sont corrects)
+const Bienvenue = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const images = [
-    require('./../../../Asset/slade1.png'), // Ajustez le chemin selon la structure de votre projet
-    require('./../../../Asset/slade4.jpg'),
-    require('./../../../Asset/slade5.png'),
+    require('./../../../Asset/élèvee.png'),
+    require('./../../../Asset/malii.png'),
+    require('./../../../Asset/monté.png'),
   ];
+
+  const handleStart = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.navigate('AccueilMaitres');
+    }, 3000);
+  };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Bienvenue sur l'App EXAMALI</Text>
-        <Text style={styles.subtitle}>
-          Vivez une expérience unique avec nos fonctionnalités exclusives
-        </Text>
-      </View>
-
-      <View style={styles.sliderContainer}>
-        <Swiper
-          style={styles.swiper}
-          autoplay
-          autoplayTimeout={5} // Changé à 5 secondes comme demandé
-          showsPagination
-          dot={<View style={styles.dot} />}
-          activeDot={<View style={styles.activeDot} />}
-          loop // Ajouté pour un défilement en boucle fluide
-        >
-          {images.map((image, index) => (
-            <View key={index} style={styles.slide}>
-              <Image
-                source={image}
-                style={styles.image}
-                resizeMode="cover"
-                onError={(e) => console.log('Erreur de chargement d\'image:', e.nativeEvent.error)} // Debug
-              />
-            </View>
-          ))}
-        </Swiper>
-      </View>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Home')}
-        activeOpacity={0.9}
+      <Swiper
+        autoplay
+        autoplayTimeout={5}
+        showsPagination
+        dot={<View style={styles.dot} />}
+        activeDot={<View style={styles.activeDot} />}
+        loop
       >
-        <Text style={styles.buttonText}>Commencer l'expérience</Text>
-      </TouchableOpacity>
+        {images.map((image, index) => (
+          <View key={index} style={styles.slideContainer}>
+            <ImageBackground
+              source={image}
+              style={styles.slide}
+              imageStyle={styles.image} // Style spécifique pour l'image
+              resizeMode="contain" // Image entière visible et centrée
+            >
+              <View style={styles.overlay}>
+                <View style={styles.header}>
+                  <Text style={styles.title}>Bienvenue sur l'App EXAMALI</Text>
+                  <Text style={styles.subtitle}>
+                    Vivez une expérience unique avec nos fonctionnalités exclusives
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={handleStart}
+                  activeOpacity={0.9}
+                >
+                  <Text style={styles.buttonText}>Commencer l'expérience</Text>
+                </TouchableOpacity>
+              </View>
+            </ImageBackground>
+          </View>
+        ))}
+      </Swiper>
+
+      {/* Modal de chargement */}
+      <Modal
+        transparent={true}
+        animationType="fade"
+        visible={isLoading}
+        onRequestClose={() => {}}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <ActivityIndicator size="large" color="#5378c0" />
+            <Text style={styles.modalText}>Connexion en cours...</Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -58,56 +90,56 @@ const WelcomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
-    paddingTop: height * 0.05,
+  },
+  slideContainer: {
+    flex: 1,
+    justifyContent: 'center', // Centrer verticalement
+    alignItems: 'center', // Centrer horizontalement
+  },
+  slide: {
+    width: width, // Largeur de l'écran
+    height: height, // Hauteur de l'écran
+    justifyContent: 'flex-end', // Positionner le contenu en bas
+  },
+  image: {
+    resizeMode: 'contain', // Image entière visible et centrée
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'space-between',
+    paddingVertical: 60,
+    paddingHorizontal: 30,
+    width: '100%', // S'assurer que l'overlay couvre toute la largeur
   },
   header: {
-    alignItems: 'center',
-    paddingHorizontal: 25,
-    marginBottom: height * 0.03,
+    marginTop: 50,
   },
   title: {
     fontSize: 32,
-    fontWeight: '800',
+    fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 10,
     textAlign: 'center',
-    letterSpacing: 0.5,
+    marginBottom: 10,
   },
   subtitle: {
     fontSize: 18,
-    color: '#fff',
+    color: '#ddd',
     textAlign: 'center',
     lineHeight: 24,
   },
-  sliderContainer: {
-    width: width,
-    height: height * 0.6,
-    marginBottom: height * 0.03,
-    overflow: 'hidden', // Assure que le contenu du slider est bien contenu
-  },
-  swiper: {
-    // Pas de style height ici, géré par sliderContainer
-  },
-  slide: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center', // Centrer l'image
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
   dot: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)', // Légère modification pour contraste
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
     width: 10,
     height: 10,
     borderRadius: 5,
     marginHorizontal: 4,
-    marginBottom: 10, // Positionnement fixe pour éviter les problèmes
+    marginBottom: 10,
   },
   activeDot: {
-    backgroundColor: '#0984E3',
+    backgroundColor: '#00aaff',
     width: 30,
     height: 10,
     borderRadius: 5,
@@ -115,23 +147,40 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: '#0984E3',
-    paddingVertical: 18,
-    marginHorizontal: 25,
-    borderRadius: 15,
+    backgroundColor: '#000',
+    paddingVertical: 16,
+    borderRadius: 12,
+    marginHorizontal: 10,
     shadowColor: '#000',
+    shadowOpacity: 0.4,
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 8,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#fff',
     fontSize: 18,
     fontWeight: '700',
     textAlign: 'center',
-    letterSpacing: 0.5,
+  },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    backgroundColor: '#fff',
+    paddingVertical: 20,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalText: {
+    marginTop: 15,
+    fontSize: 16,
+    color: '#333',
   },
 });
 
-export default WelcomeScreen;
+export default Bienvenue;

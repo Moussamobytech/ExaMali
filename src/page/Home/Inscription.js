@@ -871,7 +871,7 @@ const validationSchema = Yup.object().shape({
     .required('Le niveau d\'étude est requis'),
 });
 
-const API_URL = 'http://192.168.1.6:3000';
+const API_URL = 'http://192.168.1.35:3000';
 // For Android emulator, uncomment the following if testing on emulator:
 // const API_URL = 'http://10.0.2.2:3000';
 
@@ -1156,7 +1156,7 @@ function Inscription() {
         transparent={true}
         animationType="fade"
         visible={isLoading}
-        onRequestClose={() => {}} // Prevent closing during submission
+        onRequestClose={() => {}} 
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>

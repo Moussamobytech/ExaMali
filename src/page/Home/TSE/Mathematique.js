@@ -122,7 +122,7 @@ const Mathematique = () => {
           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
             <Image source={require('./../../../../Asset/TSEAN20.png')} style={styles.image} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Mathematique2019')}>
             <Image source={require('./../../../../Asset/TSEAN19.png')} style={styles.image} />
           </TouchableOpacity>
         </View>

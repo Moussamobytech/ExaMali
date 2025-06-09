@@ -164,6 +164,8 @@ import Physique2023 from './SujetsPysiqueChimie/Physique2023';
 import Redaction2023 from './SujetsRedaction/Redaction2023';
 import Biologie2023 from './SujetsBiologie/Biologie2023';
 import Bienvenue from './src/page/Home/Bienvenue';
+import Mathematique2019 from './SujetBac/Mathematique2019';
+
 
 
 
@@ -239,7 +241,7 @@ const App = () => {
            <Stack.Screen name="Math19"component={Math19}/>
            <Stack.Screen name="Mathematique2010"component={Mathematique2010}/>
            <Stack.Screen name="Mathematique2011"component={Mathematique2011}/>
-
+       <Stack.Screen name="Mathematique2019"component={Mathematique2019}/>
 
            <Stack.Screen name="Physique19"component={Physique19}/>
            <Stack.Screen name="ProposExamali"component={ProposExamali}/>
@@ -340,6 +342,9 @@ const App = () => {
            <Stack.Screen name="Dicte2018"component={Dicte2018}/>
            <Stack.Screen name="Dicte2024"component={Dicte2024}/>
            <Stack.Screen name="Dicte2023"component={Dicte2023}/>
+
+
+
         </Stack.Navigator>
 
       </NavigationContainer>
