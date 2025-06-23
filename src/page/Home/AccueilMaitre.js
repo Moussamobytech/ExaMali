@@ -175,13 +175,13 @@ const Accueils = () => {
     showsHorizontalScrollIndicator={false} 
     style={styles.horizontalScrollView}>
     <View style={styles.imageRowW}>
-      <TouchableOpacity onPress={() => navigation.navigate('#')}>
+      <TouchableOpacity onPress={() => navigation.navigate('ExerciceMath')}>
         <Image
           source={require('./../../../Asset/MATH2.png')}
           style={styles.imagee}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('#')}>
+      <TouchableOpacity onPress={() => navigation.navigate('ExercicePhy')}>
         <Image
           source={require('./../../../Asset/PHY1.png')}
           style={styles.imagee}
@@ -389,30 +389,30 @@ const TabsMaitre = () => {
        
       },
       imagee: {
-        width: 102, // Adjust to your desired image size
+        width: 102, 
         height: 110,
-        marginHorizontal: 10, // Add spacing between images
+        marginHorizontal: 10, 
         
       },
       imageee: {
-      width: 100, // Adjust to your desired image size
+      width: 100, 
        top: -30,
-        marginHorizontal: 10, // Add spacing between images
-        borderRadius: 10, // Optional rounded corners
+        marginHorizontal: 10, 
+        borderRadius: 10, 
       },
       imageege: {
-        width: 190, // Adjust to your desired image size
+        width: 190, 
         height: 30,
        top: -30,
-        marginHorizontal: 10, // Add spacing between images
-        borderRadius: 10, // Optional rounded corners
+        marginHorizontal: 10,
+        borderRadius: 10, 
       },
       imageeec: {
-        width: 60, // Adjust to your desired image size
+        width: 60, 
         height: 30,
        top: -30,
-        marginHorizontal: 10, // Add spacing between images
-        borderRadius: 10, // Optional rounded corners
+        marginHorizontal: 10,
+        borderRadius: 10,
       },
   container: {
     flex: 1,
@@ -459,8 +459,7 @@ const TabsMaitre = () => {
   
   imageRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around', // Aligne les images horizontalement avec un espace égal
-    marginTop: 20, // Ajoute de l'espace entre le texte et les images
+    justifyContent: 'space-around', 
   },
   centeredImage: {
     marginTop: 20,

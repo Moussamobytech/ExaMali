@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:8081', 'exp://192.168.1.3:8081'], 
+  origin: ['http://localhost:8081', 'exp://192.168.1.10:8081'], 
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -424,7 +424,7 @@ async function start() {
     await initializeDB();
     app.listen(PORT, 'localhost', () => {
       console.log(`🚀 API démarrée sur http://localhost:${PORT}`);
-      console.log(`Accessible via http://192.168.1.3:${PORT} on local network`);
+      console.log(`Accessible via http://192.168.1.10:${PORT} on local network`);
     });
   } catch (err) {
     console.error('Échec démarrage:', err);

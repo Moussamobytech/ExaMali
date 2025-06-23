@@ -11,15 +11,15 @@ import {
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-const { height, width } = Dimensions.get('window'); // Dimensions de l'écran
+const { height, width } = Dimensions.get('window');
 
 const Bienvenue = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const images = [
     require('./../../../Asset/élèvee.png'),
-    require('./../../../Asset/malii.png'),
-    require('./../../../Asset/monté.png'),
+    require('./../../../Asset/exam.png'),
+    require('./../../../Asset/info.jpg'),
   ];
 
   const handleStart = () => {
@@ -46,8 +46,7 @@ const Bienvenue = ({ navigation }) => {
             <ImageBackground
               source={image}
               style={styles.slide}
-              imageStyle={styles.image} // Style spécifique pour l'image
-              resizeMode="contain" // Image entière visible et centrée
+              resizeMode="cover" // ✅ Affiche l’image en plein écran
             >
               <View style={styles.overlay}>
                 <View style={styles.header}>
@@ -93,18 +92,13 @@ const styles = StyleSheet.create({
   },
   slideContainer: {
     flex: 1,
-    justifyContent: 'center', // Centrer verticalement
-    alignItems: 'center', // Centrer horizontalement
-  },
-  slide: {
-    width: width, // Largeur de l'écran
-    height: height, // Hauteur de l'écran
-    justifyContent: 'flex-end', // Positionner le contenu en bas
-  },
-  image: {
-    resizeMode: 'contain', // Image entière visible et centrée
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  slide: {
+    width: width,
+    height: height,
+    justifyContent: 'flex-end',
   },
   overlay: {
     flex: 1,
@@ -112,7 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 60,
     paddingHorizontal: 30,
-    width: '100%', // S'assurer que l'overlay couvre toute la largeur
+    width: '100%',
   },
   header: {
     marginTop: 50,

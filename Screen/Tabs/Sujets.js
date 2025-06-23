@@ -1849,6 +1849,7 @@ iconImageD: {
   marginRight: 50,
   right: -20
 },
+
 textContainer: {
   flex: 1,
   justifyContent: 'center',

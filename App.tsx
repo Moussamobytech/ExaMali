@@ -165,6 +165,35 @@ import Redaction2023 from './SujetsRedaction/Redaction2023';
 import Biologie2023 from './SujetsBiologie/Biologie2023';
 import Bienvenue from './src/page/Home/Bienvenue';
 import Mathematique2019 from './SujetBac/Mathematique2019';
+import Mathematique2021 from './SujetBac/Mathematique2021';
+import Mathematique2022 from './SujetBac/Mathematique2022';
+import Mathematique2023 from './SujetBac/Mathematique2023';
+import MathematiqueTexp2019 from './SujetBacTexp/MathematiqueTexp2019';
+import MathematiqueTexp2020 from './SujetBacTexp/MathematiqueTexp2020';
+import MathematiqueTseco2021 from './SujetBacTseco/MathematiqueTseco2021';
+import MathematiqueTseco2019 from './SujetBacTseco/MathematiqueTseco2019';
+import MathematiqueTseco2020 from './SujetBacTseco/MathematiqueTseco2020';
+import MathematiqueTseco2022 from './SujetBacTseco/MathematiqueTseco2022';
+import MathematiqueTss2019 from './SujetBacTss/MathematiqueTss2019';
+import MathematiqueTss2020 from './SujetBacTss/MathematiqueTss2020';
+import MathematiqueTss2021 from './SujetBacTss/MathematiqueTss2021';
+import MathematiqueTss2022 from './SujetBacTss/MathematiqueTss2022';
+import MathematiqueTll2019 from './SujetBacTll/MathematiqueTll2019';
+import MathematiqueTll2020 from './SujetBacTll/MathematiqueTll2020';
+import MathematiqueTll2021 from './SujetBacTll/MathematiqueTll2021';
+import MathematiqueTll2022 from './SujetBacTll/MathematiqueTll2022';
+import ExerciceMath from './DEF/ExerciceMath';
+import ExercicePhy from './DEF/ExercicePhy';
+import AnglaisTll2019 from './SujetBacTll/AnglaisTll2019';
+import AnglaisTll2020 from './SujetBacTll/AnglaisTll2020';
+import ConcoursApp from './src/page/Home/ConcoursApp';
+import Mathematique2020 from './SujetBac/Mathematique2020';
+import AnglaisTse2019 from './SujetBac/AnglaisTse2019';
+import AnglaisTexp2019 from './SujetBacTexp/AnglaisTexp2019';
+import AnglaisTseco2019 from './SujetBacTseco/AnglaisTseco2019';
+import AnglaisTexp2020 from './SujetBacTexp/AnglaisTexp2020';
+import AnglaisTse2020 from './SujetBac/AnglaisTse2020';
+import AnglaisTseco2020 from './SujetBacTseco/AnglaisTseco2020';
 
 
 
@@ -344,6 +373,47 @@ const App = () => {
            <Stack.Screen name="Dicte2023"component={Dicte2023}/>
 
 
+          <Stack.Screen name="Mathematique2021"component={Mathematique2021}/>
+          <Stack.Screen name="Mathematique2022"component={Mathematique2022}/>
+          <Stack.Screen name="Mathematique2023"component={Mathematique2023}/>
+       <Stack.Screen name="Mathematique2020"component={Mathematique2020}/>
+        <Stack.Screen name="AnglaisTse2019"component={AnglaisTse2019}/>
+         <Stack.Screen name="AnglaisTse2020"component={AnglaisTse2020}/>
+
+          <Stack.Screen name="MathematiqueTexp2019"component={MathematiqueTexp2019}/>
+          <Stack.Screen name="MathematiqueTexp2020"component={MathematiqueTexp2020}/>
+          <Stack.Screen name="MathematiqueTexp2021"component={MathematiqueTexp2020}/>
+          <Stack.Screen name="AnglaisTexp2019"component={AnglaisTexp2019}/>
+          <Stack.Screen name="AnglaisTexp2020"component={AnglaisTexp2020}/>
+
+
+          <Stack.Screen name="MathematiqueTseco2021"component={MathematiqueTseco2021}/>
+          <Stack.Screen name="MathematiqueTseco2019"component={MathematiqueTseco2019}/>
+          <Stack.Screen name="MathematiqueTseco2020"component={MathematiqueTseco2020}/>
+          <Stack.Screen name="MathematiqueTseco2022"component={MathematiqueTseco2022}/>
+          <Stack.Screen name="AnglaisTseco2019"component={AnglaisTseco2019}/>
+          <Stack.Screen name="AnglaisTseco2020"component={AnglaisTseco2020}/>
+
+
+
+
+
+          <Stack.Screen name="MathematiqueTss2019"component={MathematiqueTss2019}/>
+          <Stack.Screen name="MathematiqueTss2020"component={MathematiqueTss2020}/>
+          <Stack.Screen name="MathematiqueTss2021"component={MathematiqueTss2021}/>
+            <Stack.Screen name="MathematiqueTss2022"component={MathematiqueTss2022}/>
+
+            <Stack.Screen name="MathematiqueTll2019"component={MathematiqueTll2019}/>
+            <Stack.Screen name="MathematiqueTll2020"component={MathematiqueTll2020}/>
+            <Stack.Screen name="MathematiqueTll2021"component={MathematiqueTll2021}/>
+            <Stack.Screen name="MathematiqueTll2022"component={MathematiqueTll2022}/>
+            <Stack.Screen name="AnglaisTll2019"component={AnglaisTll2019}/>
+           <Stack.Screen name="AnglaisTll2020"component={AnglaisTll2020}/> 
+
+            <Stack.Screen name="ExerciceMath"component={ExerciceMath}/>
+            <Stack.Screen name="ExercicePhy"component={ExercicePhy}/>
+
+             <Stack.Screen name="ConcoursApp"component={ConcoursApp}/>
 
         </Stack.Navigator>
 

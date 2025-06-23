@@ -87,7 +87,7 @@ const Accueils = () => {
              <View style={styles.textContainer}>
                <Text style={styles.title}>Terminal science exact</Text>
                <Text style={styles.subtitle}>TSE</Text>
-               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Mathematique')}>
+               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sujet')}>
                  <Text style={styles.buttonText}  onPress={() => navigation.navigate('Sujet')}>Voir le sujet</Text>
                </TouchableOpacity>
              </View>
@@ -376,6 +376,7 @@ const TabsMaitre = () => {
     height: 150,
     alignSelf: "center", // Centrer la carte
     marginBottom: 15, // Added margin to create space between cards
+
   },
   container2: {
     flexDirection: "row",
@@ -421,7 +422,7 @@ const TabsMaitre = () => {
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 5,
-    marginBottom: 15, // Ajoute un espace entre les cartes
+    marginBottom: 15, 
   },
 
   containert1: {
