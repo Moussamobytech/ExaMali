@@ -30,6 +30,24 @@ const Accueils = () => {
   const [modalVisible, setModalVisible] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode state
 
+  const [username, setUsername] = useState(''); // État pour stocker le prénom
+
+  // Récupérer le username depuis AsyncStorage au chargement du composant
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userData = await AsyncStorage.getItem('userData');
+        if (userData) {
+          const parsedData = JSON.parse(userData);
+          setUsername(parsedData.username || ''); // Mettre à jour le username
+        }
+      } catch (error) {
+        console.error('Erreur lors de la récupération des données utilisateur:', error);
+      }
+    };
+    fetchUserData();
+  }, []);
+
     const toggleTheme = () => {
       setIsDarkMode(!isDarkMode);
     };
@@ -66,7 +84,9 @@ const Accueils = () => {
                 <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
                   <Image source={require('./../../../Asset/return.png')} style={styles.returnImage} />
                 </TouchableOpacity>
-                    <Image source={require('./../../../Asset/logoexamali.png')} style={styles.returnImage1} />
+                      <Text style={[styles.headerText, { color: dynamicTextColor }]}>
+                             {username ? `Bonjour, ${username}` : 'Bienvenue'}
+                           </Text>
                 <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
                   <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleSwitchOn : styles.toggleSwitchOff]}>
                     <Text style={[styles.toggleText, isDarkMode ? styles.textOn : styles.textOff]}>
@@ -283,19 +303,19 @@ const TabsMaitre = () => {
   
   const styles = StyleSheet.create({
     horizontalScrollView: {
-        marginVertical: 10, // Optional margin for spacing
+        marginVertical: 10,
       },
       grandecontainerr: {
         flex: 1,
         padding: 10,
          justifyContent: 'space-between',
-         marginTop: 10, // Optional margin for space at the top
+         marginTop: 10, 
       },
       scrollContainer:{
         flexGrow: 1,
         justifyContent: 'center',
         paddingHorizontal: 10,
-        paddingBottom: 60, // Add padding to avoid overlap with footer
+        paddingBottom: 60, 
       },
       
   container: {
@@ -308,6 +328,10 @@ const TabsMaitre = () => {
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
+  },
+   headerText: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   returnImage: {
     width: 30,

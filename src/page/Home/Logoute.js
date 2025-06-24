@@ -1,4 +1,4 @@
-import auth from '@react-native-firebase/auth';
+
 import { Alert } from 'react-native';
 import { CommonActions } from '@react-navigation/native';
 
