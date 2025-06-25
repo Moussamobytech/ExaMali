@@ -57,7 +57,7 @@ const Profil = () => {
   const dynamicBackgroundColor = isDarkMode ? '#000' : '#fff';
   const dynamicInputBackground = isDarkMode ? '#333' : '#ddd';
   const dynamicInputTextColor = isDarkMode ? '#fff' : '#000';
-
+  const dynamicImageColor = isDarkMode ? '#fff' : '#000';
   return (
     <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
       <View style={styles.headerContainer}>
@@ -74,7 +74,7 @@ const Profil = () => {
         </TouchableOpacity>
       </View>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.subtitles, { color: dynamicTextColor }]}>Correction des sujets de la TSEXP</Text>
+        <Text style={[styles.subtitles, { color: dynamicTextColor }]}>Correction des sujets </Text>
         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>
           Découvrez les corrections des années précédentes
         </Text>
@@ -117,7 +117,7 @@ const Profil = () => {
 
         <View style={styles.imagecontainer}>
           <TouchableOpacity >
-            <Image source={require('./../../Asset/corrigee.png')} style={styles.image} />
+            <Image source={require('./../../Asset/image.png')} style={[styles.image, { color: dynamicImageColor}]} />
           </TouchableOpacity>
           <View style={styles.emptyState}>
             <Text style={[styles.emptyText, { color: dynamicTextColor }]}>

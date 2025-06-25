@@ -119,8 +119,8 @@ const Accueils = () => {
                <View style={styles.textContainer}>
                  <Text style={styles.title}>Terminal science économie</Text>
                  <Text style={styles.subtitle}>TESCO</Text>
-                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TSEXPMathematique')}>
-                   <Text style={styles.buttonText} onPress={() => navigation.navigate('TSEXPMathematique')}>Voir le sujet</Text>
+                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sujet')}>
+                   <Text style={styles.buttonText} onPress={() => navigation.navigate('Sujet')}>Voir le sujet</Text>
                  </TouchableOpacity>
                </View>
              </View>
@@ -129,8 +129,8 @@ const Accueils = () => {
              <View style={styles.textContainer}>
                <Text style={styles.title}>Terminal science expérimentale</Text>
                <Text style={styles.subtitle}>TSEXP</Text>
-               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TSEXPMathematique')}>
-                 <Text style={styles.buttonText} onPress={() => navigation.navigate('TSEXPMathematique')}>Voir le sujet</Text>
+               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sujet')}>
+                 <Text style={styles.buttonText} onPress={() => navigation.navigate('Sujet')}>Voir le sujet</Text>
                </TouchableOpacity>
              </View>
              <Image source={require('./../../../Asset/test.png')} style={styles.image} />
