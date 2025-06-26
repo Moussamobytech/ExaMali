@@ -194,6 +194,9 @@ import AnglaisTseco2019 from './SujetBacTseco/AnglaisTseco2019';
 import AnglaisTexp2020 from './SujetBacTexp/AnglaisTexp2020';
 import AnglaisTse2020 from './SujetBac/AnglaisTse2020';
 import AnglaisTseco2020 from './SujetBacTseco/AnglaisTseco2020';
+import Notification from './src/page/Home/Notification';
+import Invite from './src/page/Home/Invite';
+import Suggestion from './src/page/Home/Suggestion';
 
 
 
@@ -271,6 +274,10 @@ const App = () => {
            <Stack.Screen name="Mathematique2010"component={Mathematique2010}/>
            <Stack.Screen name="Mathematique2011"component={Mathematique2011}/>
        <Stack.Screen name="Mathematique2019"component={Mathematique2019}/>
+      <Stack.Screen name="Notification"component={Notification}/>
+         <Stack.Screen name="Invite"component={Invite}/>
+        <Stack.Screen name="Suggestion"component={Suggestion}/>
+
 
            <Stack.Screen name="Physique19"component={Physique19}/>
            <Stack.Screen name="ProposExamali"component={ProposExamali}/>

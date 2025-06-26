@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -9,11 +8,12 @@ import {
   Modal,
   TextInput,
   ScrollView,
+  Switch
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -25,11 +25,6 @@ const ProfileScreen = () => {
   const [tempName, setTempName] = useState('');
   const [tempEmail, setTempEmail] = useState('');
 
-  const dynamicTextColor = isDarkMode ? '#fff' : '#000';
-  const dynamicBackgroundColor = isDarkMode ? '#000' : '#fff';
-  const dynamicImageTintColor = isDarkMode ? '#fff' : '#000';
-
-  // Load user data on mount
   useEffect(() => {
     const loadUserData = async () => {
       try {
@@ -42,23 +37,14 @@ const ProfileScreen = () => {
           setTempEmail(email);
         }
       } catch (error) {
-        console.error('Erreur lors du chargement des données utilisateur:', error);
+        console.error('Erreur chargement userData :', error);
       }
     };
     loadUserData();
   }, []);
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
   const selectImage = () => {
-    const options = {
-      mediaType: 'photo',
-      quality: 1,
-    };
-
-    launchImageLibrary(options, response => {
+    launchImageLibrary({ mediaType: 'photo' }, response => {
       if (response.assets && response.assets.length > 0) {
         setProfileImage({ uri: response.assets[0].uri });
       }
@@ -79,6 +65,15 @@ const ProfileScreen = () => {
     }
   };
 
+  const theme = {
+    background: isDarkMode ? '#121212' : '#f3f3f3',
+    card: isDarkMode ? '#1e1e1e' : '#fff',
+    text: isDarkMode ? '#fff' : '#000',
+    subText: isDarkMode ? '#ccc' : '#555',
+    border: isDarkMode ? '#333' : '#ddd',
+    icon: isDarkMode ? '#ccc' : '#555',
+  };
+
   const handleLogout = async () => {
     try {
       await AsyncStorage.clear();
@@ -91,101 +86,136 @@ const ProfileScreen = () => {
     }
   };
 
-  const iconNames = {
-    download: 'file-download',
-    logout: 'logout',
-    condition: 'gavel',
-    vector: 'chevron-right',
-    Info: 'info',
-    Star: 'lock',
-    chat: 'chat',
-    camera: 'camera',
-  
+  const handleSettingPress = (item) => {
+    if (item.action) {
+      item.action();
+    } else if (item.route) {
+      navigation.navigate(item.route);
+    }
   };
 
-  const options = [
-    { id: 1, text: 'Les sujets téléchargés', icon: 'download' },
-    { id: 4, text: 'A propos du ExaMali', icon: 'Info', route: 'ProposExamali' },
-    { id: 3, text: 'Conditions d\'utilisation', icon: 'condition', route: 'Condition' },
-    { id: 5, text: 'Politique de confidentialité', icon: 'Star', route: 'Politique' },
-    { id: 6, text: 'Chat', icon: 'chat', route: 'Chat' },
-    { id: 2, text: 'Se déconnecter', icon: 'logout', action: handleLogout },
+  const quickActions = [
+    { icon: 'event-note', label: 'Mes cours' },
+    { icon: 'account-balance-wallet', label: 'Exercices' },
+    { icon: 'add-circle-outline', label: 'Recharger' },
+    { icon: 'mail-outline', label: 'Inviter' },
+  ];
+
+  const settings = [
+    { icon: 'person', label: 'À propos de EXAMALI', route: 'ProposExamali' },
+    { icon: 'assignment', label: 'Condition d\'utilisation', route: 'Condition' },
+    { icon: 'security', label: 'Politique de confidentialité', route: 'Politique'},
+    { icon: 'lightbulb-outline', label: 'Suggestions et Améliorations', route: 'Suggestion' },
+    { icon: 'notifications', label: 'Notifications', route: 'Notification' },
+    { icon: 'favorite', label: 'Fournisseurs préférés', route: 'FournisseursPreferes' },
+    { icon: 'group-add', label: 'Inviter des amis', route: 'Invite' },
+    { icon: 'logout', label: 'Se déconnecter', action: handleLogout },
   ];
 
   return (
-    <View style={[styles.container, isDarkMode ? darkStyles.container : lightStyles.container]}>
-      <View style={styles.headerContainer}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-           <Image source={require('./../../Asset/return.png')} style={styles.backIcon} />
-        </TouchableOpacity>
-        <Text style={[styles.headerTitle, { color: dynamicTextColor }]}>Mon Profil</Text>
-        <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
-          <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleOn : styles.toggleOff]}>
-            <Text style={[styles.toggleText, isDarkMode ? styles.toggleTextOn : styles.toggleTextOff]}>
-              {isDarkMode ? 'ON' : 'OFF'}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.profileSection}>
+    <ScrollView 
+      style={[styles.container, { backgroundColor: theme.background }]}
+      contentContainerStyle={styles.scrollContent}
+    >
+      {/* Header */}
+      <View style={styles.header}>
         <TouchableOpacity onPress={selectImage}>
           <Image source={profileImage} style={styles.profileImage} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={selectImage} style={styles.cameraIcon}>
-          <Icon name={iconNames.camera} size={20} color="#fff" />
-        </TouchableOpacity>
-        <View style={styles.profileInfo}>
-          <Text style={[styles.profileName, { color: dynamicTextColor }]}>{name}</Text>
-          <Text style={[styles.profileEmail, { color: dynamicTextColor }]}>{email}</Text>
+        <View style={styles.userInfo}>
+          <Text style={[styles.name, { color: theme.text }]}>{name}</Text>
+          <Text style={[styles.email, { color: theme.text }]}>{email}</Text>
           <TouchableOpacity style={styles.editButton} onPress={() => setModalVisible(true)}>
             <Text style={styles.editButtonText}>Éditer le Profil</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.alertCircle}>
+          <Text style={styles.alertText}>!</Text>
+        </View>
       </View>
 
-      <ScrollView contentContainerStyle={styles.optionsContainer}>
-        {options.map(item => (
-          <TouchableOpacity
-            key={item.id}
-            style={styles.optionRow}
-            onPress={() => item.action ? item.action() : item.route && navigation.navigate(item.route)}
-          >
-            <Icon
-              name={iconNames[item.icon]}
-              size={24}
-              color={dynamicImageTintColor}
-              style={styles.optionIcon}
+      {/* Wallet Section */}
+      <View style={[styles.walletContainer, { backgroundColor: theme.card }]}>
+        <View style={styles.walletHeader}>
+          <Text style={[styles.walletTitle, { color: theme.text }]}>L'espaces d'études</Text>
+          <View style={styles.darkModeContainer}>
+            <Text style={[styles.darkModeLabel, { color: theme.text }]}></Text>
+            <Switch
+              value={isDarkMode}
+              onValueChange={setIsDarkMode}
+              trackColor={{ false: "#767577", true: "#81b0ff" }}
+              thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
             />
-            <Text style={[styles.optionText, { color: dynamicTextColor }]}>
-              {item.text}
+            <Text style={[styles.darkModeStatus, { color: isDarkMode ? '#81b0ff' : '#767577' }]}>
+              {isDarkMode ? 'ON' : 'OFF'}
             </Text>
-            <Icon
-              name={iconNames.vector}
-              size={18}
-              color={dynamicImageTintColor}
-              style={styles.optionIcons}
-            />
+          </View>
+        </View>
+        {/* Supprimé l'affichage du solde ici */}
+        <View style={styles.quickActions}>
+          {quickActions.map((action, index) => (
+            <TouchableOpacity 
+              key={index} 
+              style={styles.quickItem}
+              onPress={() => navigation.navigate(action.label)}
+            >
+              <Icon name={action.icon} size={24} color={theme.icon} />
+              <Text style={[styles.quickText, { color: theme.subText }]}>{action.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      {/* Settings */}
+      <View style={styles.settingsContainer}>
+        <Text style={[styles.sectionTitle, { color: theme.text }]}>Paramètres généraux</Text>
+        {settings.map((item, index) => (
+          <TouchableOpacity 
+            key={index} 
+            style={[styles.settingRow, { backgroundColor: theme.card }]}
+            onPress={() => handleSettingPress(item)}
+          >
+            <Icon name={item.icon} size={24} color={theme.icon} />
+            <Text style={[styles.settingText, { color: theme.text }]}>{item.label}</Text>
+            <Icon name="chevron-right" size={20} color={theme.icon} style={{ marginLeft: 'auto' }} />
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </View>
 
+      {/* Espace en bas */}
+      <View style={{ height: 40 }} />
+
+      {/* Modal edit */}
       <Modal visible={modalVisible} animationType="slide" transparent>
         <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Modifier le Profil</Text>
+          <View style={[styles.modalContent, { backgroundColor: theme.card }]}>
+            <Text style={[styles.modalTitle, { color: theme.text }]}>Modifier le Profil</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, { 
+                color: theme.text, 
+                backgroundColor: isDarkMode ? '#333' : '#eee',
+                borderColor: theme.border,
+                borderWidth: 1,
+                padding: 12
+              }]}
               value={tempName}
               onChangeText={setTempName}
               placeholder="Nom"
+              placeholderTextColor={theme.subText}
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { 
+                color: theme.text, 
+                backgroundColor: isDarkMode ? '#333' : '#eee',
+                borderColor: theme.border,
+                borderWidth: 1,
+                padding: 12
+              }]}
               value={tempEmail}
               onChangeText={setTempEmail}
               placeholder="Email"
               keyboardType="email-address"
+              placeholderTextColor={theme.subText}
             />
             <View style={styles.modalButtons}>
               <TouchableOpacity style={styles.saveButton} onPress={saveProfile}>
@@ -198,139 +228,130 @@ const ProfileScreen = () => {
           </View>
         </View>
       </Modal>
-    </View>
+    </ScrollView>
   );
 };
-
-const darkStyles = StyleSheet.create({
-  container: {
-    backgroundColor: '#121212',
-  },
-  text: {
-    color: '#fff',
-  },
-  input: {
-    backgroundColor: '#333',
-    color: '#fff',
-  },
-});
-
-const lightStyles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-  },
-  text: {
-    color: '#000',
-    marginBottom: 10,
-  },
-  input: {
-    backgroundColor: '#ddd',
-    color: '#000',
-  },
-});
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  headerContainer: {
+  scrollContent: {
+    paddingBottom: 40,
+  },
+  header: {
+    backgroundColor: '#5d894e',
+    padding: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 15,
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  toggleContainer: {
-    padding: 5,
-  },
-  toggleSwitch: {
-    width: 50,
-    height: 25,
-    borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  toggleOn: {
-    backgroundColor: '#4caf50',
-  },
-  toggleOff: {
-    backgroundColor: 'red',
-  },
-  toggleText: {
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  toggleTextOn: {
-    color: '#fff',
-  },
-  toggleTextOff: {
-    color: '#000',
-  },
-  profileSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  cameraIcon: {
-    position: 'absolute',
-    top: 60,
-    left: 65,
-    width: 30, // Increased for better visibility
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: '#00D3EB',
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: 'relative',
   },
   profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#fff',
   },
-  profileInfo: {
+  userInfo: {
     marginLeft: 15,
+    flex: 1,
   },
-  profileName: {
-    fontSize: 18,
+  name: {
+    fontSize: 16,
     fontWeight: 'bold',
   },
-  profileEmail: {
+  email: {
     fontSize: 14,
-    color: '#666',
   },
-  editButton: {
-    marginTop: 5,
-    backgroundColor: '#00D3EB',
-    paddingVertical: 5,
-    borderRadius: 5,
-    width: 100,
+  alertCircle: {
+    position: 'absolute',
+    right: 15,
+    top: 20,
+    backgroundColor: 'red',
+    borderRadius: 12,
+    width: 24,
+    height: 24,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  editButtonText: {
+  alertText: {
     color: '#fff',
-    fontSize: 14,
+    fontWeight: 'bold',
   },
-  optionsContainer: {
+  walletContainer: {
+    marginHorizontal: 10,
+    borderRadius: 10,
+    marginTop: -10,
     padding: 15,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-  optionRow: {
+  walletHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  darkModeContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
+    gap: 6,
   },
-  optionIcon: {
-    marginRight: 10,
+  darkModeLabel: {
+    fontSize: 14,
   },
-  optionIcons: {
-    marginLeft: 'auto',
+  darkModeStatus: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    minWidth: 30,
   },
-  optionText: {
+  walletTitle: {
     fontSize: 16,
+    fontWeight: 'bold',
+  },
+  quickActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  quickItem: {
+    alignItems: 'center',
+    flex: 1,
+    padding: 8,
+  },
+  quickText: {
+    fontSize: 12,
+    marginTop: 5,
+    textAlign: 'center',
+  },
+  settingsContainer: {
+    marginTop: 20,
+    paddingHorizontal: 15,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  settingRow: {
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  settingText: {
+    marginLeft: 15,
+    fontSize: 14,
+    flex: 1,
   },
   modalContainer: {
     flex: 1,
@@ -339,44 +360,63 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalContent: {
-    width: 300,
-    backgroundColor: '#fff',
+    width: '85%',
     padding: 20,
     borderRadius: 10,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 20,
+    textAlign: 'center',
   },
   input: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    marginBottom: 15,
-    padding: 8,
+    marginBottom: 20,
     fontSize: 16,
+    borderRadius: 8,
   },
   modalButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 10,
   },
   saveButton: {
     backgroundColor: '#00D3EB',
-    padding: 10,
-    borderRadius: 5,
+    padding: 12,
+    borderRadius: 8,
+    flex: 1,
+    marginRight: 10,
+    alignItems: 'center',
   },
   saveButtonText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   cancelButton: {
     backgroundColor: '#ccc',
-    padding: 10,
-    borderRadius: 5,
+    padding: 12,
+    borderRadius: 8,
+    flex: 1,
+    alignItems: 'center',
   },
   cancelButtonText: {
     color: '#000',
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  editButton: {
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 15,
+    marginTop: 8,
+    alignSelf: 'flex-start',
+  },
+  editButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '500',
   },
 });
 
