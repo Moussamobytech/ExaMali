@@ -94,21 +94,23 @@ const ProfileScreen = () => {
     }
   };
 
+  // Actions rapides adaptées aux sujets d'examen
   const quickActions = [
-    { icon: 'event-note', label: 'Mes cours' },
-    { icon: 'account-balance-wallet', label: 'Exercices' },
-    { icon: 'add-circle-outline', label: 'Recharger' },
-    { icon: 'mail-outline', label: 'Inviter' },
+    { icon: 'school', label: 'Sujets DEF', action: () => navigation.navigate('SujetsDEF') },
+    { icon: 'menu-book', label: 'Sujets BAC', action: () => navigation.navigate('SujetsBAC') },
+    { icon: 'star', label: 'Favoris', action: () => navigation.navigate('Favoris') },
+    { icon: 'history', label: 'Historique', action: () => navigation.navigate('Historique') },
   ];
 
+  // Paramètres adaptés au projet
   const settings = [
-    { icon: 'person', label: 'À propos de EXAMALI', route: 'ProposExamali' },
-    { icon: 'assignment', label: 'Condition d\'utilisation', route: 'Condition' },
+    { icon: 'info', label: 'À propos de EXAMALI', route: 'ProposExamali' },
+    { icon: 'assignment', label: 'Conditions d\'utilisation', route: 'Condition' },
     { icon: 'security', label: 'Politique de confidentialité', route: 'Politique'},
-    { icon: 'lightbulb-outline', label: 'Suggestions et Améliorations', route: 'Suggestion' },
+    { icon: 'lightbulb-outline', label: 'Suggestions', route: 'Suggestion' },
     { icon: 'notifications', label: 'Notifications', route: 'Notification' },
-    { icon: 'favorite', label: 'Fournisseurs préférés', route: 'FournisseursPreferes' },
-    { icon: 'group-add', label: 'Inviter des amis', route: 'Invite' },
+    { icon: 'bookmark', label: 'Sujets sauvegardés', route: 'Sauvegarde' },
+    { icon: 'share', label: 'Partager l\'app', route: 'Invite' },
     { icon: 'logout', label: 'Se déconnecter', action: handleLogout },
   ];
 
@@ -123,52 +125,55 @@ const ProfileScreen = () => {
           <Image source={profileImage} style={styles.profileImage} />
         </TouchableOpacity>
         <View style={styles.userInfo}>
-          <Text style={[styles.name, { color: theme.text }]}>{name}</Text>
-          <Text style={[styles.email, { color: theme.text }]}>{email}</Text>
+          <Text style={[styles.name, { color: '#fff' }]}>{name}</Text>
+          <Text style={[styles.email, { color: '#fff' }]}>{email}</Text>
           <TouchableOpacity style={styles.editButton} onPress={() => setModalVisible(true)}>
             <Text style={styles.editButtonText}>Éditer le Profil</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.alertCircle}>
-          <Text style={styles.alertText}>!</Text>
-        </View>
       </View>
 
-      {/* Wallet Section */}
-      <View style={[styles.walletContainer, { backgroundColor: theme.card }]}>
-        <View style={styles.walletHeader}>
-          <Text style={[styles.walletTitle, { color: theme.text }]}>L'espaces d'études</Text>
-          <View style={styles.darkModeContainer}>
-            <Text style={[styles.darkModeLabel, { color: theme.text }]}></Text>
-            <Switch
-              value={isDarkMode}
-              onValueChange={setIsDarkMode}
-              trackColor={{ false: "#767577", true: "#81b0ff" }}
-              thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
-            />
-            <Text style={[styles.darkModeStatus, { color: isDarkMode ? '#81b0ff' : '#767577' }]}>
-              {isDarkMode ? 'ON' : 'OFF'}
-            </Text>
-          </View>
-        </View>
-        {/* Supprimé l'affichage du solde ici */}
+      {/* Espace d'études - Adapté aux sujets d'examen */}
+      <View style={[styles.studyContainer, { backgroundColor: theme.card }]}>
+        <Text style={[styles.studyTitle, { color: theme.text }]}>Espace d'études</Text>
+        <Text style={[styles.studySubtitle, { color: theme.subText }]}>
+          Accédez rapidement à vos ressources pour le DEF et le Bac
+        </Text>
+        
         <View style={styles.quickActions}>
           {quickActions.map((action, index) => (
             <TouchableOpacity 
               key={index} 
               style={styles.quickItem}
-              onPress={() => navigation.navigate(action.label)}
+              onPress={action.action}
             >
-              <Icon name={action.icon} size={24} color={theme.icon} />
-              <Text style={[styles.quickText, { color: theme.subText }]}>{action.label}</Text>
+              <View style={[styles.quickIcon, { backgroundColor: isDarkMode ? '#333' : '#f0f7ee' }]}>
+                <Icon name={action.icon} size={24} color="#5d894e" />
+              </View>
+              <Text style={[styles.quickText, { color: theme.text }]}>{action.label}</Text>
             </TouchableOpacity>
           ))}
         </View>
       </View>
 
-      {/* Settings */}
+      {/* Mode sombre */}
+      <View style={[styles.darkModeContainer, { backgroundColor: theme.card }]}>
+        <View style={styles.darkModeRow}>
+          <Icon name={isDarkMode ? "brightness-3" : "wb-sunny"} size={24} color={theme.icon} />
+          <Text style={[styles.darkModeLabel, { color: theme.text }]}>Mode sombre</Text>
+          <Switch
+            value={isDarkMode}
+            onValueChange={setIsDarkMode}
+            trackColor={{ false: "#767577", true: "#5d894e" }}
+            thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
+            style={{ marginLeft: 'auto' }}
+          />
+        </View>
+      </View>
+
+      {/* Paramètres */}
       <View style={styles.settingsContainer}>
-        <Text style={[styles.sectionTitle, { color: theme.text }]}>Paramètres généraux</Text>
+        <Text style={[styles.sectionTitle, { color: theme.text }]}>Paramètres</Text>
         {settings.map((item, index) => (
           <TouchableOpacity 
             key={index} 
@@ -241,47 +246,80 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#5d894e',
-    padding: 15,
+    padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    position: 'relative',
+    paddingBottom: 30,
   },
   profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     backgroundColor: '#fff',
+    borderWidth: 2,
+    borderColor: '#fff',
   },
   userInfo: {
     marginLeft: 15,
     flex: 1,
   },
   name: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   email: {
     fontSize: 14,
+    marginTop: 2,
   },
-  alertCircle: {
-    position: 'absolute',
-    right: 15,
-    top: 20,
-    backgroundColor: 'red',
-    borderRadius: 12,
-    width: 24,
-    height: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  alertText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  walletContainer: {
-    marginHorizontal: 10,
-    borderRadius: 10,
+  studyContainer: {
+    marginHorizontal: 15,
+    borderRadius: 15,
     marginTop: -10,
+    padding: 20,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  studyTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  studySubtitle: {
+    fontSize: 14,
+    marginBottom: 15,
+  },
+  quickActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  quickItem: {
+    width: '48%',
+    alignItems: 'center',
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  quickIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  quickText: {
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  darkModeContainer: {
+    marginHorizontal: 15,
+    borderRadius: 15,
+    marginTop: 15,
     padding: 15,
     elevation: 2,
     shadowColor: '#000',
@@ -289,43 +327,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
   },
-  walletHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  darkModeContainer: {
+  darkModeRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
   },
   darkModeLabel: {
-    fontSize: 14,
-  },
-  darkModeStatus: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    minWidth: 30,
-  },
-  walletTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
-  },
-  quickActions: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-  },
-  quickItem: {
-    alignItems: 'center',
+    marginLeft: 15,
     flex: 1,
-    padding: 8,
-  },
-  quickText: {
-    fontSize: 12,
-    marginTop: 5,
-    textAlign: 'center',
   },
   settingsContainer: {
     marginTop: 20,
@@ -338,7 +347,7 @@ const styles = StyleSheet.create({
   },
   settingRow: {
     padding: 15,
-    borderRadius: 8,
+    borderRadius: 10,
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
@@ -350,7 +359,7 @@ const styles = StyleSheet.create({
   },
   settingText: {
     marginLeft: 15,
-    fontSize: 14,
+    fontSize: 15,
     flex: 1,
   },
   modalContainer: {
@@ -362,7 +371,7 @@ const styles = StyleSheet.create({
   modalContent: {
     width: '85%',
     padding: 20,
-    borderRadius: 10,
+    borderRadius: 15,
   },
   modalTitle: {
     fontSize: 18,
@@ -381,7 +390,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   saveButton: {
-    backgroundColor: '#00D3EB',
+    backgroundColor: '#5d894e',
     padding: 12,
     borderRadius: 8,
     flex: 1,
@@ -407,15 +416,15 @@ const styles = StyleSheet.create({
   },
   editButton: {
     backgroundColor: 'rgba(255,255,255,0.3)',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 15,
-    marginTop: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginTop: 10,
     alignSelf: 'flex-start',
   },
   editButtonText: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: '500',
   },
 });

@@ -6,7 +6,8 @@ import {
   ScrollView, 
   Image, 
   TouchableOpacity,
-  Linking
+  Linking,
+  Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
@@ -22,10 +23,10 @@ const AboutExamaliScreen = () => {
   ];
 
   const features = [
-    { icon: "school", title: "Cours de qualité", description: "Des cours conçus par des experts dans chaque domaine" },
-    { icon: "access-time", title: "Apprentissage flexible", description: "Apprenez à votre rythme, quand vous voulez" },
-    { icon: "star", title: "Certifications", description: "Obtenez des certifications valorisantes" },
-    { icon: "group", title: "Communauté", description: "Rejoignez une communauté d'apprenants motivés" },
+    { icon: "library-books", title: "Archives Complètes", description: "Sujets DEF et Bac des 10 dernières années" },
+    { icon: "search", title: "Recherche Avancée", description: "Trouvez des sujets par matière, année ou série" },
+    { icon: "download", title: "Téléchargement", description: "Téléchargez les sujets pour consultation hors ligne" },
+    { icon: "bookmark", title: "Favoris", description: "Enregistrez vos sujets préférés pour un accès rapide" },
   ];
 
   const openWebsite = () => {
@@ -56,10 +57,9 @@ const AboutExamaliScreen = () => {
 
       {/* Section de bienvenue */}
       <View style={styles.welcomeSection}>
-        <Text style={styles.welcomeTitle}>Bienvenue sur EXAMALI</Text>
+        <Text style={styles.welcomeTitle}>Votre Bibliothèque d'Examens Maliens</Text>
         <Text style={styles.welcomeText}>
-          EXAMALI est une plateforme éducative innovante qui révolutionne l'apprentissage en Afrique. 
-          Notre mission est de rendre l'éducation de qualité accessible à tous, partout et à tout moment.
+          **Examali** est la référence pour accéder aux anciens sujets du DEF (Diplôme d'Études Fondamentales) et du Baccalauréat au Mali. Notre application centralise tous les sujets d'examens officiels des dernières années pour une préparation optimale.
         </Text>
       </View>
 
@@ -69,8 +69,11 @@ const AboutExamaliScreen = () => {
         <View style={styles.missionCard}>
           <Icon name="flag" size={40} color="#5d894e" style={styles.missionIcon} />
           <Text style={styles.missionText}>
-            Briser les barrières de l'éducation traditionnelle en offrant des cours de haute qualité, 
-            accessibles sur mobile, adaptés aux réalités africaines et disponibles dans les langues locales.
+            Fournir aux élèves et enseignants maliens un accès centralisé et organisé à l'ensemble des sujets d'examen historiques du DEF et du Bac pour :
+            {"\n\n"}• Améliorer la préparation aux examens
+            {"\n"}• Identifier les tendances des sujets
+            {"\n"}• Faciliter le travail des enseignants
+            {"\n"}• Préserver le patrimoine éducatif malien
           </Text>
         </View>
       </View>
@@ -83,28 +86,28 @@ const AboutExamaliScreen = () => {
             <Icon name="accessibility" size={30} color="#5d894e" />
             <Text style={styles.valueTitle}>Accessibilité</Text>
             <Text style={styles.valueText}>
-              Des cours accessibles à tous, quel que soit le niveau de revenu ou la localisation
+              Accès gratuit aux ressources pour tous les élèves maliens
             </Text>
           </View>
           <View style={styles.valueCard}>
-            <Icon name="auto-awesome" size={30} color="#5d894e" />
-            <Text style={styles.valueTitle}>Qualité</Text>
+            <Icon name="verified" size={30} color="#5d894e" />
+            <Text style={styles.valueTitle}>Fiabilité</Text>
             <Text style={styles.valueText}>
-              Un contenu pédagogique de haute qualité conçu par des experts
-            </Text>
-          </View>
-          <View style={styles.valueCard}>
-            <Icon name="groups" size={30} color="#5d894e" />
-            <Text style={styles.valueTitle}>Communauté</Text>
-            <Text style={styles.valueText}>
-              Une communauté solidaire qui s'entraide pour progresser ensemble
+              Sujets officiels validés par l'éducation nationale
             </Text>
           </View>
           <View style={styles.valueCard}>
             <Icon name="update" size={30} color="#5d894e" />
-            <Text style={styles.valueTitle}>Innovation</Text>
+            <Text style={styles.valueTitle}>Actualité</Text>
             <Text style={styles.valueText}>
-              Des méthodes d'apprentissage innovantes adaptées au contexte africain
+              Mise à jour annuelle avec les nouveaux sujets
+            </Text>
+          </View>
+          <View style={styles.valueCard}>
+            <Icon name="school" size={30} color="#5d894e" />
+            <Text style={styles.valueTitle}>Pédagogie</Text>
+            <Text style={styles.valueText}>
+              Outils conçus avec des enseignants maliens
             </Text>
           </View>
         </View>
@@ -115,23 +118,23 @@ const AboutExamaliScreen = () => {
         <Text style={styles.sectionTitle}>EXAMALI en Chiffres</Text>
         <View style={styles.statsContainer}>
           <View style={styles.statCard}>
-            <Text style={styles.statNumber}>50 000+</Text>
-            <Text style={styles.statLabel}>Apprenants</Text>
+            <Text style={styles.statNumber}>2000+</Text>
+            <Text style={styles.statLabel}>Sujets Disponibles</Text>
           </View>
           <View style={styles.statCard}>
-            <Text style={styles.statNumber}>300+</Text>
-            <Text style={styles.statLabel}>Cours Disponibles</Text>
+            <Text style={styles.statNumber}>10 ans</Text>
+            <Text style={styles.statLabel}>d'Archives</Text>
           </View>
           <View style={styles.statCard}>
             <Text style={styles.statNumber}>15+</Text>
-            <Text style={styles.statLabel}>Pays Africains</Text>
+            <Text style={styles.statLabel}>Matières Couvertes</Text>
           </View>
         </View>
       </View>
 
       {/* Section Fonctionnalités */}
       <View style={styles.featuresSection}>
-        <Text style={styles.sectionTitle}>Ce qui nous différencie</Text>
+        <Text style={styles.sectionTitle}>Nos Fonctionnalités</Text>
         <View style={styles.featuresList}>
           {features.map((feature, index) => (
             <View key={index} style={styles.featureItem}>
@@ -149,7 +152,7 @@ const AboutExamaliScreen = () => {
       <View style={styles.teamSection}>
         <Text style={styles.sectionTitle}>Notre Équipe</Text>
         <Text style={styles.teamDescription}>
-          Une équipe passionnée d'enseignants, de développeurs et de pédagogues dédiée à transformer l'éducation en Afrique.
+          Une équipe passionnée d'anciens enseignants et diplômés maliens dédiée à la réussite scolaire.
         </Text>
         <View style={styles.teamGrid}>
           {teamMembers.map(member => (
@@ -164,18 +167,18 @@ const AboutExamaliScreen = () => {
 
       {/* Section Contact */}
       <View style={styles.contactSection}>
-        <Text style={styles.sectionTitle}>Restons en contact</Text>
+        <Text style={styles.sectionTitle}>Contribuez avec nous</Text>
         <Text style={styles.contactText}>
-          Vous avez des questions, des suggestions ou souhaitez collaborer avec nous ?
+          Vous possédez des sujets manquants dans notre base ? Souhaitez suggérer une amélioration ?
         </Text>
         
         <TouchableOpacity style={styles.contactButton} onPress={openContact}>
-          <Text style={styles.contactButtonText}>Nous contacter</Text>
+          <Text style={styles.contactButtonText}>Contactez notre équipe</Text>
           <Icon name="arrow-forward" size={20} color="#fff" />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.websiteButton} onPress={openWebsite}>
-          <Text style={styles.websiteButtonText}>Visitez notre site web</Text>
+          <Text style={styles.websiteButtonText}>Accédez à nos ressources</Text>
           <Icon name="language" size={20} color="#5d894e" />
         </TouchableOpacity>
       </View>
@@ -188,7 +191,7 @@ const AboutExamaliScreen = () => {
         />
         <Text style={styles.footerText}>
           © 2023 EXAMALI. Tous droits réservés.
-          {"\n"}Transformons l'éducation ensemble.
+          {"\n"}"La réussite scolaire par la préparation"
         </Text>
       </View>
     </ScrollView>
@@ -285,7 +288,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#555',
     lineHeight: 24,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   valuesSection: {
     paddingHorizontal: 15,

@@ -197,6 +197,7 @@ import AnglaisTseco2020 from './SujetBacTseco/AnglaisTseco2020';
 import Notification from './src/page/Home/Notification';
 import Invite from './src/page/Home/Invite';
 import Suggestion from './src/page/Home/Suggestion';
+import Sauvegarde from './src/page/Home/Sauvegarde';
 
 
 
@@ -277,6 +278,8 @@ const App = () => {
       <Stack.Screen name="Notification"component={Notification}/>
          <Stack.Screen name="Invite"component={Invite}/>
         <Stack.Screen name="Suggestion"component={Suggestion}/>
+        <Stack.Screen name="Sauvegarde"component={Sauvegarde}/>
+
 
 
            <Stack.Screen name="Physique19"component={Physique19}/>

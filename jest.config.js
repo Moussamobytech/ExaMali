@@ -1,7 +1,8 @@
 module.exports = {
   preset: 'react-native',
-   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
-    transformIgnorePatterns: [
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+  setupFiles: ['<rootDir>/jest.setup.js'],
+  transformIgnorePatterns: [
     "node_modules/(?!(react-native" +
       "|@react-native" +
       "|@react-navigation" +
@@ -17,7 +18,7 @@ module.exports = {
       "|expo(nent)?|@expo(nent)?/.*" +
       "|expo-font" +
       "|expo-app-loading" +
-      "|react-native-swiper" + // <--- AJOUTE ICI
+      "|react-native-swiper" +
     ")/)"
   ],
 };
