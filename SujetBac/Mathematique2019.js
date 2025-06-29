@@ -19,7 +19,7 @@ const Mathematique2019 = () => {
   const source = {
     uri: Platform.select({
       ios: 'bundle-assets://pdf/tseba2019.pdf',
-      android: 'bundle-assets://pdf/tseba2019.pdf',
+      android: 'bundle-assets://tll/tseba2019.pdf',
     }),
   };
 
