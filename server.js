@@ -27,6 +27,11 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
+// Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/subscriptions', require('./routes/subscriptionRoutes'));
+app.use('/api/payments', require('./routes/paymentRoutes'));
+
 // Vérification connexion DB
 async function testConnection() {
   try {

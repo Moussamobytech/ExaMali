@@ -198,6 +198,8 @@ import Notification from './src/page/Home/Notification';
 import Invite from './src/page/Home/Invite';
 import Suggestion from './src/page/Home/Suggestion';
 import Sauvegarde from './src/page/Home/Sauvegarde';
+import ConcoursScreen from './src/page/Home/ConcoursScreen';
+import ConcoursScreenintp from './src/page/Home/ConcoursScreenintp';
 
 
 
@@ -423,7 +425,8 @@ const App = () => {
             <Stack.Screen name="ExerciceMath"component={ExerciceMath}/>
             <Stack.Screen name="ExercicePhy"component={ExercicePhy}/>
 
-             <Stack.Screen name="ConcoursApp"component={ConcoursApp}/>
+             <Stack.Screen name="ConcoursScreen"component={ConcoursScreen}/>
+        <Stack.Screen name="ConcoursScreenintp"component={ConcoursScreenintp}/>
 
         </Stack.Navigator>
 
