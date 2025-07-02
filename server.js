@@ -6,12 +6,13 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:8081', 'exp://192.168.1.23:8081'], 
+  origin: ['http://localhost:8081', 'exp://192.168.1.18:8081'], 
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -27,10 +28,6 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/subscriptions', require('./routes/subscriptionRoutes'));
-app.use('/api/payments', require('./routes/paymentRoutes'));
 
 // Vérification connexion DB
 async function testConnection() {
@@ -415,7 +412,7 @@ app.post('/api/chats/:chatId/messages', authenticate, async (req, res) => {
 // Gestion erreurs
 app.use((req, res) => {
   res.status(404).json({ error: 'Endpoint non trouvé' });
-});
+}); 
 
 app.use((err, req, res, next) => {
   console.error('Erreur:', err);
@@ -423,13 +420,13 @@ app.use((err, req, res, next) => {
 });
 
 // Démarrage
-async function start() {
+async function start() {  
   try {
     await testConnection();
     await initializeDB();
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 API démarrée sur http://localhost:${PORT}`);
-      console.log(`Accessible via http://192.168.1.23:${PORT} on local network`);
+      console.log(`Accessible via http://192.168.1.18:${PORT} on local network`);
     });
   } catch (err) {
     console.error('Échec démarrage:', err);
@@ -438,7 +435,5 @@ async function start() {
 }
 
 start();
-
-
 
 

@@ -200,6 +200,8 @@ import Suggestion from './src/page/Home/Suggestion';
 import Sauvegarde from './src/page/Home/Sauvegarde';
 import ConcoursScreen from './src/page/Home/ConcoursScreen';
 import ConcoursScreenintp from './src/page/Home/ConcoursScreenintp';
+import ConcoursScreeneni from './src/page/Home/ConcoursScreeneni';
+import ConcoursScreenisa from './src/page/Home/ConcoursScreenisa';
 
 
 
@@ -427,6 +429,8 @@ const App = () => {
 
              <Stack.Screen name="ConcoursScreen"component={ConcoursScreen}/>
         <Stack.Screen name="ConcoursScreenintp"component={ConcoursScreenintp}/>
+        <Stack.Screen name="ConcoursScreeneni"component={ConcoursScreeneni}/>
+        <Stack.Screen name="ConcoursScreenisa"component={ConcoursScreenisa}/>
 
         </Stack.Navigator>
 

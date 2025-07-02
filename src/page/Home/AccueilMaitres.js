@@ -76,8 +76,8 @@ const Accueils = () => {
   const concours = [
     { title: 'ENA', source: require('./../../../Asset/concours.webp'), route: 'ConcoursScreen' },
     { title: 'INTP', source: require('./../../../Asset/tssx.png'), route: 'ConcoursScreenintp' },
-    { title: 'ENI', source: require('./../../../Asset/tssx.png'), route: 'ENIConcours' },
-    { title: 'ISA', source: require('./../../../Asset/tssx.png'), route: 'ISAConcours' },
+    { title: 'ENI', source: require('./../../../Asset/tssx.png'), route: 'ConcoursScreeneni' },
+    { title: 'ISA', source: require('./../../../Asset/tssx.png'), route: 'ConcoursScreenisa' },
     { title: 'BTS', source: require('./../../../Asset/tssx.png'), route: 'BTSConcours' },
   ];
 
