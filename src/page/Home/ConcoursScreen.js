@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
   backIcon: {
     width: 25,
     height: 25,
-    tintColor: 'white',
+
   },
   content: {
     padding: 20,
