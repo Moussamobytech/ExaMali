@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   ScrollView,
   Text,
@@ -6,32 +6,47 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Histoire2018 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
 
+  // Correction : importé et utilisé correctement useEffect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Historique')}
-          accessibilityLabel="Go back to home"
-          accessibilityRole="button"
-        >
+        <TouchableOpacity onPress={() => navigation.navigate('Historique')}>
           <Image source={require('./../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={toggleDarkMode}
           style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
-          accessibilityRole="switch"
         >
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
@@ -42,12 +57,13 @@ const Histoire2018 = () => {
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2017</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2018</Text>
 
         <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Histoire</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
           1- Reconnais les affirmations suivantes et coche la bonne réponse (9 pts) :
         </Text>
+
         <View style={styles.table}>
           <View style={styles.tableRow}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>Affirmations</Text>
@@ -76,6 +92,7 @@ const Histoire2018 = () => {
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
           </View>
         </View>
+
         <Text style={[styles.paragraph, dynamicStyles.text]}>
           2- Que marqua dans l’histoire du monde la date du 28 Juin 1919 ? (1 pt)
         </Text>
@@ -134,7 +151,6 @@ const Histoire2018 = () => {
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
           </View>
         </View>
-     
       </ScrollView>
     </View>
   );
@@ -150,6 +166,10 @@ const getDynamicStyles = (isDarkMode) =>
     },
     header: {
       color: isDarkMode ? '#FFD700' : '#800000',
+      fontSize: 24,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginBottom: 16,
     },
     sectionTitle: {
       fontSize: 18,
@@ -193,37 +213,13 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
   },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  sectionSubtitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 8,
+  scrollContainer: {
+    paddingBottom: 20,
   },
   paragraph: {
     fontSize: 16,
     marginBottom: 12,
     lineHeight: 24,
-  },
-  instruction: {
-    fontSize: 14,
-    fontStyle: 'italic',
-    marginTop: 16,
-    textAlign: 'center',
-  },
-  scrollContainer: {
-    paddingBottom: 20,
   },
   table: {
     borderWidth: 1,
@@ -240,6 +236,15 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRightWidth: 1,
     borderRightColor: '#000',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

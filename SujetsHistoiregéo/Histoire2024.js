@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useMemo, useEffect } from 'react';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Histoire2024 = () => {
@@ -7,7 +7,29 @@ const Histoire2024 = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <View style={dynamicStyles.container}>
@@ -191,6 +213,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

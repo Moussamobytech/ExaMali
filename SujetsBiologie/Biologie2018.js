@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   ScrollView,
   Text,
@@ -6,16 +6,40 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Biologie2018 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  // Show loading screen while isLoading is true
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
+
+  // Main content after loading
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
@@ -30,8 +54,9 @@ const Biologie2018 = () => {
         <TouchableOpacity
           onPress={toggleDarkMode}
           style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
+          accessibilityLabel={`Toggle dark mode ${isDarkMode ? 'off' : 'on'}`}
           accessibilityRole="switch"
+          accessibilityState={{ checked: isDarkMode }}
         >
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
@@ -42,67 +67,52 @@ const Biologie2018 = () => {
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2019 - Biologie</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2018 - Biologie</Text>
 
         <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Biologie</Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1- Définis les termes suivants : (5 pts)
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          - L’oxygénation du sang
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          - La circulation sanguine
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          - Les alvéoles pulmonaires
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          - Les globules blancs
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          - La vaccination
+          1) Définis les termes suivants : oxygénation du sang, circulation sanguine, alvéoles pulmonaires, globules blancs, vaccination. (5 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Coche la bonne réponse : (5 pts)
+          2) Coche la bonne réponse : (5 pts)
         </Text>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
+        <View style={[styles.table, dynamicStyles.table]}>
+          <View style={[styles.tableRow, dynamicStyles.tableRow]}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>Affirmations</Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}>Vrai</Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}>Faux</Text>
           </View>
-          <View style={styles.tableRow}>
+          <View style={[styles.tableRow, dynamicStyles.tableRow]}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>
               L’oxygénation du sang se produit dans les alvéoles pulmonaires.
             </Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
           </View>
-          <View style={styles.tableRow}>
+          <View style={[styles.tableRow, dynamicStyles.tableRow]}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>
               Les globules blancs combattent les infections.
             </Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
           </View>
-          <View style={styles.tableRow}>
+          <View style={[styles.tableRow, dynamicStyles.tableRow]}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>
               La vaccination protège contre les maladies virales uniquement.
             </Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
           </View>
-          <View style={styles.tableRow}>
+          <View style={[styles.tableRow, dynamicStyles.tableRow]}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>
               La circulation sanguine transporte les nutriments et l’oxygène.
             </Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
             <Text style={[styles.tableCell, dynamicStyles.text]}></Text>
           </View>
-          <View style={styles.tableRow}>
+          <View style={[styles.tableRow, dynamicStyles.tableRow]}>
             <Text style={[styles.tableCell, dynamicStyles.text]}>
               Les alvéoles pulmonaires sont situées dans le cœur.
             </Text>
@@ -112,20 +122,20 @@ const Biologie2018 = () => {
         </View>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          3- Complète les phrases suivantes : (5 pts)
+          3) Complète les phrases suivantes : (5 pts)
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          a- Les globules blancs produisent des ... pour combattre les infections.
+          a) Les globules blancs produisent des ... pour combattre les infections.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          b- L’oxygénation du sang se fait lors de l’... dans les poumons.
+          b) L’oxygénation du sang se fait lors de l’... dans les poumons.
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          c- La vaccination stimule le système ... pour produire une immunité.
+          c) La vaccination stimule le système ... pour produire une immunité.
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          4- Dessine et légende un schéma des poumons et des alvéoles pulmonaires. (5 pts)
+          4) Dessine et légende un schéma des poumons et des alvéoles pulmonaires. (5 pts)
         </Text>
       </ScrollView>
     </View>
@@ -167,6 +177,12 @@ const getDynamicStyles = (isDarkMode) =>
       fontSize: 12,
       fontWeight: 'bold',
       color: isDarkMode ? '#fff' : '#000',
+    },
+    table: {
+      borderColor: isDarkMode ? '#FFD700' : '#000',
+    },
+    tableRow: {
+      borderBottomColor: isDarkMode ? '#FFD700' : '#000',
     },
   });
 
@@ -219,19 +235,26 @@ const styles = StyleSheet.create({
   },
   table: {
     borderWidth: 1,
-    borderColor: '#000',
     marginBottom: 12,
   },
   tableRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#000',
   },
   tableCell: {
     flex: 1,
     padding: 8,
     borderRightWidth: 1,
     borderRightColor: '#000',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

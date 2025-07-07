@@ -202,7 +202,7 @@ const Invite = () => {
       </LinearGradient>
 
       {/* Section de code de parrainage */}
-      <View style={[styles.referralContainer, { backgroundColor: theme.card }]}>
+      {/* <View style={[styles.referralContainer, { backgroundColor: theme.card }]}>
         <Text style={[styles.referralTitle, { color: theme.text }]}>
           Votre code de parrainage
         </Text>
@@ -216,7 +216,7 @@ const Invite = () => {
         <Text style={[styles.referralSubtitle, { color: theme.subText }]}>
           Partagez ce code avec vos amis et obtenez des avantages quand ils s'inscrivent!
         </Text>
-      </View>
+      </View> */}
 
       {/* Barre de recherche */}
       <View style={[styles.searchContainer, { backgroundColor: theme.card }]}>

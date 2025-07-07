@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // Import screen components
 import Sujet from './../../../Screens/Tabs/Sujet';
-import Corrige from './../../../Screens/Tabs/Corrige';
+
 import Profil from './../../../Screens/Tabs/Profil';
 
 const { width } = Dimensions.get("window");
@@ -15,8 +15,7 @@ import accueilIcon from './../../../Asset/accueil.png';
 import accueilIconFocused from './../../../Asset/accueil.png';
 import sujetIcon from './../../../Asset/sujet.png';
 import sujetIconFocused from './../../../Asset/sujet.png';
-import corrigeIcon from './../../../Asset/corrige.png';
-import corrigeIconFocused from './../../../Asset/corrige.png';
+
 import profilIcon from './../../../Asset/profil.png';
 import profilIconFocused from './../../../Asset/profil.png';
 
@@ -243,10 +242,6 @@ const TabsMaitre = () => {
               icon = focused ? sujetIconFocused : sujetIcon;
               label = 'Sujet';
               break;
-            case 'Corrige':
-              icon = focused ? corrigeIconFocused : corrigeIcon;
-              label = 'Corrige';
-              break;
             case 'Profil':
               icon = focused ? profilIconFocused : profilIcon;
               label = 'Profil';
@@ -256,7 +251,7 @@ const TabsMaitre = () => {
             <View style={{ alignItems: 'center', justifyContent: 'center', top: 12 }}>
               <Image
                 source={icon}
-                style={{ width: 28, height: 28, tintColor: color }}
+                style={{ width: 30, height: 28, tintColor: color }}
               />
               <Text style={{ fontSize: 8, color, marginTop: 5 }}>{label}</Text>
             </View>
@@ -282,15 +277,7 @@ const TabsMaitre = () => {
           headerTitleAlign: 'center',
         }}
       />
-      <Tab.Screen
-        name="Corrige"
-        component={Corrige}
-        options={{
-          headerShown: false,
-          headerTitle: 'Gestion des quiz',
-          headerTitleAlign: 'center',
-        }}
-      />
+      
       <Tab.Screen
         name="Profil"
         component={Profil}

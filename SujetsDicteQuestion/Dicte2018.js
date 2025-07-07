@@ -1,14 +1,37 @@
-import React, { useState, useMemo } from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useEffect, useMemo } from 'react';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Dicte2018 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  // Show loading screen while isLoading is true
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
+
+  // Main content after loading
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
@@ -20,7 +43,13 @@ const Dicte2018 = () => {
           <Image source={require('./../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={toggleDarkMode} style={styles.toggleContainer}>
+        <TouchableOpacity
+          onPress={toggleDarkMode}
+          style={styles.toggleContainer}
+          accessibilityLabel={`Toggle dark mode ${isDarkMode ? 'off' : 'on'}`}
+          accessibilityRole="switch"
+          accessibilityState={{ checked: isDarkMode }}
+        >
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
               {isDarkMode ? 'ON' : 'OFF'}
@@ -32,7 +61,7 @@ const Dicte2018 = () => {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
         <Text style={[styles.header, dynamicStyles.header]}>DEF 2018</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Dictée : la bonne réputation. </Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Dictée : la bonne réputation.</Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
           Comme nous vivons en perpétuel contact avec nos semblables, il est naturel qu’à chaque instant ils portent des jugements sur notre valeur. De là, vient que peu à peu notre réputation se forme autour de nous. Or il importe que cette réputation soit bonne : c’est assurément un bien qui a une large influence sur notre condition sociale, et qui peut même, dans certaines circonstances, nous ouvrir des portes. Qu’une mauvaise réputation soit un désavantage, on le comprend aisément : Qui n’a pas entendu dire que la médisance est un fléau qui ronge la société ? Une telle réputation nuit à notre prestige et nous expose à des jugements malveillants de la part de ceux qui nous entourent. C’est pourquoi il est utile de veiller à ce que notre réputation ne soit pas ternie, mais qu’elle reflète notre patrimoine d’honnêteté et de droiture. D’après E. Rayot
@@ -156,6 +185,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

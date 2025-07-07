@@ -1,14 +1,37 @@
-import React, { useState, useMemo } from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useEffect, useMemo } from 'react';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Ecm2012 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  // Show loading screen while isLoading is true
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
+
+  // Main content after loading
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
@@ -132,6 +155,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useMemo, useEffect } from 'react';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Histoire2023 = () => {
@@ -7,7 +7,29 @@ const Histoire2023 = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <View style={dynamicStyles.container}>
@@ -32,7 +54,9 @@ const Histoire2023 = () => {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
         <Text style={[styles.header, dynamicStyles.header]}>DEF 2023</Text>
 
-        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Épreuve d'Histoire-Géographie</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>
+          Épreuve d'Histoire-Géographie
+        </Text>
 
         <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>Histoire</Text>
         <Text style={[styles.question, dynamicStyles.text]}>
@@ -55,7 +79,9 @@ const Histoire2023 = () => {
         <Text style={[styles.paragraph, dynamicStyles.text]}>
           Dans la ville A, la pluviométrie peut atteindre plus de 2000 mm/an ; Dans la ville B, la pluviométrie ne peut atteindre 200 mm/an.
         </Text>
-        <Text style={[styles.question, dynamicStyles.text]}>Questions:</Text>
+        <Text style={[styles.question, dynamicStyles.text]}>
+          Questions:
+        </Text>
         <Text style={[styles.question, dynamicStyles.text]}>
           a) Précise la zone climatique dans laquelle se situe chaque ville.
         </Text>
@@ -167,6 +193,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

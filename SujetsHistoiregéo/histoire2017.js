@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   ScrollView,
   Text,
@@ -6,16 +6,40 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Histoire2017 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  // Show loading screen while isLoading is true
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
+
+  // Main content after loading
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
@@ -30,8 +54,9 @@ const Histoire2017 = () => {
         <TouchableOpacity
           onPress={toggleDarkMode}
           style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
+          accessibilityLabel={`Toggle dark mode ${isDarkMode ? 'off' : 'on'}`}
           accessibilityRole="switch"
+          accessibilityState={{ checked: isDarkMode }}
         >
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
@@ -42,27 +67,25 @@ const Histoire2017 = () => {
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={[styles.header, dynamicStyles.header]}>DEF 2016</Text>
+        <Text style={[styles.header, dynamicStyles.header]}>DEF 2017 - Histoire et Géographie</Text>
 
         <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Questions</Text>
 
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>A - Histoire : (10 pts)</Text>
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>A - Histoire (10 pts)</Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1) Explique les causes de la crise de 1929 et ses impacts sur l’économie mondiale (5 pts)
+          1) Explique les causes de la crise de 1929 et ses impacts sur l’économie mondiale. (5 pts)
         </Text>
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2) Décris les étapes de la formation de l’Union Africaine (UA) et ses objectifs (5 pts)
-        </Text>
-
-        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>B - Géographie : (10 pts)</Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1) Décris les caractéristiques des ressources minières au Mali (5 pts)
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2) Explique les causes et les conséquences de l’urbanisation rapide en Afrique de l’Ouest (5 pts)
+          2) Décris les étapes de la formation de l’Union Africaine (UA) et ses objectifs. (5 pts)
         </Text>
 
-
+        <Text style={[styles.sectionSubtitle, dynamicStyles.text]}>B - Géographie (10 pts)</Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          1) Décris les caractéristiques des ressources minières au Mali. (5 pts)
+        </Text>
+        <Text style={[styles.paragraph, dynamicStyles.text]}>
+          2) Explique les causes et les conséquences de l’urbanisation rapide en Afrique de l’Ouest. (5 pts)
+        </Text>
       </ScrollView>
     </View>
   );
@@ -152,6 +175,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

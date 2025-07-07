@@ -232,7 +232,7 @@ const App = () => {
            <Stack.Screen name="Anglais" component={Anglais} />
            <Stack.Screen name="Physiquechimie" component={Physiquechimie} />
            <Stack.Screen name="Ecm" component={Ecm} />
-           <Stack.Screen name="Histoirique" component={Historique} />
+           <Stack.Screen name="Historique" component={Historique} />
            <Stack.Screen name="Dicte" component={Dicte} />
            <Stack.Screen name="Biologie" component={Biologie} />
            <Stack.Screen name="Mathpdf" component={Mathpdf} />

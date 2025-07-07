@@ -96,8 +96,7 @@ const ProfileScreen = () => {
 
   // Actions rapides adaptées aux sujets d'examen
   const quickActions = [
-    { icon: 'school', label: 'Sujets DEF', action: () => navigation.navigate('SujetsDEF') },
-    { icon: 'menu-book', label: 'Sujets BAC', action: () => navigation.navigate('SujetsBAC') },
+  
     { icon: 'star', label: 'Favoris', action: () => navigation.navigate('Favoris') },
     { icon: 'history', label: 'Historique', action: () => navigation.navigate('Historique') },
   ];

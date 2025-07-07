@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   ScrollView,
   Text,
@@ -6,16 +6,40 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Biologie2017 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  // Show loading screen while isLoading is true
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
+
+  // Main content after loading
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
@@ -30,8 +54,9 @@ const Biologie2017 = () => {
         <TouchableOpacity
           onPress={toggleDarkMode}
           style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
+          accessibilityLabel={`Toggle dark mode ${isDarkMode ? 'off' : 'on'}`}
           accessibilityRole="switch"
+          accessibilityState={{ checked: isDarkMode }}
         >
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
@@ -47,28 +72,19 @@ const Biologie2017 = () => {
         <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Biologie</Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1- Explique la grande circulation du sang.
+          1) Explique la grande circulation du sang. (4 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Indiquez en face de chacune des maladies, son microbe pathogène :
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          - Maladies : le paludisme ; la dysenterie ; la variole ; la fièvre typhoïde ;
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          la maladie du sommeil.
+          2) Indique en face de chacune des maladies, son microbe pathogène : paludisme, dysenterie, variole, fièvre typhoïde, maladie du sommeil. (5 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          3- Défini les microbes pathogènes : le virus ; l’amibe ; le trypanosome ; l’hématozoaire.
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          Quelles sont les mesures à prendre pour éviter le paludisme ?
+          3) Définis les microbes pathogènes suivants : virus, amibe, trypanosome, hématozoaire. Quelles sont les mesures à prendre pour éviter le paludisme ? (6 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          4- Faites le schéma annoté de l’appareil digestif de l’homme.
+          4) Fais le schéma annoté de l’appareil digestif de l’homme. (5 pts)
         </Text>
       </ScrollView>
     </View>
@@ -159,6 +175,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 

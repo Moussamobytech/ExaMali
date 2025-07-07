@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Import screen components
 import Sujets from './../../../Screen/Tabs/Sujets';
-import Corriges from './../../../Screen/Tabs/Corriges';
+
 import Profil from './../../../Screen/Tabs/Profil';
 
 // Import icons
@@ -244,10 +244,6 @@ const TabsMaitre = () => {
               icon = focused ? sujetIconFocused : sujetIcon;
               label = 'Sujets';
               break;
-            case 'Corriges':
-              icon = focused ? corrigeIconFocused : corrigeIcon;
-              label = 'Corriges';
-              break;
             case 'Profil':
               icon = focused ? profilIconFocused : profilIcon;
               label = 'Profil';
@@ -281,15 +277,7 @@ const TabsMaitre = () => {
           headerTitleAlign: 'center',
         }}
       />
-      <Tab.Screen
-        name="Corriges"
-        component={Corriges}
-        options={{
-          headerShown: false,
-          headerTitle: 'Gestion des quiz',
-          headerTitleAlign: 'center',
-        }}
-      />
+
       <Tab.Screen
         name="Profil"
         component={Profil}

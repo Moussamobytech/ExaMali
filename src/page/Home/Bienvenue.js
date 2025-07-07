@@ -27,7 +27,7 @@ const Bienvenue = ({ navigation }) => {
 
     setTimeout(() => {
       setIsLoading(false);
-      navigation.navigate('AccueilMaitres');
+      navigation.navigate('AccueilMaitre');
     }, 3000);
   };
 

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   ScrollView,
   Text,
@@ -6,16 +6,40 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Biologie2016 = () => {
   const navigation = useNavigation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const dynamicStyles = useMemo(() => getDynamicStyles(isDarkMode), [isDarkMode]);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  // Show loading screen while isLoading is true
+  if (isLoading) {
+    return (
+      <View style={[styles.loadingContainer, { backgroundColor: isDarkMode ? '#000' : '#fff' }]}>
+        <ActivityIndicator size="large" color={isDarkMode ? '#FFD700' : '#00008B'} />
+        <Text style={[styles.loadingText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          Chargement du document...
+        </Text>
+      </View>
+    );
+  }
+
+  // Main content after loading
   return (
     <View style={dynamicStyles.container}>
       <View style={styles.headerContainer}>
@@ -30,8 +54,9 @@ const Biologie2016 = () => {
         <TouchableOpacity
           onPress={toggleDarkMode}
           style={styles.toggleContainer}
-          accessibilityLabel={`Turn ${isDarkMode ? 'off' : 'on'} dark mode`}
+          accessibilityLabel={`Toggle dark mode ${isDarkMode ? 'off' : 'on'}`}
           accessibilityRole="switch"
+          accessibilityState={{ checked: isDarkMode }}
         >
           <View style={[styles.toggleSwitch, dynamicStyles.toggleSwitch]}>
             <Text style={[styles.toggleText, dynamicStyles.toggleText]}>
@@ -47,26 +72,23 @@ const Biologie2016 = () => {
         <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Biologie</Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          1- Définis les termes suivants : rachitisme ; toxémie ; infection microbienne ; phagocytose ;
-        </Text>
-        <Text style={[styles.paragraph, dynamicStyles.text]}>
-          immunité ; septicémie ; ossification ; microbiologie ; antibiotique ; diabète.
+          1) Définis les termes suivants : rachitisme, toxémie, infection microbienne, phagocytose, immunité, septicémie, ossification, microbiologie, antibiotique, diabète. (4 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          2- Donne la composition du sang et explique le rôle de chacun des constituants.
+          2) Donne la composition du sang et explique le rôle de chacun des constituants. (4 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          3- Cite les propriétés des muscles. Énumère les avantages des exercices physiques pour les muscles.
+          3) Cite les propriétés des muscles. Énumère les avantages des exercices physiques pour les muscles. (4 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          4- Quelles différences vous faites entre un sérum et un vaccin ?
+          4) Quelles différences faites-vous entre un sérum et un vaccin ? (4 pts)
         </Text>
 
         <Text style={[styles.paragraph, dynamicStyles.text]}>
-          5- Faites le schéma annoté d’une coupe longitudinale d’une dent.
+          5) Fais le schéma annoté d’une coupe longitudinale d’une dent. (4 pts)
         </Text>
       </ScrollView>
     </View>
@@ -157,6 +179,15 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingBottom: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 16,
   },
 });
 
