@@ -17,8 +17,8 @@ const Mathématique = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [activeSubject, setActiveSubject] = useState('Mathématiques'); // Default active subject
-  const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode state
+  const [activeSubject, setActiveSubject] = useState('Mathématiques');
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const images = [
     { title: 'Mathématiques', source: require('./../../../Asset/MATH1.png'), route: 'Sujet' },
@@ -46,7 +46,7 @@ const Mathématique = () => {
 
   const handleNavigate = (route) => {
     setActiveSubject(route);
-    navigation.navigate(route); // Navigate to the subject page
+    navigation.navigate(route);
   };
 
   const toggleTheme = () => {
@@ -108,251 +108,25 @@ const Mathématique = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-
-               <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2024</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                    <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2023</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                   <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2022</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                   <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                   <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2021</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                   
-                     <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2020</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                     <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2019</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                   </TouchableOpacity>
-                             <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2018</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2017</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2016</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2015</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-       
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2014</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2013</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Examalichoix')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2012</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Mathematique2011')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2011</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Examalichoix')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
-                           <TouchableOpacity
-                             style={styles.card}
-                             onPress={() => navigation.navigate('Mathematique2010')}
-                           >
-                             <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
-                             <View style={styles.textContainer}>
-                               <Text style={styles.subject}>Mathématiques</Text>
-                               <Text style={styles.title}>Mathématiques du DEF 2010</Text>
-                             </View>
-                             <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => navigation.navigate('Mathematique2010')}
-                 >
-                   <Text style={styles.buttonText}>Voir le sujet</Text>
-                 </TouchableOpacity>
-                           </TouchableOpacity>
+          {[...Array(15).keys()].map((year) => (
+            <TouchableOpacity
+              key={2010 + year}
+              style={styles.card}
+              onPress={() => navigation.navigate(year === 14 ? 'Mathematique2010' : year === 13 ? 'Mathematique2011' : 'Examalichoix')}
+            >
+              <Image source={require('./../../../Asset/testing.png')} style={styles.iconImage} />
+              <View style={styles.textContainer}>
+                <Text style={styles.subject}>Mathématiques</Text>
+                <Text style={styles.title}>Mathématiques du DEF {2010 + year}</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate(year === 14 ? 'Mathematique2010' : year === 13 ? 'Mathematique2011' : 'Examalichoix')}
+              >
+                <Text style={styles.buttonText}>Voir le sujet</Text>
+              </TouchableOpacity>
+            </TouchableOpacity>
+          ))}
         </View>
       </ScrollView>
 
@@ -468,7 +242,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textDecorationLine: 'underline',
   },
-
   toggleContainer: {
     padding: 10,
   },
@@ -495,7 +268,6 @@ const styles = StyleSheet.create({
   textOff: {
     color: '#000',
   },
-
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -526,7 +298,7 @@ const styles = StyleSheet.create({
   },
   modalText: {
     fontSize: 16,
-    top: -10
+    top: -10,
   },
   closeButton: {
     marginTop: 20,
@@ -539,54 +311,56 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    padding: 10,
-    marginVertical: 5,
+    padding: 15,
+    marginVertical: 6,
+    borderRadius: 5,
     shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3,
-    width: 366, 
-    height: 87, 
-    minHeight: 80,
-    justifyContent: "center"
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 5,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    width: 366,
+    minHeight: 90,
+    justifyContent: 'space-between',
   },
   iconImage: {
-    width: 21,
-    height: 28,
-    marginRight: 50,
-    right: -20
+    width: 24,
+    height: 32,
+    marginRight: 15,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
-    marginRight: 39,
   },
   subject: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000',
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 4,
   },
   title: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#666',
+    fontWeight: '400',
   },
   button: {
-    backgroundColor: '#4CAF50', // Couleur gris clair comme dans l'image
-    borderRadius: 20, // Coins très arrondis pour un effet ovale
-    paddingVertical: 4,
-    paddingHorizontal: 10,
+    backgroundColor: '#4CAF50',
+    borderRadius: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff', // Texte blanc
+    color: '#fff',
     fontSize: 14,
-    fontWeight: 'bold', // Texte en gras comme dans l'image
+    fontWeight: '600',
   },
 });
 

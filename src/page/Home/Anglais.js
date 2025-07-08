@@ -108,24 +108,108 @@ const Anglais = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Anglais2024')}>
-            <Image source={require('./../../../Asset/angdef1.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Anglais2023')}>
-            <Image source={require('./../../../Asset/angdef2.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Anglais2022')}>
-            <Image source={require('./../../../Asset/angdef3.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Anglais2021')}>
-            <Image source={require('./../../../Asset/angdef4.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Anglais20')}>
-            <Image source={require('./../../../Asset/angdef5.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Anglais2019')}>
-            <Image source={require('./../../../Asset/angdef6.png')} style={styles.image} />
-          </TouchableOpacity>
+              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Anglais2024')}
+                              >
+                                <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Anglais</Text>
+                                  <Text style={styles.title}>Anglais du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonA}
+                      onPress={() => navigation.navigate('Anglais2024')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                    </TouchableOpacity>
+          
+              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Anglais2023')}
+                              >
+                                <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Anglais</Text>
+                                  <Text style={styles.title}>Anglais du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonA}
+                      onPress={() => navigation.navigate('Anglais2023')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                    </TouchableOpacity>
+          
+              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Anglais2022')}
+                              >
+                                <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Anglais</Text>
+                                  <Text style={styles.title}>Anglais du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonA}
+                      onPress={() => navigation.navigate('Anglais2022')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                    </TouchableOpacity>
+          
+              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Anglais2021')}
+                              >
+                                <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Anglais</Text>
+                                  <Text style={styles.title}>Anglais du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonA}
+                      onPress={() => navigation.navigate('Anglais2021')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                    </TouchableOpacity>
+          
+              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Anglais2020')}
+                              >
+                                <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Anglais</Text>
+                                  <Text style={styles.title}>Anglais du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonA}
+                      onPress={() => navigation.navigate('Anglais2020')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                    </TouchableOpacity>
+          
+              <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Anglais2019')}
+                              >
+                                <Image source={require('./../../../Asset/VectorA.png')} style={styles.iconImageA} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Anglais</Text>
+                                  <Text style={styles.title}>Anglais du DEF 2018</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonA}
+                      onPress={() => navigation.navigate('Anglais2019')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                    </TouchableOpacity>
+          
               <TouchableOpacity
                                 style={styles.card}
                                 onPress={() => navigation.navigate('Anglais2018')}
@@ -141,7 +225,7 @@ const Anglais = () => {
                     >
                       <Text style={styles.buttonText}>Voir le sujet</Text>
                     </TouchableOpacity>
-                              </TouchableOpacity>
+                    </TouchableOpacity>
           
                               <TouchableOpacity
                                 style={styles.card}

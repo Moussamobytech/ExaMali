@@ -108,24 +108,102 @@ const Physiquechimie = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique2024')}>
-            <Image source={require('./../../../Asset/phydef1.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique2023')}>
-            <Image source={require('./../../../Asset/phydef2.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
-            <Image source={require('./../../../Asset/phydef3.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
-            <Image source={require('./../../../Asset/phydef4.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
-            <Image source={require('./../../../Asset/phydef5.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
-            <Image source={require('./../../../Asset/phydef6.png')} style={styles.image} />
-          </TouchableOpacity>
+           <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Physique2024')}
+                              >
+                                <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Physique & Chimie</Text>
+                                  <Text style={styles.title}>Physique & Chimie du DEF 2024</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonP}
+                      onPress={() => navigation.navigate('Physique2024')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+           <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Physique2023')}
+                              >
+                                <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Physique & Chimie</Text>
+                                  <Text style={styles.title}>Physique & Chimie du DEF 2023</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonP}
+                      onPress={() => navigation.navigate('Physique2023')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+           <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Physique2022')}
+                              >
+                                <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Physique & Chimie</Text>
+                                  <Text style={styles.title}>Physique & Chimie du DEF 2022</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonP}
+                      onPress={() => navigation.navigate('Physique2022')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+           <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Physique2018')}
+                              >
+                                <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Physique & Chimie</Text>
+                                  <Text style={styles.title}>Physique & Chimie du DEF 2021</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonP}
+                      onPress={() => navigation.navigate('Physique2018')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+           <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Physique2020')}
+                              >
+                                <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Physique & Chimie</Text>
+                                  <Text style={styles.title}>Physique & Chimie du DEF 2020</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonP}
+                      onPress={() => navigation.navigate('Physique2020')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+           <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Physique2019')}
+                              >
+                                <Image source={require('./../../../Asset/VectorP.png')} style={styles.iconImageP} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Physique & Chimie</Text>
+                                  <Text style={styles.title}>Physique & Chimie du DEF 2019</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonP}
+                      onPress={() => navigation.navigate('Physique2019')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
            <TouchableOpacity
                                 style={styles.card}
                                 onPress={() => navigation.navigate('Physique2018')}
@@ -465,6 +543,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 5,
     shadowColor: '#000',
+      shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 3,

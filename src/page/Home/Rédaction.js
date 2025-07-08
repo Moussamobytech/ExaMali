@@ -108,24 +108,102 @@ const Rédaction = () => {
         </ScrollView>
 
         <View style={styles.imagecontainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Redaction2024')}>
-            <Image source={require('./../../../Asset/reddef.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Redaction2023')}>
-            <Image source={require('./../../../Asset/reddef2.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Redaction2022')}>
-            <Image source={require('./../../../Asset/reddef3.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Redaction2021')}>
-            <Image source={require('./../../../Asset/reddef4.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Redaction2020')}>
-            <Image source={require('./../../../Asset/reddef5.png')} style={styles.image} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Redaction2019')}>
-            <Image source={require('./../../../Asset/reddef6.png')} style={styles.image} />
-          </TouchableOpacity>
+  <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2024')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2024</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2024')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+  <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2023')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2023</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2023')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+  <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2022')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2022</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2022')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+  <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2021')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2021</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2021')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+  <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2019')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2020</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2019')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
+  <TouchableOpacity
+                                style={styles.card}
+                                onPress={() => navigation.navigate('Redaction2018')}
+                              >
+                                <Image source={require('./../../../Asset/VectorR.png')} style={styles.iconImageR} />
+                                <View style={styles.textContainer}>
+                                  <Text style={styles.subject}>Rédaction</Text>
+                                  <Text style={styles.title}>Rédaction du DEF 2019</Text>
+                                </View>
+                                <TouchableOpacity
+                      style={styles.buttonR}
+                      onPress={() => navigation.navigate('Redaction2018')}
+                    >
+                      <Text style={styles.buttonText}>Voir le sujet</Text>
+                    </TouchableOpacity>
+                              </TouchableOpacity>
           
                          <TouchableOpacity
                                 style={styles.card}
