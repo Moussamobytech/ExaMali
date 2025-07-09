@@ -27,7 +27,7 @@ const Sujets = () => {
     { title: 'Anglais', source: require('./../../Asset/ANGLAIS1.png'), route: 'Anglais' },
     { title: 'Physique', source: require('./../../Asset/PHY.png'), route: 'Physiquechimie' },
     { title: 'Éducation Civique et Morale', source: require('./../../Asset/ECM.png'), route: 'Ecm' },
-    { title: 'Histoire', source: require('./../../Asset/HIST.png'), route: 'Histoirique' },
+    { title: 'Histoire', source: require('./../../Asset/HIST.png'), route: 'Histoire' },
     { title: 'Biologie', source: require('./../../Asset/BIOS.png'), route: 'Biologie' },
     { title: 'Dictée', source: require('./../../Asset/DICTE.png'), route: 'Dicte' },
   ];

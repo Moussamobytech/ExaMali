@@ -18,938 +18,939 @@ const Sujets = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [activeSerie, setActiveSerie] = useState('Terminal science exact'); // Default active serie
-  const [activeMatiere, setActiveMatiere] = useState('Mathématiques'); // Default active matiere
-  const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode state
+  const [activeSerie, setActiveSerie] = useState('Terminal science exact');
+  const [activeMatiere, setActiveMatiere] = useState('Mathématiques');
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  // Structure des données : séries avec leurs matières
-  const series = [
-    {
-      title: 'Terminal science exact',
-      matieres: [
-        {
-          name: 'Mathématiques',
-          searchImage: require('./../../Asset/MATH1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-               <TouchableOpacity
-                                   style={styles.card}
-                                   onPress={() => navigation.navigate('Mathematique2024')}
-                                 >
-                                   <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
-                                   <View style={styles.textContainer}>
-                                     <Text style={styles.subject}>Mathématiques</Text>
-                                     <Text style={styles.title}>Mathématiques du DEF 2024</Text>
-                                   </View>
-                                   <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => navigation.navigate('Mathematique2024')}
-                       >
-                         <Text style={styles.buttonText}>Voir le sujet</Text>
-                       </TouchableOpacity>
-                                 </TouchableOpacity>
-               <TouchableOpacity
-                                   style={styles.card}
-                                   onPress={() => navigation.navigate('Mathematique2023')}
-                                 >
-                                   <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
-                                   <View style={styles.textContainer}>
-                                     <Text style={styles.subject}>Mathématiques</Text>
-                                     <Text style={styles.title}>Mathématiques du DEF 2023</Text>
-                                   </View>
-                                   <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => navigation.navigate('Mathematique2023')}
-                       >
-                         <Text style={styles.buttonText}>Voir le sujet</Text>
-                       </TouchableOpacity>
-                                 </TouchableOpacity>
-               <TouchableOpacity
-                                   style={styles.card}
-                                   onPress={() => navigation.navigate('Mathematique2022')}
-                                 >
-                                   <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
-                                   <View style={styles.textContainer}>
-                                     <Text style={styles.subject}>Mathématiques</Text>
-                                     <Text style={styles.title}>Mathématiques du DEF 2022</Text>
-                                   </View>
-                                   <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => navigation.navigate('Mathematique2022')}
-                       >
-                         <Text style={styles.buttonText}>Voir le sujet</Text>
-                       </TouchableOpacity>
-                                 </TouchableOpacity>
-               <TouchableOpacity
-                                   style={styles.card}
-                                   onPress={() => navigation.navigate('Mathematique2021')}
-                                 >
-                                   <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
-                                   <View style={styles.textContainer}>
-                                     <Text style={styles.subject}>Mathématiques</Text>
-                                     <Text style={styles.title}>Mathématiques du DEF 2021</Text>
-                                   </View>
-                                   <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => navigation.navigate('Mathematique2021')}
-                       >
-                         <Text style={styles.buttonText}>Voir le sujet</Text>
-                       </TouchableOpacity>
-                                 </TouchableOpacity>
-          <TouchableOpacity
-                                   style={styles.card}
-                                   onPress={() => navigation.navigate('Mathematique2020')}
-                                 >
-                                   <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
-                                   <View style={styles.textContainer}>
-                                     <Text style={styles.subject}>Mathématiques</Text>
-                                     <Text style={styles.title}>Mathématiques du DEF 2020</Text>
-                                   </View>
-                                   <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => navigation.navigate('Mathematique2020')}
-                       >
-                         <Text style={styles.buttonText}>Voir le sujet</Text>
-                       </TouchableOpacity>
-                                 </TouchableOpacity>
-          <TouchableOpacity
-                                   style={styles.card}
-                                   onPress={() => navigation.navigate('Mathematique2019')}
-                                 >
-                                   <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
-                                   <View style={styles.textContainer}>
-                                     <Text style={styles.subject}>Mathématiques</Text>
-                                     <Text style={styles.title}>Mathématiques du DEF 2019</Text>
-                                   </View>
-                                   <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => navigation.navigate('Mathematique2019')}
-                       >
-                         <Text style={styles.buttonText}>Voir le sujet</Text>
-                       </TouchableOpacity>
-                                 </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Physique',
-          searchImage: require('./../../Asset/PHY.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
-                <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
-                <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
-                <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
-                <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
-                <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
-                <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-<TouchableOpacity
-          style={styles.card}
-          onPress={() => navigation.navigate('Examalichoix')}
-        >
-          <Image source={require('./../../Asset/def1.png')} style={styles.iconImage} />
-          <View style={styles.textContainer}>
-            <Text style={styles.subject}>Mathématiques</Text>
-            <Text style={styles.title}>Mathématiques du DEF 2023</Text>
-          </View>
-          <Text style={styles.buttonText}>Voir le sujet</Text>
-        </TouchableOpacity>
-          </View>
-          ),
-        },
-        {
-          name: 'Chimie',
-          searchImage: require('./../../Asset/PHY.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
-                <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
-                <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
-                <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
-                <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
-                <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
-                <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Biologie',
-          searchImage: require('./../../Asset/PHY.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
-                <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
-                <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
-                <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
-                <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
-                <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
-                <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Philosophie',
-          searchImage: require('./../../Asset/PHY.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
-                <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
-                <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
-                <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
-                <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
-                <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
-                <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Anglais',
-          searchImage: require('./../../Asset/PHY.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2024')}>
-                <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTsee2023')}>
-                <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Anglais2022')}>
-                <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2021')}>
-                <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2020')}>
-                <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2019')}>
-                <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-      ],
-    },
-    {
-      title: 'Terminal science expérimentale',
-      matieres: [
-        {
-          name: 'Mathématique',
-          searchImage: require('./../../Asset/REDAC1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2024')}>
-                <Image source={require('./../../Asset/tsexpma.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2023')}>
-                <Image source={require('./../../Asset/tsexpma1.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2022')}>
-                <Image source={require('./../../Asset/tsexpma2.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2021')}>
-                <Image source={require('./../../Asset/tsexpma3.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2020')}>
-                <Image source={require('./../../Asset/tsexpma4.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2019')}>
-                <Image source={require('./../../Asset/tsexpma5.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Biologie',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-          <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
-            <Image source={require('./../../Asset/TSEXPBI24.png')} style={styles.contentImage} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-            <Image source={require('./../../Asset/TSEXPBI23.png')} style={styles.contentImage} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-            <Image source={require('./../../Asset/TSEXPBI22.png')} style={styles.contentImage} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-            <Image source={require('./../../Asset/TSEXPBI21.png')} style={styles.contentImage} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-            <Image source={require('./../../Asset/TSEXPBI20.png')} style={styles.contentImage} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-            <Image source={require('./../../Asset/TSEXPBI19.png')} style={styles.contentImage} />
-          </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Physique',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
+ 
+   // Structure des données : séries avec leurs matières
+   const series = [
+     {
+       title: 'Terminal science exact',
+       matieres: [
+         {
+           name: 'Mathématiques',
+           searchImage: require('./../../Asset/MATH1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                <TouchableOpacity
+                                    style={styles.card}
+                                    onPress={() => navigation.navigate('Mathematique2024')}
+                                  >
+                                    <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
+                                    <View style={styles.textContainer}>
+                                      <Text style={styles.subject}>Mathématiques</Text>
+                                      <Text style={styles.title}>Mathématiques du DEF 2024</Text>
+                                    </View>
+                                    <TouchableOpacity
+                          style={styles.button}
+                          onPress={() => navigation.navigate('Mathematique2024')}
+                        >
+                          <Text style={styles.buttonText}>Voir le sujet</Text>
+                        </TouchableOpacity>
+                                  </TouchableOpacity>
+                <TouchableOpacity
+                                    style={styles.card}
+                                    onPress={() => navigation.navigate('Mathematique2023')}
+                                  >
+                                    <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
+                                    <View style={styles.textContainer}>
+                                      <Text style={styles.subject}>Mathématiques</Text>
+                                      <Text style={styles.title}>Mathématiques du DEF 2023</Text>
+                                    </View>
+                                    <TouchableOpacity
+                          style={styles.button}
+                          onPress={() => navigation.navigate('Mathematique2023')}
+                        >
+                          <Text style={styles.buttonText}>Voir le sujet</Text>
+                        </TouchableOpacity>
+                                  </TouchableOpacity>
+                <TouchableOpacity
+                                    style={styles.card}
+                                    onPress={() => navigation.navigate('Mathematique2022')}
+                                  >
+                                    <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
+                                    <View style={styles.textContainer}>
+                                      <Text style={styles.subject}>Mathématiques</Text>
+                                      <Text style={styles.title}>Mathématiques du DEF 2022</Text>
+                                    </View>
+                                    <TouchableOpacity
+                          style={styles.button}
+                          onPress={() => navigation.navigate('Mathematique2022')}
+                        >
+                          <Text style={styles.buttonText}>Voir le sujet</Text>
+                        </TouchableOpacity>
+                                  </TouchableOpacity>
+                <TouchableOpacity
+                                    style={styles.card}
+                                    onPress={() => navigation.navigate('Mathematique2021')}
+                                  >
+                                    <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
+                                    <View style={styles.textContainer}>
+                                      <Text style={styles.subject}>Mathématiques</Text>
+                                      <Text style={styles.title}>Mathématiques du DEF 2021</Text>
+                                    </View>
+                                    <TouchableOpacity
+                          style={styles.button}
+                          onPress={() => navigation.navigate('Mathematique2021')}
+                        >
+                          <Text style={styles.buttonText}>Voir le sujet</Text>
+                        </TouchableOpacity>
+                                  </TouchableOpacity>
+           <TouchableOpacity
+                                    style={styles.card}
+                                    onPress={() => navigation.navigate('Mathematique2020')}
+                                  >
+                                    <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
+                                    <View style={styles.textContainer}>
+                                      <Text style={styles.subject}>Mathématiques</Text>
+                                      <Text style={styles.title}>Mathématiques du DEF 2020</Text>
+                                    </View>
+                                    <TouchableOpacity
+                          style={styles.button}
+                          onPress={() => navigation.navigate('Mathematique2020')}
+                        >
+                          <Text style={styles.buttonText}>Voir le sujet</Text>
+                        </TouchableOpacity>
+                                  </TouchableOpacity>
+           <TouchableOpacity
+                                    style={styles.card}
+                                    onPress={() => navigation.navigate('Mathematique2019')}
+                                  >
+                                    <Image source={require('./../../Asset/testing.png')} style={styles.iconImage} />
+                                    <View style={styles.textContainer}>
+                                      <Text style={styles.subject}>Mathématiques</Text>
+                                      <Text style={styles.title}>Mathématiques du DEF 2019</Text>
+                                    </View>
+                                    <TouchableOpacity
+                          style={styles.button}
+                          onPress={() => navigation.navigate('Mathematique2019')}
+                        >
+                          <Text style={styles.buttonText}>Voir le sujet</Text>
+                        </TouchableOpacity>
+                                  </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Physique',
+           searchImage: require('./../../Asset/PHY.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
+                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
+                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
+                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
+                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
+                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
+                 <Image source={require('./../../Asset/TSEPhysique.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+ <TouchableOpacity
+           style={styles.card}
+           onPress={() => navigation.navigate('Examalichoix')}
+         >
+           <Image source={require('./../../Asset/def1.png')} style={styles.iconImage} />
+           <View style={styles.textContainer}>
+             <Text style={styles.subject}>Mathématiques</Text>
+             <Text style={styles.title}>Mathématiques du DEF 2023</Text>
+           </View>
+           <Text style={styles.buttonText}>Voir le sujet</Text>
+         </TouchableOpacity>
+           </View>
+           ),
+         },
+         {
+           name: 'Chimie',
+           searchImage: require('./../../Asset/PHY.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
+                 <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
+                 <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
+                 <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
+                 <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
+                 <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
+                 <Image source={require('./../../Asset/TSECH24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Biologie',
+           searchImage: require('./../../Asset/PHY.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
+                 <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
+                 <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
+                 <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
+                 <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
+                 <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
+                 <Image source={require('./../../Asset/TSEBI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Philosophie',
+           searchImage: require('./../../Asset/PHY.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique24')}>
+                 <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique23')}>
+                 <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique22')}>
+                 <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique21')}>
+                 <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique20')}>
+                 <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Physique19')}>
+                 <Image source={require('./../../Asset/TSEPHI24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Anglais',
+           searchImage: require('./../../Asset/PHY.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2024')}>
+                 <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTsee2023')}>
+                 <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('Anglais2022')}>
+                 <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2021')}>
+                 <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2020')}>
+                 <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTse2019')}>
+                 <Image source={require('./../../Asset/TSEAN24.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+       ],
+     },
+     {
+       title: 'Terminal science expérimentale',
+       matieres: [
+         {
+           name: 'Mathématique',
+           searchImage: require('./../../Asset/REDAC1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2024')}>
+                 <Image source={require('./../../Asset/tsexpma.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2023')}>
+                 <Image source={require('./../../Asset/tsexpma1.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2022')}>
+                 <Image source={require('./../../Asset/tsexpma2.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2021')}>
+                 <Image source={require('./../../Asset/tsexpma3.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2020')}>
+                 <Image source={require('./../../Asset/tsexpma4.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTexp2019')}>
+                 <Image source={require('./../../Asset/tsexpma5.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Biologie',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
            <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
-                       <Image source={require('./../../Asset/TSEXPPH24.png')} style={styles.image} />
+             <Image source={require('./../../Asset/TSEXPBI24.png')} style={styles.contentImage} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+             <Image source={require('./../../Asset/TSEXPBI23.png')} style={styles.contentImage} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+             <Image source={require('./../../Asset/TSEXPBI22.png')} style={styles.contentImage} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+             <Image source={require('./../../Asset/TSEXPBI21.png')} style={styles.contentImage} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+             <Image source={require('./../../Asset/TSEXPBI20.png')} style={styles.contentImage} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+             <Image source={require('./../../Asset/TSEXPBI19.png')} style={styles.contentImage} />
+           </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Physique',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+            <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
+                        <Image source={require('./../../Asset/TSEXPPH24.png')} style={styles.image} />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                        <Image source={require('./../../Asset/TSEXPPH23.png')} style={styles.image} />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                        <Image source={require('./../../Asset/TSEXPPH21.png')} style={styles.image} />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                        <Image source={require('./../../Asset/TSEXPPH22.png')} style={styles.image} />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                        <Image source={require('./../../Asset/TSEXPPH20.png')} style={styles.image} />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                        <Image source={require('./../../Asset/TSEXPPH19.png')} style={styles.image} />
+                      </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Anglais',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+            <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
+                       <Image source={require('./../../Asset/TSEXPAN24.png')} style={styles.image} />
                      </TouchableOpacity>
                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                       <Image source={require('./../../Asset/TSEXPPH23.png')} style={styles.image} />
+                       <Image source={require('./../../Asset/TSEXPAN23.png')} style={styles.image} />
                      </TouchableOpacity>
                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                       <Image source={require('./../../Asset/TSEXPPH21.png')} style={styles.image} />
+                       <Image source={require('./../../Asset/TSEXPAN22.png')} style={styles.image} />
                      </TouchableOpacity>
                      <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                       <Image source={require('./../../Asset/TSEXPPH22.png')} style={styles.image} />
+                       <Image source={require('./../../Asset/TSEXPAN21.png')} style={styles.image} />
                      </TouchableOpacity>
-                     <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                       <Image source={require('./../../Asset/TSEXPPH20.png')} style={styles.image} />
+                     <TouchableOpacity onPress={() => navigation.navigate('AnglaisTexp2020')}>
+                       <Image source={require('./../../Asset/TSEXPAN20.png')} style={styles.image} />
                      </TouchableOpacity>
-                     <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                       <Image source={require('./../../Asset/TSEXPPH19.png')} style={styles.image} />
+                     <TouchableOpacity onPress={() => navigation.navigate('AnglaisTexp2019')}>
+                       <Image source={require('./../../Asset/TSEXPAN19.png')} style={styles.image} />
                      </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Anglais',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
+             </View>
+           ),
+         },
+         {
+           name: 'Philosophie',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
            <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
-                      <Image source={require('./../../Asset/TSEXPAN24.png')} style={styles.image} />
+                      <Image source={require('./../../Asset/TSEXPPHI24.png')} style={styles.image} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                      <Image source={require('./../../Asset/TSEXPAN23.png')} style={styles.image} />
+                      <Image source={require('./../../Asset/TSEXPPHI23.png')} style={styles.image} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                      <Image source={require('./../../Asset/TSEXPAN22.png')} style={styles.image} />
+                      <Image source={require('./../../Asset/TSEXPPHI22.png')} style={styles.image} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                      <Image source={require('./../../Asset/TSEXPAN21.png')} style={styles.image} />
+                      <Image source={require('./../../Asset/TSEXPPHI21.png')} style={styles.image} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('AnglaisTexp2020')}>
-                      <Image source={require('./../../Asset/TSEXPAN20.png')} style={styles.image} />
+                    <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                      <Image source={require('./../../Asset/TSEXPPHI20.png')} style={styles.image} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('AnglaisTexp2019')}>
-                      <Image source={require('./../../Asset/TSEXPAN19.png')} style={styles.image} />
+                    <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
+                      <Image source={require('./../../Asset/TSEXPPHI19.png')} style={styles.image} />
                     </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Philosophie',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-          <TouchableOpacity onPress={() => navigation.navigate('Mathpdf')}>
-                     <Image source={require('./../../Asset/TSEXPPHI24.png')} style={styles.image} />
-                   </TouchableOpacity>
-                   <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                     <Image source={require('./../../Asset/TSEXPPHI23.png')} style={styles.image} />
-                   </TouchableOpacity>
-                   <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                     <Image source={require('./../../Asset/TSEXPPHI22.png')} style={styles.image} />
-                   </TouchableOpacity>
-                   <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                     <Image source={require('./../../Asset/TSEXPPHI21.png')} style={styles.image} />
-                   </TouchableOpacity>
-                   <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                     <Image source={require('./../../Asset/TSEXPPHI20.png')} style={styles.image} />
-                   </TouchableOpacity>
-                   <TouchableOpacity onPress={() => navigation.navigate('Examalichoix')}>
-                     <Image source={require('./../../Asset/TSEXPPHI19.png')} style={styles.image} />
-                   </TouchableOpacity>
-            </View>
-          ),
-        },
-      ],
-    },
-    {
-      title: 'Terminal science économique',
-      matieres: [
-        {
-          name: 'Anglais',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2024')}>
-                <Image source={require('./../../Asset/angdef1.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2023')}>
-                <Image source={require('./../../Asset/angdef2.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2022')}>
-                <Image source={require('./../../Asset/angdef3.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2021')}>
-                <Image source={require('./../../Asset/angdef4.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2020')}>
-                <Image source={require('./../../Asset/angdef5.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2019')}>
-                <Image source={require('./../../Asset/angdef6.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Comptabilité',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
+             </View>
+           ),
+         },
+       ],
+     },
+     {
+       title: 'Terminal science économique',
+       matieres: [
+         {
+           name: 'Anglais',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2024')}>
+                 <Image source={require('./../../Asset/angdef1.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2023')}>
+                 <Image source={require('./../../Asset/angdef2.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2022')}>
+                 <Image source={require('./../../Asset/angdef3.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2021')}>
+                 <Image source={require('./../../Asset/angdef4.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2020')}>
+                 <Image source={require('./../../Asset/angdef5.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTseco2019')}>
+                 <Image source={require('./../../Asset/angdef6.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Comptabilité',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOCOM24.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOCOM23.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOCOM22.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOCOM21.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOCOM20.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOCOM19.png')} style={styles.image} />
+                         </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Economie',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                 <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOE24.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOE23.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOE22.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOE21.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOE20.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSECOE19.png')} style={styles.image} />
+                         </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Philosophie',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                 <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOP24.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOP23.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOP22.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOP21.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOP20.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOP19.png')} style={styles.image} />
+                           </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Géographie',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                   <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOG24.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOG23.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOG22.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOG21.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOG19.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TSECOCOM20.png')} style={styles.image} />
+                           </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Mathématique',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                  <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2024')}>
+                              <Image source={require('./../../Asset/TSECOM24.png')} style={styles.image} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2023')}>
+                              <Image source={require('./../../Asset/TSECOM23.png')} style={styles.image} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2022')}>
+                              <Image source={require('./../../Asset/TSECOM22.png')} style={styles.image} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2021')}>
+                              <Image source={require('./../../Asset/TSECOM21.png')} style={styles.image} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2020')}>
+                              <Image source={require('./../../Asset/TSECOM20.png')} style={styles.image} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2019')}>
+                              <Image source={require('./../../Asset/TSECOM19.png')} style={styles.image} />
+                            </TouchableOpacity>
+             </View>
+           ),
+         },
+       ],
+     },
+     {
+       title: 'Terminal science sociale',
+       matieres: [
+         {
+           name: 'Histoire',
+           searchImage: require('./../../Asset/HIST.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSSH24.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSSH23.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSSH22.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSSH21.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSSH20.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TSSH19.png')} style={styles.image} />
+                         </TouchableOpacity>
+             </View>
+           ),
+         },
+         {
+           name: 'Sociologie',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
               <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOCOM24.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOCOM23.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOCOM22.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOCOM21.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOCOM20.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOCOM19.png')} style={styles.image} />
-                        </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Economie',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOE24.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOE23.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOE22.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOE21.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOE20.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSECOE19.png')} style={styles.image} />
-                        </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Philosophie',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOP24.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOP23.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOP22.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOP21.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOP20.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOP19.png')} style={styles.image} />
-                          </TouchableOpacity>
-            </View>
-          ),
-        },
+                         <Image source={require('./../../Asset/TSSS24.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSS23.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSS22.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSS21.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSS20.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSS19.png')} style={styles.image} />
+                       </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Anglais',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2024')}>
+                         <Image source={require('./../../Asset/TSSA24.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2023')}>
+                         <Image source={require('./../../Asset/TSSA23.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2022')}>
+                         <Image source={require('./../../Asset/TSSA22.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2021')}>
+                         <Image source={require('./../../Asset/TSSA21.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2020')}>
+                         <Image source={require('./../../Asset/TSSA20.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2019')}>
+                         <Image source={require('./../../Asset/TSSA19.png')} style={styles.image} />
+                       </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Philosophie',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                 <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSP24.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSS23.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSP22.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSP21.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSP20.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TSSP19.png')} style={styles.image} />
+                       </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Mathématique',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                  <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2024')}>
+                             <Image source={require('./../../Asset/TSSM24.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2023')}>
+                             <Image source={require('./../../Asset/TSSM23.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2022')}>
+                             <Image source={require('./../../Asset/TSSM22.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2021')}>
+                             <Image source={require('./../../Asset/TSSM21.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2020')}>
+                             <Image source={require('./../../Asset/TSSM20.png')} style={styles.image} />
+                           </TouchableOpacity>
+                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2019')}>
+                             <Image source={require('./../../Asset/TSSM19.png')} style={styles.image} />
+                           </TouchableOpacity>
+             </View>
+           ),
+         },
+       ],
+     },
+     {
+       title: 'Terminal lettre et langue',
+       matieres: [
          {
-          name: 'Géographie',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
+           name: 'Allemand',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TLLAL24.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TLLAL23.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TLLAL22.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TLLAL21.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TLLAL20.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                           <Image source={require('./../../Asset/TLLAL19.png')} style={styles.image} />
+                         </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Anglais',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2024')}>
+                           <Image source={require('./../../Asset/TLL24.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2023')}>
+                           <Image source={require('./../../Asset/TLL23.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2022')}>
+                           <Image source={require('./../../Asset/TLL22.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2021')}>
+                           <Image source={require('./../../Asset/TLL21.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2020')}>
+                           <Image source={require('./../../Asset/TLL20.png')} style={styles.image} />
+                         </TouchableOpacity>
+                         <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2019')}>
+                           <Image source={require('./../../Asset/TLL19.png')} style={styles.image} />
+                         </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Arabe',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
                   <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOG24.png')} style={styles.image} />
+                            <Image source={require('./../../Asset/TLLA24.png')} style={styles.image} />
                           </TouchableOpacity>
                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOG23.png')} style={styles.image} />
+                            <Image source={require('./../../Asset/TLLA23.png')} style={styles.image} />
                           </TouchableOpacity>
                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOG22.png')} style={styles.image} />
+                            <Image source={require('./../../Asset/TLLA22.png')} style={styles.image} />
                           </TouchableOpacity>
                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOG21.png')} style={styles.image} />
+                            <Image source={require('./../../Asset/TLLA21.png')} style={styles.image} />
                           </TouchableOpacity>
                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOG19.png')} style={styles.image} />
+                            <Image source={require('./../../Asset/TLLA20.png')} style={styles.image} />
                           </TouchableOpacity>
                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TSECOCOM20.png')} style={styles.image} />
+                            <Image source={require('./../../Asset/TLLA19.png')} style={styles.image} />
                           </TouchableOpacity>
-            </View>
-          ),
-        },
+             </View>
+           ),
+         },
          {
-          name: 'Mathématique',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                 <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2024')}>
-                             <Image source={require('./../../Asset/TSECOM24.png')} style={styles.image} />
+           name: 'Français',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                 <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                            <Image source={require('./../../Asset/TLLF24.png')} style={styles.image} />
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                            <Image source={require('./../../Asset/TLLF23.png')} style={styles.image} />
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                            <Image source={require('./../../Asset/TLLF22.png')} style={styles.image} />
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                            <Image source={require('./../../Asset/TLLF21.png')} style={styles.image} />
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                            <Image source={require('./../../Asset/TLLF20.png')} style={styles.image} />
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                            <Image source={require('./../../Asset/TLLF19.png')} style={styles.image} />
+                          </TouchableOpacity>
+             </View>
+           ),
+         },
+          {
+           name: 'Linguistique',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+                  <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TLLL24.png')} style={styles.image} />
                            </TouchableOpacity>
-                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2023')}>
-                             <Image source={require('./../../Asset/TSECOM23.png')} style={styles.image} />
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TLLL23.png')} style={styles.image} />
                            </TouchableOpacity>
-                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2022')}>
-                             <Image source={require('./../../Asset/TSECOM22.png')} style={styles.image} />
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TLLL22.png')} style={styles.image} />
                            </TouchableOpacity>
-                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2021')}>
-                             <Image source={require('./../../Asset/TSECOM21.png')} style={styles.image} />
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TLLL21.png')} style={styles.image} />
                            </TouchableOpacity>
-                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2020')}>
-                             <Image source={require('./../../Asset/TSECOM20.png')} style={styles.image} />
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TLLL20.png')} style={styles.image} />
                            </TouchableOpacity>
-                           <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTseco2019')}>
-                             <Image source={require('./../../Asset/TSECOM19.png')} style={styles.image} />
+                           <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                             <Image source={require('./../../Asset/TLLL19.png')} style={styles.image} />
                            </TouchableOpacity>
-            </View>
-          ),
-        },
-      ],
-    },
-    {
-      title: 'Terminal science sociale',
-      matieres: [
-        {
-          name: 'Histoire',
-          searchImage: require('./../../Asset/HIST.png'),
-          content: (
-            <View style={styles.subjectContent}>
-               <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSSH24.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSSH23.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSSH22.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSSH21.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSSH20.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TSSH19.png')} style={styles.image} />
-                        </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Sociologie',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
+             </View>
+           ),
+         },
+              {
+           name: 'Philisophie',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
              <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSS24.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSS23.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSS22.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSS21.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSS20.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSS19.png')} style={styles.image} />
-                      </TouchableOpacity>
-            </View>
-          ),
-        },
+                         <Image source={require('./../../Asset/TLLP24.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TLLP23.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TLLP22.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TLLP21.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TLLP20.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('#')}>
+                         <Image source={require('./../../Asset/TLLP19.png')} style={styles.image} />
+                       </TouchableOpacity>
+             </View>
+           ),
+         },
+              {
+           name: 'Mathématique',
+           searchImage: require('./../../Asset/ECM.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2024')}>
+                         <Image source={require('./../../Asset/TLLM24.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2023')}>
+                         <Image source={require('./../../Asset/TLLM23.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2022')}>
+                         <Image source={require('./../../Asset/TLLM22.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2021')}>
+                         <Image source={require('./../../Asset/TLLM21.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2020')}>
+                         <Image source={require('./../../Asset/TLLM20.png')} style={styles.image} />
+                       </TouchableOpacity>
+                       <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2019')}>
+                         <Image source={require('./../../Asset/TLLM19.png')} style={styles.image} />
+                       </TouchableOpacity>
+             </View>
+           ),
+         },
+       ],
+     },
+     {
+       title: 'Terminal anglais et langue',
+       matieres: [
          {
-          name: 'Anglais',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-             <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2024')}>
-                        <Image source={require('./../../Asset/TSSA24.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2023')}>
-                        <Image source={require('./../../Asset/TSSA23.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2022')}>
-                        <Image source={require('./../../Asset/TSSA22.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2021')}>
-                        <Image source={require('./../../Asset/TSSA21.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2020')}>
-                        <Image source={require('./../../Asset/TSSA20.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('AnglaisTss2019')}>
-                        <Image source={require('./../../Asset/TSSA19.png')} style={styles.image} />
-                      </TouchableOpacity>
-            </View>
-          ),
-        },
-         {
-          name: 'Philosophie',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSP24.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSS23.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSP22.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSP21.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSP20.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TSSP19.png')} style={styles.image} />
-                      </TouchableOpacity>
-            </View>
-          ),
-        },
-         {
-          name: 'Mathématique',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                 <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2024')}>
-                            <Image source={require('./../../Asset/TSSM24.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2023')}>
-                            <Image source={require('./../../Asset/TSSM23.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2022')}>
-                            <Image source={require('./../../Asset/TSSM22.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2021')}>
-                            <Image source={require('./../../Asset/TSSM21.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2020')}>
-                            <Image source={require('./../../Asset/TSSM20.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTss2019')}>
-                            <Image source={require('./../../Asset/TSSM19.png')} style={styles.image} />
-                          </TouchableOpacity>
-            </View>
-          ),
-        },
-      ],
-    },
-    {
-      title: 'Terminal lettre et langue',
-      matieres: [
-        {
-          name: 'Allemand',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-               <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TLLAL24.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TLLAL23.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TLLAL22.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TLLAL21.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TLLAL20.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                          <Image source={require('./../../Asset/TLLAL19.png')} style={styles.image} />
-                        </TouchableOpacity>
-            </View>
-          ),
-        },
-         {
-          name: 'Anglais',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2024')}>
-                          <Image source={require('./../../Asset/TLL24.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2023')}>
-                          <Image source={require('./../../Asset/TLL23.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2022')}>
-                          <Image source={require('./../../Asset/TLL22.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2021')}>
-                          <Image source={require('./../../Asset/TLL21.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2020')}>
-                          <Image source={require('./../../Asset/TLL20.png')} style={styles.image} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('AnglaisTll2019')}>
-                          <Image source={require('./../../Asset/TLL19.png')} style={styles.image} />
-                        </TouchableOpacity>
-            </View>
-          ),
-        },
-         {
-          name: 'Arabe',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                 <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLA24.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLA23.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLA22.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLA21.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLA20.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLA19.png')} style={styles.image} />
-                         </TouchableOpacity>
-            </View>
-          ),
-        },
-        {
-          name: 'Français',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLF24.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLF23.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLF22.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLF21.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLF20.png')} style={styles.image} />
-                         </TouchableOpacity>
-                         <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                           <Image source={require('./../../Asset/TLLF19.png')} style={styles.image} />
-                         </TouchableOpacity>
-            </View>
-          ),
-        },
-         {
-          name: 'Linguistique',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-                 <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TLLL24.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TLLL23.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TLLL22.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TLLL21.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TLLL20.png')} style={styles.image} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                            <Image source={require('./../../Asset/TLLL19.png')} style={styles.image} />
-                          </TouchableOpacity>
-            </View>
-          ),
-        },
-             {
-          name: 'Philisophie',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-            <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TLLP24.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TLLP23.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TLLP22.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TLLP21.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TLLP20.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('#')}>
-                        <Image source={require('./../../Asset/TLLP19.png')} style={styles.image} />
-                      </TouchableOpacity>
-            </View>
-          ),
-        },
-             {
-          name: 'Mathématique',
-          searchImage: require('./../../Asset/ECM.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2024')}>
-                        <Image source={require('./../../Asset/TLLM24.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2023')}>
-                        <Image source={require('./../../Asset/TLLM23.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2022')}>
-                        <Image source={require('./../../Asset/TLLM22.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2021')}>
-                        <Image source={require('./../../Asset/TLLM21.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2020')}>
-                        <Image source={require('./../../Asset/TLLM20.png')} style={styles.image} />
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={() => navigation.navigate('MathematiqueTll2019')}>
-                        <Image source={require('./../../Asset/TLLM19.png')} style={styles.image} />
-                      </TouchableOpacity>
-            </View>
-          ),
-        },
-      ],
-    },
-    {
-      title: 'Terminal anglais et langue',
-      matieres: [
-        {
-          name: 'Anglais',
-          searchImage: require('./../../Asset/ANGLAIS1.png'),
-          content: (
-            <View style={styles.subjectContent}>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2024')}>
-                <Image source={require('./../../Asset/angdef1.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2023')}>
-                <Image source={require('./../../Asset/angdef2.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2022')}>
-                <Image source={require('./../../Asset/angdef3.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2021')}>
-                <Image source={require('./../../Asset/angdef4.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2020')}>
-                <Image source={require('./../../Asset/angdef5.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2019')}>
-                <Image source={require('./../../Asset/angdef6.png')} style={styles.contentImage} />
-              </TouchableOpacity>
-            </View>
-          ),
-        },
-      ],
-    },
-  ];
-
+           name: 'Anglais',
+           searchImage: require('./../../Asset/ANGLAIS1.png'),
+           content: (
+             <View style={styles.subjectContent}>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2024')}>
+                 <Image source={require('./../../Asset/angdef1.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2023')}>
+                 <Image source={require('./../../Asset/angdef2.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2022')}>
+                 <Image source={require('./../../Asset/angdef3.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2021')}>
+                 <Image source={require('./../../Asset/angdef4.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2020')}>
+                 <Image source={require('./../../Asset/angdef5.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate('AnglaisTal2019')}>
+                 <Image source={require('./../../Asset/angdef6.png')} style={styles.contentImage} />
+               </TouchableOpacity>
+             </View>
+           ),
+         },
+       ],
+     },
+   ];
   // Recherche par série et matière
-const handleSearch = (text) => {
-  setSearchQuery(text);
-  if (text.trim()) {
-    const results = [];
-    const searchTerm = text.toLowerCase();
-    
-    series.forEach((serie) => {
-      serie.matieres.forEach((matiere) => {
-        if (matiere.name.toLowerCase().includes(searchTerm)) {
-          results.push({
-            serie: serie.title,
-            matiere: matiere.name,
-            searchImage: matiere.searchImage,
-          });
-        }
+  const handleSearch = (text) => {
+    setSearchQuery(text);
+    if (text.trim()) {
+      const results = [];
+      const searchTerm = text.toLowerCase();
+      
+      series.forEach((serie) => {
+        serie.matieres.forEach((matiere) => {
+          if (matiere.name.toLowerCase().includes(searchTerm)) {
+            results.push({
+              serie: serie.title,
+              matiere: matiere.name,
+              searchImage: matiere.searchImage,
+            });
+          }
+        });
       });
-    });
-    
-    setSearchResults(results);
-    setModalVisible(results.length > 0);
-  } else {
-    setModalVisible(false);
-  }
-};
+      
+      setSearchResults(results);
+      setModalVisible(results.length > 0);
+    } else {
+      setModalVisible(false);
+    }
+  };
+
   // Sélection d'une série
   const handleSerieSelect = (serieTitle) => {
     setActiveSerie(serieTitle);
@@ -984,7 +985,7 @@ const handleSearch = (text) => {
         <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
           <Image source={require('./../../Asset/return.png')} style={styles.returnImage} />
         </TouchableOpacity>
-                <Image source={require('./../../Asset/logoexamali.png')} style={styles.returnImage1} />
+      
         <TouchableOpacity onPress={toggleTheme} style={styles.toggleContainer}>
           <View style={[styles.toggleSwitch, isDarkMode ? styles.toggleSwitchOn : styles.toggleSwitchOff]}>
             <Text style={[styles.toggleText, isDarkMode ? styles.textOn : styles.textOff]}>
@@ -993,6 +994,7 @@ const handleSearch = (text) => {
           </View>
         </TouchableOpacity>
       </View>
+      
       <ScrollView vertical showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>Sujets pages</Text>
         <Text style={[styles.subtitle, { color: dynamicTextColor }]}>
@@ -1015,21 +1017,31 @@ const handleSearch = (text) => {
           />
         </View>
 
-        {/* Sélection de la série */}
+        {/* Sélection de la série - Style amélioré */}
         <Text style={[styles.sectionTitle, { color: dynamicTextColor }]}>Séries</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScrollView}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false} 
+          style={styles.seriesScrollContainer}
+          contentContainerStyle={styles.seriesContentContainer}
+        >
           {series.map((serie, index) => (
             <TouchableOpacity
               key={index}
               onPress={() => handleSerieSelect(serie.title)}
-              style={[styles.horizontalItem, activeSerie === serie.title && styles.activeHorizontalItem]}
+              style={[
+                styles.serieItem,
+                activeSerie === serie.title && styles.activeSerieItem,
+                { backgroundColor: isDarkMode ? '#1e1e1e' : '#f0f0f0' }
+              ]}
             >
               <Text
                 style={[
-                  styles.horizontalText,
-                  activeSerie === serie.title && styles.activeHorizontalText,
-                  { color: dynamicTextColor },
+                  styles.serieText,
+                  activeSerie === serie.title && styles.activeSerieText,
+                  { color: dynamicTextColor }
                 ]}
+                numberOfLines={2}
               >
                 {serie.title}
               </Text>
@@ -1037,23 +1049,33 @@ const handleSearch = (text) => {
           ))}
         </ScrollView>
 
-        {/* Sélection de la matière */}
+        {/* Sélection de la matière - Style amélioré */}
         {activeSerieData && (
           <>
             <Text style={[styles.sectionTitle, { color: dynamicTextColor }]}>Matières</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScrollView}>
+            <ScrollView 
+              horizontal 
+              showsHorizontalScrollIndicator={false} 
+              style={styles.matiereScrollContainer}
+              contentContainerStyle={styles.matiereContentContainer}
+            >
               {activeSerieData.matieres.map((matiere, index) => (
                 <TouchableOpacity
                   key={index}
                   onPress={() => handleMatiereSelect(matiere.name)}
-                  style={[styles.horizontalItem, activeMatiere === matiere.name && styles.activeHorizontalItem]}
+                  style={[
+                    styles.matiereItem,
+                    activeMatiere === matiere.name && styles.activeMatiereItem,
+                    { backgroundColor: isDarkMode ? '#1e1e1e' : '#f0f0f0' }
+                  ]}
                 >
                   <Text
                     style={[
-                      styles.horizontalText,
-                      activeMatiere === matiere.name && styles.activeHorizontalText,
-                      { color: dynamicTextColor },
+                      styles.matiereText,
+                      activeMatiere === matiere.name && styles.activeMatiereText,
+                      { color: dynamicTextColor }
                     ]}
+                    numberOfLines={1}
                   >
                     {matiere.name}
                   </Text>
@@ -1154,8 +1176,8 @@ const styles = StyleSheet.create({
   returnImage1: {
     width: 100,
     height: 40,
-   alignSelf: "center", 
-   left:20
+    alignSelf: "center", 
+    left: 20
   },
   scrollContainer: {
     paddingBottom: 20,
@@ -1192,23 +1214,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 15,
     fontSize: 16,
-  },
-  horizontalScrollView: {
-    marginBottom: 20,
-  },
-  horizontalItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-  },
-  horizontalText: {
-    fontSize: 16,
-  },
-  activeHorizontalItem: {
-    // Optional: Add background or border for active item
-  },
-  activeHorizontalText: {
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
   },
   toggleContainer: {
     padding: 10,
@@ -1288,58 +1293,125 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
-
-card: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  backgroundColor: '#fff',
-  padding: 10,
-  marginVertical: 5,
-  shadowColor: '#000',
-  shadowOpacity: 0.1,
-  shadowRadius: 5,
-  elevation: 3,
-  width: 366, 
-  height: 87, 
-  minHeight: 80,
-  justifyContent: "center"
-},
-iconImage: {
-  width: 21,
-  height: 28,
-  marginRight: 50,
-  right: -20
-},
-button: {
-  backgroundColor: '#4CAF50', 
-  borderRadius: 20, 
-  paddingVertical: 4,
-  paddingHorizontal: 10,
-  justifyContent: 'center',
-  alignItems: 'center',
-},
-buttonText: {
-  color: '#fff', // Texte blanc
-  fontSize: 14,
-  fontWeight: 'bold', // Texte en gras comme dans l'image
-},
-textContainer: {
-  flex: 1,
-  justifyContent: 'center',
-  marginRight: 39,
-},
-subject: {
-  fontSize: 16,
-  fontWeight: 'bold',
-  color: '#000',
-},
-title: {
-  fontSize: 12,
-  color: '#666',
-},
-
-
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 10,
+    marginVertical: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+    width: 366, 
+    height: 87, 
+    minHeight: 80,
+    justifyContent: "center"
+  },
+  iconImage: {
+    width: 21,
+    height: 28,
+    marginRight: 50,
+    right: -20
+  },
+  button: {
+    backgroundColor: '#4CAF50', 
+    borderRadius: 20, 
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    marginRight: 39,
+  },
+  subject: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  title: {
+    fontSize: 12,
+    color: '#666',
+  },
+  
+  // Nouveaux styles pour les séries et matières
+  seriesScrollContainer: {
+    marginBottom: 15,
+  },
+  seriesContentContainer: {
+    paddingHorizontal: 5,
+  },
+  matiereScrollContainer: {
+    marginBottom: 20,
+  },
+  matiereContentContainer: {
+    paddingHorizontal: 5,
+  },
+  serieItem: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 25,
+    marginHorizontal: 5,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    minWidth: 120,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  activeSerieItem: {
+    backgroundColor: '#4CAF50',
+    borderColor: '#388E3C',
+  },
+  serieText: {
+    fontSize: 14,
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  activeSerieText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  matiereItem: {
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginHorizontal: 5,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    height: 40,
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  activeMatiereItem: {
+    backgroundColor: '#4CAF50',
+    borderColor: '#388E3C',
+  },
+  matiereText: {
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  activeMatiereText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
 });
 
 export default Sujets;
-

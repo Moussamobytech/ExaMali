@@ -1,11 +1,12 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Modal, ActivityIndicator } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ConcoursScreeneni = () => {
+const ConcoursScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
   
@@ -16,6 +17,36 @@ const ConcoursScreeneni = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [subscriptionData, setSubscriptionData] = useState(null);
+
+  // Charger les données utilisateur au montage du composant
+  useEffect(() => {
+    const loadUserData = async () => {
+      try {
+        const storedUser = await AsyncStorage.getItem('userData');
+        if (storedUser) {
+          const user = JSON.parse(storedUser);
+          setUserData(user);
+          
+          // Vérifier si l'utilisateur est déjà abonné à ce concours
+          const subscriptions = await AsyncStorage.getItem('subscriptions');
+          if (subscriptions) {
+            const allSubscriptions = JSON.parse(subscriptions);
+            const userSubscription = allSubscriptions.find(
+              sub => sub.userId === user.id && sub.concours === concoursName && sub.status === 'active'
+            );
+            setIsSubscribed(!!userSubscription);
+          }
+        }
+      } catch (error) {
+        console.error('Erreur lors du chargement des données utilisateur:', error);
+      }
+    };
+    
+    loadUserData();
+  }, [concoursName]);
 
   const concoursInfo = {
     ENA: {
@@ -59,38 +90,118 @@ const ConcoursScreeneni = () => {
       name: "Abonnement Mensuel",
       price: "5 000 FCFA",
       features: ["Accès illimité aux sujets", "Corrigés détaillés", "Mises à jour régulières"],
-      duration: "1 mois"
+      duration: "1 mois",
+      planType: "monthly"
     },
     {
       id: 2,
       name: "Abonnement Trimestriel",
       price: "12 000 FCFA",
       features: ["Économisez 20%", "Accès illimité", "Support prioritaire"],
-      duration: "3 mois"
+      duration: "3 mois",
+      planType: "quarterly"
     },
     {
       id: 3,
       name: "Abonnement Annuel",
       price: "40 000 FCFA",
       features: ["Économisez 33%", "Accès à tous les concours", "Tutoriels exclusifs"],
-      duration: "1 an"
+      duration: "1 an",
+      planType: "yearly"
+    }
+  ];
+
+  const paymentMethods = [
+    {
+      id: 'orange_money',
+      name: 'Orange Money',
+      icon: require('./../../../Asset/orange_money.png')
+    },
+    {
+      id: 'moov_money',
+      name: 'Moov Money',
+      icon: require('./../../../Asset/moov_money.png')
+    },
+    {
+      id: 'credit_card',
+      name: 'Carte Bancaire',
+      icon: require('./../../../Asset/credit_card.png')
     }
   ];
 
   const handleSubscription = (plan) => {
     setSelectedPlan(plan);
+    setSelectedPaymentMethod(null); // Réinitialiser la sélection de paiement
     setModalVisible(true);
   };
 
-  const confirmSubscription = () => {
+  const confirmSubscription = async () => {
+    if (!selectedPaymentMethod) {
+      alert('Veuillez sélectionner un moyen de paiement');
+      return;
+    }
+
     setIsLoading(true);
     
-    // Simulation de processus de paiement
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      // Simuler un délai de traitement du paiement
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Créer un nouvel abonnement
+      const newSubscription = {
+        id: Date.now().toString(),
+        userId: userData.id,
+        concours: concoursName,
+        plan: selectedPlan.planType,
+        amount: parseInt(selectedPlan.price.replace(/\D/g, '')),
+        paymentMethod: selectedPaymentMethod,
+        startDate: new Date().toISOString(),
+        endDate: calculateEndDate(selectedPlan.planType),
+        status: 'active',
+        transactionId: `TRX-${Date.now()}`
+      };
+      
+      // Sauvegarder l'abonnement dans AsyncStorage
+      const existingSubscriptions = await AsyncStorage.getItem('subscriptions');
+      const subscriptions = existingSubscriptions ? JSON.parse(existingSubscriptions) : [];
+      subscriptions.push(newSubscription);
+      await AsyncStorage.setItem('subscriptions', JSON.stringify(subscriptions));
+      
+      // Mettre à jour l'état local
+      setSubscriptionData(newSubscription);
       setIsSubscribed(true);
       setModalVisible(false);
-    }, 1500);
+    } catch (error) {
+      console.error('Erreur lors de la création de l\'abonnement:', error);
+      alert('Une erreur s\'est produite lors du traitement de votre abonnement');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const calculateEndDate = (planType) => {
+    const endDate = new Date();
+    
+    switch (planType) {
+      case 'monthly':
+        endDate.setMonth(endDate.getMonth() + 1);
+        break;
+      case 'quarterly':
+        endDate.setMonth(endDate.getMonth() + 3);
+        break;
+      case 'yearly':
+        endDate.setFullYear(endDate.getFullYear() + 1);
+        break;
+      default:
+        endDate.setMonth(endDate.getMonth() + 1);
+    }
+    
+    return endDate.toISOString();
+  };
+
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: 'long', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
 
   return (
@@ -128,6 +239,24 @@ const ConcoursScreeneni = () => {
             <Image source={require('./../../../Asset/success.png')} style={styles.successIcon} />
             <Text style={styles.subscribedTitle}>Félicitations !</Text>
             <Text style={styles.subscribedText}>Vous êtes abonné à ce concours</Text>
+            
+            {subscriptionData && (
+              <View style={styles.subscriptionDetails}>
+                <Text style={styles.detailText}>
+                  <Text style={styles.detailLabel}>Formule: </Text> 
+                  {subscriptionData.plan === 'monthly' ? 'Mensuel' : 
+                   subscriptionData.plan === 'quarterly' ? 'Trimestriel' : 'Annuel'}
+                </Text>
+                <Text style={styles.detailText}>
+                  <Text style={styles.detailLabel}>Prix: </Text> 
+                  {subscriptionData.amount.toLocaleString('fr-FR')} FCFA
+                </Text>
+                <Text style={styles.detailText}>
+                  <Text style={styles.detailLabel}>Expire le: </Text> 
+                  {formatDate(subscriptionData.endDate)}
+                </Text>
+              </View>
+            )}
             
             <TouchableOpacity 
               style={styles.accessButton}
@@ -195,18 +324,25 @@ const ConcoursScreeneni = () => {
             
             <View style={styles.paymentOptions}>
               <Text style={styles.paymentTitle}>Moyen de paiement</Text>
-              <TouchableOpacity style={styles.paymentOption}>
-                <Image source={require('./../../../Asset/orange_money.png')} style={styles.paymentIcon} />
-                <Text style={styles.paymentText}>Orange Money</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.paymentOption}>
-                <Image source={require('./../../../Asset/moov_money.png')} style={styles.paymentIcon} />
-                <Text style={styles.paymentText}>Moov Money</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.paymentOption}>
-                <Image source={require('./../../../Asset/credit_card.png')} style={styles.paymentIcon} />
-                <Text style={styles.paymentText}>Carte Bancaire</Text>
-              </TouchableOpacity>
+              {paymentMethods.map(method => (
+                <TouchableOpacity 
+                  key={method.id}
+                  style={[
+                    styles.paymentOption, 
+                    selectedPaymentMethod === method.id && styles.selectedPaymentOption
+                  ]}
+                  onPress={() => setSelectedPaymentMethod(method.id)}
+                >
+                  <Image source={method.icon} style={styles.paymentIcon} />
+                  <Text style={styles.paymentText}>{method.name}</Text>
+                  {selectedPaymentMethod === method.id && (
+                    <Image 
+                      source={require('./../../../Asset/check.png')} 
+                      style={styles.paymentCheckIcon} 
+                    />
+                  )}
+                </TouchableOpacity>
+              ))}
             </View>
             
             <View style={styles.modalButtons}>
@@ -258,7 +394,7 @@ const styles = StyleSheet.create({
   backIcon: {
     width: 25,
     height: 25,
-  
+
   },
   content: {
     padding: 20,
@@ -408,6 +544,22 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 3,
   },
+  subscriptionDetails: {
+    width: '100%',
+    marginVertical: 15,
+    padding: 15,
+    backgroundColor: '#f0f4ff',
+    borderRadius: 10,
+  },
+  detailLabel: {
+    fontWeight: 'bold',
+    color: '#1E0094',
+  },
+  detailText: {
+    fontSize: 16,
+    marginBottom: 8,
+    color: '#444',
+  },
   successIcon: {
     width: 80,
     height: 80,
@@ -495,11 +647,23 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 10,
     marginBottom: 10,
+    position: 'relative',
+  },
+  selectedPaymentOption: {
+    borderColor: '#1E0094',
+    backgroundColor: '#f0f4ff',
   },
   paymentIcon: {
     width: 40,
     height: 40,
     marginRight: 15,
+  },
+  paymentCheckIcon: {
+    width: 20,
+    height: 20,
+    tintColor: '#37B926',
+    position: 'absolute',
+    right: 15,
   },
   paymentText: {
     fontSize: 16,
@@ -538,4 +702,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConcoursScreeneni;
+export default ConcoursScreen;
